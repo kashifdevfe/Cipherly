@@ -1,0 +1,112 @@
+import { Metadata } from 'next';
+import ClientPage from '@/components/ClientPage';
+import TrustBadges from '@/components/TrustBadges';
+
+export const metadata: Metadata = {
+  title: "Encrypt & Decrypt Text Online — Free & Secure",
+  description: "Protect your privacy with our free online text encryption tool. Support for AES-256, 3DES, Rabbit, and more. 100% private client-side processing.",
+};
+
+export default function Page() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Cipherly Text Encryption",
+    "description": "Securely encrypt and decrypt text online using industry-standard algorithms like AES-256 and Triple DES.",
+    "url": "https://cipherly.app",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "AES-256 Encryption",
+      "Triple DES Encryption",
+      "Client-side processing",
+      "Random key generation",
+      "Base64 and Hex output formats",
+      "No data storage"
+    ],
+    "mainEntity": {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is my data safe with this encryption tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all encryption and decryption happen locally in your browser. No data is sent to our servers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What encryption algorithms are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We support AES-256, AES-128, Triple DES, DES, Rabbit, and RC4."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the most secure algorithm to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AES-256 is currently the recommended standard for high security."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you recover my secret key?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, we do not store keys or data. If you lose your key, the data cannot be recovered."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this tool work offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Once the page is loaded, the encryption and decryption logic runs entirely in your browser without needing an internet connection."
+          }
+        }
+      ]
+    }
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      
+      <div className="container mx-auto px-4 py-12 md:py-20">
+        <div className="text-center space-y-6 mb-16">
+          <motion_div_placeholder>
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
+              Encrypt & Decrypt Text <br />
+              <span className="text-primary">Online — Free & Secure</span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mt-4">
+              Professional military-grade encryption in your browser. 
+              Private, fast, and completely client-side.
+            </p>
+          </motion_div_placeholder>
+        </div>
+
+        <ClientPage />
+        
+        <div className="mt-20">
+          <TrustBadges />
+        </div>
+      </div>
+    </>
+  );
+}
+
+// Note: I'll need to create ClientPage since I can't use framer-motion in a server component easily without 'use client'
+// Also, I used motion_div_placeholder because I'll wrap it in a client component or just use standard HTML.
+// Let's rewrite this to be cleaner.

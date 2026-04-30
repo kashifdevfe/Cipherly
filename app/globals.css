@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+  
+  --color-background: oklch(0.12 0.02 165);
+  --color-foreground: oklch(0.95 0.05 165);
+  
+  --color-card: oklch(0.16 0.03 165);
+  --color-card-foreground: oklch(0.95 0.05 165);
+  
+  --color-primary: #00FF9C;
+  --color-primary-foreground: #000000;
+  
+  --color-secondary: oklch(0.18 0.03 165);
+  --color-secondary-foreground: white;
+  
+  --color-muted: oklch(0.22 0.03 165);
+  --color-muted-foreground: oklch(0.6 0.05 165);
+  
+  --color-accent: #00FF9C;
+  --color-accent-foreground: #000000;
+  
+  --color-destructive: oklch(0.5 0.15 25);
+  --color-destructive-foreground: white;
+  
+  --color-border: oklch(0.22 0.03 165);
+  --color-input: oklch(0.22 0.03 165);
+  --color-ring: #00FF9C;
+  
+  --radius-lg: 1rem;
+  --radius-md: 0.75rem;
+  --radius-sm: 0.5rem;
+}
+
+@layer base {
+  :root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.12 0.05 165);
+  }
+
+  .light {
+    --background: oklch(0.99 0.01 165);
+    --foreground: oklch(0.12 0.05 165);
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    transition-property: color, background-color;
+    transition-duration: 300ms;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: #000000;
+  }
+}
+
+.light body {
+  --color-background: #F0FDF4;
+  --color-foreground: #064E3B;
+  --color-card: white;
+  --color-card-foreground: #064E3B;
+  --color-secondary: #DCFCE7;
+  --color-secondary-foreground: #064E3B;
+  --color-muted: #F0FDF4;
+  --color-muted-foreground: #14532D;
+  --color-border: #BBF7D0;
+  --color-input: #BBF7D0;
+  --color-primary: #059669;
+  --color-primary-foreground: #FFFFFF;
+}
+
+.glass {
+  background-color: color-mix(in srgb, var(--color-card) 70%, transparent);
+  backdrop-filter: blur(20px);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 15%, transparent);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+}
+
+.light .glass {
+  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05);
+}
+
+.gradient-bg {
+  background: radial-gradient(circle at 50% -20%, color-mix(in srgb, var(--color-primary) 10%, transparent) 0%, transparent 70%),
+              radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--color-primary) 5%, transparent) 0%, transparent 40%);
+}
+
+.premium-btn {
+  @apply relative overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-primary/30;
+  color: #000000 !important;
+}
+
+.premium-btn::after {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 -translate-x-full hover:animate-[shimmer_1.5s_infinite];
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  border-radius: 9999px;
+  border: 2px solid var(--color-background);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--color-primary) 40%, transparent);
+}
