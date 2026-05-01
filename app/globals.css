@@ -2,124 +2,149 @@
 
 @theme {
   --font-sans: var(--font-inter);
-  
+
+  /* ── Dark theme (default) ── */
   --color-background: oklch(0.12 0.02 165);
   --color-foreground: oklch(0.95 0.05 165);
-  
+
   --color-card: oklch(0.16 0.03 165);
   --color-card-foreground: oklch(0.95 0.05 165);
-  
+
   --color-primary: #00FF9C;
   --color-primary-foreground: #000000;
-  
+
   --color-secondary: oklch(0.18 0.03 165);
-  --color-secondary-foreground: white;
-  
+  --color-secondary-foreground: oklch(0.95 0.05 165);
+
   --color-muted: oklch(0.22 0.03 165);
   --color-muted-foreground: oklch(0.6 0.05 165);
-  
+
   --color-accent: #00FF9C;
   --color-accent-foreground: #000000;
-  
+
   --color-destructive: oklch(0.5 0.15 25);
   --color-destructive-foreground: white;
-  
+
   --color-border: oklch(0.22 0.03 165);
   --color-input: oklch(0.22 0.03 165);
   --color-ring: #00FF9C;
-  
+
   --radius-lg: 1rem;
   --radius-md: 0.75rem;
   --radius-sm: 0.5rem;
 }
 
+/* ─────────────────────────────────────────
+   LIGHT THEME — must override on :root
+   so ALL children pick up the new values
+   ───────────────────────────────────────── */
+html.light {
+  --color-background: #F0FDF9;
+  --color-foreground: #064E3B;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #064E3B;
+
+  --color-primary: #059669;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #DCFCE7;
+  --color-secondary-foreground: #064E3B;
+
+  --color-muted: #ECFDF5;
+  --color-muted-foreground: #166534;
+
+  --color-accent: #059669;
+  --color-accent-foreground: #ffffff;
+
+  --color-destructive: oklch(0.5 0.15 25);
+  --color-destructive-foreground: white;
+
+  --color-border: #A7F3D0;
+  --color-input: #D1FAE5;
+  --color-ring: #059669;
+}
+
 @layer base {
-  :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.12 0.05 165);
-  }
-
-  .light {
-    --background: oklch(0.99 0.01 165);
-    --foreground: oklch(0.12 0.05 165);
-  }
-
   * {
     @apply border-border;
   }
-  
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     transition-property: color, background-color;
-    transition-duration: 300ms;
+    transition-duration: 250ms;
     overflow-x: hidden;
   }
 
   ::selection {
     background-color: var(--color-primary);
-    color: #000000;
+    color: var(--color-primary-foreground);
   }
 }
 
-.light body {
-  --color-background: #F0FDF4;
-  --color-foreground: #064E3B;
-  --color-card: white;
-  --color-card-foreground: #064E3B;
-  --color-secondary: #DCFCE7;
-  --color-secondary-foreground: #064E3B;
-  --color-muted: #F0FDF4;
-  --color-muted-foreground: #14532D;
-  --color-border: #BBF7D0;
-  --color-input: #BBF7D0;
-  --color-primary: #059669;
-  --color-primary-foreground: #FFFFFF;
-}
-
+/* ─── Glass card ─── */
 .glass {
-  background-color: color-mix(in srgb, var(--color-card) 70%, transparent);
-  backdrop-filter: blur(20px);
+  background-color: color-mix(in srgb, var(--color-card) 80%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid color-mix(in srgb, var(--color-primary) 15%, transparent);
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+  box-shadow: 0 20px 40px -12px rgb(0 0 0 / 0.35);
 }
 
-.light .glass {
-  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05);
+html.light .glass {
+  background-color: color-mix(in srgb, var(--color-card) 95%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+  box-shadow: 0 8px 24px -4px rgb(0 0 0 / 0.08);
 }
 
+/* ─── Background radial gradient ─── */
 .gradient-bg {
-  background: radial-gradient(circle at 50% -20%, color-mix(in srgb, var(--color-primary) 10%, transparent) 0%, transparent 70%),
-              radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--color-primary) 5%, transparent) 0%, transparent 40%);
+  background:
+    radial-gradient(circle at 50% -20%, color-mix(in srgb, var(--color-primary) 10%, transparent) 0%, transparent 70%),
+    radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--color-primary) 5%, transparent) 0%, transparent 40%);
 }
 
+/* ─── Premium button ─── */
 .premium-btn {
-  @apply relative overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-primary/30;
-  color: #000000 !important;
+  @apply relative overflow-hidden transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-primary/30;
+  color: var(--color-primary-foreground) !important;
+  will-change: transform;
 }
 
 .premium-btn::after {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 -translate-x-full hover:animate-[shimmer_1.5s_infinite];
+  @apply absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full;
+  transition: transform 0.6s ease;
 }
 
-@keyframes shimmer {
-  100% { transform: translateX(100%); }
+.premium-btn:hover::after {
+  transform: translateX(100%);
 }
 
-/* Custom scrollbar */
+/* ─── Custom scrollbar ─── */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  background: color-mix(in srgb, var(--color-primary) 25%, transparent);
   border-radius: 9999px;
   border: 2px solid var(--color-background);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: color-mix(in srgb, var(--color-primary) 40%, transparent);
+  background: color-mix(in srgb, var(--color-primary) 45%, transparent);
+}
+
+/* ─── Utility: prose fixes for light mode ─── */
+html.light .prose-content {
+  color: var(--color-foreground);
+}
+html.light .prose-content h2,
+html.light .prose-content h3,
+html.light .prose-content h4 {
+  color: var(--color-foreground);
 }

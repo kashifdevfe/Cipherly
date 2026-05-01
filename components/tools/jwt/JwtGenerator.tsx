@@ -49,7 +49,7 @@ export default function JwtGenerator() {
             <select
               value={algorithm}
               onChange={(e) => setAlgorithm(e.target.value as any)}
-              className="w-full bg-primary text-black font-bold border border-primary/20 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary transition-all cursor-pointer"
+              className="w-full bg-card text-foreground border border-border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary transition-all cursor-pointer"
             >
               <option value="HS256">HS256 (HMAC + SHA-256)</option>
               <option value="HS384">HS384 (HMAC + SHA-384)</option>
@@ -135,7 +135,7 @@ export default function JwtGenerator() {
 
           <button
             onClick={handleGenerate}
-            className="w-full py-4 bg-primary text-white rounded-2xl font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
+            className="w-full py-4 bg-primary text-primary-foreground rounded-2xl font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
           >
             <Zap className="w-5 h-5" />
             Generate Signed JWT

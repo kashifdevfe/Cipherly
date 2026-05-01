@@ -60,7 +60,7 @@ export default function Base64Panel() {
           <div className="flex gap-2">
             <button
               onClick={handleEncode}
-              className="px-6 py-2 bg-primary text-white rounded-xl text-xs font-bold hover:shadow-lg hover:shadow-primary/20 transition-all"
+              className="px-6 py-2 bg-primary text-primary-foreground rounded-xl text-xs font-bold hover:shadow-lg hover:shadow-primary/20 transition-all"
             >
               Encode to Base64
             </button>
@@ -74,7 +74,7 @@ export default function Base64Panel() {
         </div>
       </div>
 
-      <div className="p-3 rounded-xl bg-yellow-500/10 border border-yellow-500/20 text-[10px] text-yellow-600 dark:text-yellow-500 flex gap-2 items-start">
+      <div className="p-3 rounded-xl bg-yellow-500/10 border border-yellow-500/20 text-[10px] text-yellow-700 flex gap-2 items-start">
         <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
         <p>
           Base64 is an <strong>encoding</strong> scheme, not encryption. Anyone can decode it. 

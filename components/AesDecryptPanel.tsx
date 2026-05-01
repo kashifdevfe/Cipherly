@@ -90,7 +90,7 @@ export default function AesDecryptPanel() {
                 onClick={() => setCipherFormat(f as FormatType)}
                 className={`px-3 py-1 text-[10px] font-bold rounded-md transition-all ${
                   cipherFormat === f 
-                    ? 'bg-primary text-white shadow-sm' 
+                    ? 'bg-primary text-primary-foreground shadow-sm' 
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
@@ -118,7 +118,7 @@ export default function AesDecryptPanel() {
               value={padding}
               onChange={(e) => setPadding(e.target.value as any)}
               disabled={mode === 'GCM' || mode === 'CTR'}
-              className="w-full bg-primary text-black font-bold border border-primary/20 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary transition-all disabled:opacity-50 cursor-pointer"
+              className="w-full bg-card text-foreground border border-border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary transition-all disabled:opacity-50 cursor-pointer"
             >
               <option value="PKCS5Padding">PKCS5Padding</option>
               <option value="NoPadding">NoPadding</option>
@@ -131,7 +131,7 @@ export default function AesDecryptPanel() {
               <select
               value={tagLength}
               onChange={(e) => setTagLength(Number(e.target.value))}
-              className="w-full bg-primary text-black font-bold border border-primary/20 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary transition-all cursor-pointer"
+              className="w-full bg-card text-foreground border border-border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary transition-all cursor-pointer"
             >
                 {[128, 120, 112, 104, 96].map((len) => (
                   <option key={len} value={len}>{len} bits</option>

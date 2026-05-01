@@ -10,7 +10,7 @@ interface PaddingSelectorProps {
 const paddings: { id: RsaPadding; label: string; badge?: string; badgeColor?: string }[] = [
   { id: 'OAEP-SHA256', label: 'OAEP (SHA-256)', badge: 'Recommended', badgeColor: 'bg-green-500/10 text-green-500 border-green-500/20' },
   { id: 'OAEP-SHA1', label: 'OAEP (SHA-1)' },
-  { id: 'PKCS1v15', label: 'PKCS#1 v1.5', badge: 'Legacy', badgeColor: 'bg-yellow-500/10 text-yellow-600 dark:text-yellow-500 border-yellow-500/20' },
+  { id: 'PKCS1v15', label: 'PKCS#1 v1.5', badge: 'Legacy', badgeColor: 'bg-yellow-500/10 text-yellow-700 border-yellow-500/20' },
 ];
 
 export default function PaddingSelector({ value, onChange }: PaddingSelectorProps) {

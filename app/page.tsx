@@ -59,7 +59,7 @@ export default function Page() {
           <ToolDirectory />
         </div>
 
-        <section className="mt-40 max-w-4xl mx-auto prose prose-invert prose-emerald">
+        <section className="mt-40 max-w-4xl mx-auto prose prose-emerald">
           <h2 className="text-3xl font-black tracking-tight text-center mb-12 uppercase text-primary">Frequently Asked Questions</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 not-prose">
             {[

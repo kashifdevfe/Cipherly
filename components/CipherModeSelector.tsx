@@ -26,12 +26,12 @@ export default function CipherModeSelector({ value, onChange }: CipherModeSelect
             onClick={() => onChange(mode.id)}
             className={`relative p-3 rounded-xl border transition-all text-left group ${
                 value === mode.id
-                  ? 'bg-primary border-primary shadow-[0_0_20px_rgba(0,255,156,0.25)]'
+                  ? 'bg-primary border-primary shadow-[0_0_15px_rgba(0,200,120,0.2)]'
                   : 'bg-secondary/30 border-border hover:border-primary/50'
               }`}
             >
               <div className="flex flex-col gap-1">
-                <span className={`text-sm font-bold ${value === mode.id ? 'text-black' : 'text-foreground'}`}>
+                <span className={`text-sm font-bold ${value === mode.id ? 'text-primary-foreground' : 'text-foreground'}`}>
                   {mode.label}
                 </span>
 

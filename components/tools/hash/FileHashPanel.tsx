@@ -72,7 +72,7 @@ export default function FileHashPanel() {
         <button
           onClick={handleCompute}
           disabled={!file || isComputing}
-          className="premium-btn w-full py-4 bg-primary text-black rounded-2xl font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 disabled:opacity-50"
+          className="premium-btn w-full py-4 bg-primary text-primary-foreground rounded-2xl font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 disabled:opacity-50"
         >
           {isComputing ? <Loader2 className="w-5 h-5 animate-spin" /> : <File className="w-5 h-5" />}
           {isComputing ? 'Computing Hash...' : 'Compute File Hash'}

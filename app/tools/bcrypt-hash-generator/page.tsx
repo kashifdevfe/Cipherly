@@ -59,7 +59,7 @@ export default function BcryptPage() {
       <BcryptToolWrapper />
 
       <div className="max-w-5xl mx-auto space-y-12 pt-12">
-        <section className="prose prose-invert max-w-none grid grid-cols-1 md:grid-cols-2 gap-12">
+        <section className="prose max-w-none grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-4">
             <h2 className="text-2xl font-bold">How Bcrypt Works</h2>
             <p className="text-sm text-muted-foreground">

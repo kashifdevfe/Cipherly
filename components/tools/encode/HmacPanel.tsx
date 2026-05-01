@@ -87,7 +87,7 @@ export default function HmacPanel() {
                   key={f}
                   onClick={() => setOutputType(f as any)}
                   className={`px-3 py-1 rounded-md text-[8px] font-bold transition-all ${
-                    outputType === f ? 'bg-primary text-white shadow-sm' : 'text-muted-foreground'
+                    outputType === f ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground'
                   }`}
                 >
                   {f}
@@ -97,7 +97,7 @@ export default function HmacPanel() {
           </div>
           <button
             onClick={handleGenerate}
-            className="w-full py-3 bg-primary text-white rounded-xl font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all flex items-center justify-center gap-2"
+            className="w-full py-3 bg-primary text-primary-foreground rounded-xl font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all flex items-center justify-center gap-2"
           >
             <Zap className="w-4 h-4" />
             Generate Signature

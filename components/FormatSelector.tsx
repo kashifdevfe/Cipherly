@@ -17,7 +17,7 @@ export default function FormatSelector({ value, onChange, options = ['Plain Text
           onClick={() => onChange(opt)}
           className={`px-3 py-1 text-[10px] font-bold rounded-md transition-all ${
             value === opt 
-              ? 'bg-primary text-white shadow-sm' 
+              ? 'bg-primary text-primary-foreground shadow-sm' 
               : 'text-muted-foreground hover:text-foreground'
           }`}
         >

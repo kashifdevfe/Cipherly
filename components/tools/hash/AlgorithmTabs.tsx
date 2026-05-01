@@ -20,7 +20,7 @@ export default function AlgorithmTabs({ value, onChange }: AlgorithmTabsProps) {
             key={algo}
             onClick={() => onChange(algo)}
             className={`relative px-4 py-2 rounded-lg text-xs font-bold transition-all ${
-              value === algo ? 'text-white' : 'text-muted-foreground hover:text-foreground'
+              value === algo ? 'text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
             }`}
           >
             {value === algo && (

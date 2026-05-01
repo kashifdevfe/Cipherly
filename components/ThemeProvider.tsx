@@ -9,25 +9,33 @@ const ThemeContext = createContext<{
   toggleTheme: () => void;
 } | undefined>(undefined);
 
+function applyTheme(theme: Theme) {
+  const html = document.documentElement;
+  if (theme === 'light') {
+    html.classList.add('light');
+    html.classList.remove('dark');
+  } else {
+    html.classList.remove('light');
+    html.classList.add('dark');
+  }
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark');
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle('light', savedTheme === 'light');
-    } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-      setTheme('light');
-      document.documentElement.classList.add('light');
-    }
+    const saved = localStorage.getItem('theme') as Theme | null;
+    const preferred = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    const resolved = saved ?? preferred;
+    setTheme(resolved);
+    applyTheme(resolved);
   }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('light', newTheme === 'light');
+    applyTheme(newTheme);
   };
 
   return (

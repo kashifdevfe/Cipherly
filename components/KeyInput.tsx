@@ -87,7 +87,7 @@ export default function KeyInput({
         </div>
 
         {format === 'Plain Text' && (
-          <div className="flex items-center gap-2 p-2 rounded-lg bg-yellow-500/10 border border-yellow-500/20 text-yellow-600 dark:text-yellow-500 text-[10px] font-medium">
+          <div className="flex items-center gap-2 p-2 rounded-lg bg-yellow-500/10 border border-yellow-500/20 text-yellow-700 text-[10px] font-medium">
             <AlertTriangle className="w-4 h-4 shrink-0" />
             Plain-text secret keys are weak. Use Hex/Base64 or PBKDF2-derived keys for production.
           </div>

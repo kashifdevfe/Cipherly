@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import { Lock, Loader2, Copy, Check, Trash2, ShieldCheck, AlertCircle } from 'lucide-react';
 import CipherModeSelector from './CipherModeSelector';
 import KeyInput from './KeyInput';
@@ -24,6 +24,8 @@ export default function AesEncryptPanel() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
+
+  const byteCount = useMemo(() => new TextEncoder().encode(text).length, [text]);
 
   // Auto-logic for padding
   useEffect(() => {
@@ -89,7 +91,7 @@ export default function AesEncryptPanel() {
         />
         <div className="flex justify-end px-2">
           <span className="text-[10px] text-muted-foreground font-mono bg-secondary/50 px-2 py-0.5 rounded-full">
-            {text.length} characters / {new TextEncoder().encode(text).length} bytes
+            {text.length} characters / {byteCount} bytes
           </span>
         </div>
       </div>
@@ -111,7 +113,7 @@ export default function AesEncryptPanel() {
               value={padding}
               onChange={(e) => setPadding(e.target.value as any)}
               disabled={mode === 'GCM' || mode === 'CTR'}
-              className="w-full bg-primary text-black font-bold border border-primary/20 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary transition-all disabled:opacity-50 cursor-pointer"
+              className="w-full bg-card text-foreground border border-border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary transition-all disabled:opacity-50 cursor-pointer"
             >
               <option value="PKCS5Padding">PKCS5Padding</option>
               <option value="NoPadding">NoPadding</option>
@@ -124,7 +126,7 @@ export default function AesEncryptPanel() {
               <select
               value={tagLength}
               onChange={(e) => setTagLength(Number(e.target.value))}
-              className="w-full bg-primary text-black font-bold border border-primary/20 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary transition-all cursor-pointer"
+              className="w-full bg-card text-foreground border border-border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary transition-all cursor-pointer"
             >
                 {[128, 120, 112, 104, 96].map((len) => (
                   <option key={len} value={len}>{len} bits</option>
@@ -160,7 +162,7 @@ export default function AesEncryptPanel() {
                 onClick={() => setOutputFormat(f as FormatType)}
                 className={`px-6 py-1.5 text-xs font-bold rounded-md transition-all ${
                   outputFormat === f 
-                    ? 'bg-primary text-white shadow-sm' 
+                    ? 'bg-primary text-primary-foreground shadow-sm' 
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >

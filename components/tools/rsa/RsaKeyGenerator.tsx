@@ -63,7 +63,7 @@ export default function RsaKeyGenerator() {
       </div>
 
       {(keySize === 512 || keySize === 1024) && (
-        <div className="flex items-center gap-2 p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20 text-yellow-600 dark:text-yellow-500 text-xs font-medium">
+        <div className="flex items-center gap-2 p-3 rounded-lg bg-yellow-500/10 border border-yellow-500/20 text-yellow-700 text-xs font-medium">
           <ShieldAlert className="w-4 h-4 shrink-0" />
           {keySize}-bit keys are for testing only and are not cryptographically secure for production use.
         </div>

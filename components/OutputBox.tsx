@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Copy, Check, Trash2 } from 'lucide-react';
 
 interface OutputBoxProps {
@@ -22,7 +22,7 @@ export default function OutputBox({ label, value, onClear, readOnly = true, plac
   };
 
   const charCount = value.length;
-  const byteCount = new TextEncoder().encode(value).length;
+  const byteCount = useMemo(() => new TextEncoder().encode(value).length, [value]);
 
   return (
     <div className="space-y-2">
