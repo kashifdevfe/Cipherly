@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Logo from './Logo';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,16 +10,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5 space-y-6">
             <div className="flex items-center gap-3">
-              <div className="relative w-12 h-12 overflow-hidden rounded-xl border border-primary/20">
-                <Image 
-                  src="/logo.png" 
-                  alt="Cipherly Logo" 
-                  fill
-                  sizes="48px"
-                  className="object-cover scale-110"
-                />
-              </div>
-              <span className="text-2xl font-black tracking-tighter">Cipherly</span>
+              <Logo size={48} />
+              <span className="text-2xl font-black tracking-tighter text-foreground">Cipherly</span>
             </div>
             <p className="text-muted-foreground leading-relaxed max-w-md font-medium">
               Professional-grade, browser-native cryptographic toolkit. 
@@ -28,7 +20,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="md:col-span-2">
+          <div className="md:col-span-4">
             <h3 className="font-bold text-sm uppercase tracking-widest mb-6 text-primary">Security Tools</h3>
             <ul className="space-y-4 text-sm font-medium text-muted-foreground">
               <li><Link href="/" className="hover:text-primary transition-colors">AES Encryption</Link></li>
@@ -36,16 +28,6 @@ export default function Footer() {
               <li><Link href="/tools/jwt-decoder" className="hover:text-primary transition-colors">JWT Debugger</Link></li>
               <li><Link href="/tools/md5-hash-generator" className="hover:text-primary transition-colors">Hash Generator</Link></li>
               <li><Link href="/tools/bcrypt-hash-generator" className="hover:text-primary transition-colors">Bcrypt Tool</Link></li>
-            </ul>
-          </div>
-
-          <div className="md:col-span-2">
-            <h3 className="font-bold text-sm uppercase tracking-widest mb-6 text-primary">Developer</h3>
-            <ul className="space-y-4 text-sm font-medium text-muted-foreground">
-              <li><Link href="#" className="hover:text-primary transition-colors">API Docs</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Web Crypto API</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Security Audit</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">GitHub</Link></li>
             </ul>
           </div>
 

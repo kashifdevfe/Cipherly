@@ -6,7 +6,7 @@ import { Moon, Sun } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import Image from 'next/image';
+import Logo from './Logo';
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -20,16 +20,8 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-primary/20 shadow-[0_0_15px_rgba(0,255,156,0.2)]">
-            <Image 
-              src="/logo.png" 
-              alt="Cipherly Logo" 
-              fill 
-              sizes="40px"
-              className="object-cover scale-110"
-            />
-          </div>
-          <span className="text-2xl font-black tracking-tighter">Cipherly</span>
+          <Logo size={38} />
+          <span className="text-2xl font-black tracking-tighter text-foreground">Cipherly</span>
         </Link>
 
 

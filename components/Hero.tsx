@@ -2,18 +2,31 @@
 
 import { motion } from 'framer-motion';
 import { ShieldCheck, Lock, Zap } from 'lucide-react';
+import Logo from './Logo';
 
 export default function Hero() {
   return (
     <div className="relative text-center space-y-8 mb-20 pt-10">
       {/* Decorative blurred blobs - Mint themed */}
       <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/15 blur-[120px] rounded-full -z-10" />
-      
+
+      {/* Hero Logo */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.6 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="flex justify-center mb-2"
+      >
+        <div className="relative group">
+          <Logo size={100} className="relative transition-transform group-hover:scale-105" />
+        </div>
+      </motion.div>
+
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-4"
+        transition={{ duration: 0.5, delay: 0.15 }}
+        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest"
       >
         <ShieldCheck className="w-4 h-4" />
         Zero-Knowledge Architecture
