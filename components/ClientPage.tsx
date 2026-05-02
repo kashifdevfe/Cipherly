@@ -39,16 +39,9 @@ export default function ClientPage() {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`relative flex items-center gap-2 px-4 md:px-6 py-2.5 rounded-2xl text-xs md:text-sm font-bold transition-all ${
-                  isActive ? 'text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
+                  isActive ? 'bg-primary text-primary-foreground shadow-[0_0_20px_rgba(0,255,156,0.2)]' : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
-                {isActive && (
-                  <motion.div
-                    layoutId="active-cyber-tab"
-                    className="absolute inset-0 bg-primary rounded-2xl shadow-[0_0_20px_rgba(0,255,156,0.2)]"
-                    transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
                 <tab.icon className={`relative z-10 w-4 h-4 ${isActive ? 'text-primary-foreground' : ''}`} />
                 <span className="relative z-10">{tab.label}</span>
               </button>
@@ -57,15 +50,7 @@ export default function ClientPage() {
         </div>
       </div>
       
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.2, ease: "easeOut" }}
-          className="min-h-[500px]"
-        >
+      <div className="min-h-[500px] animate-in fade-in slide-in-from-bottom-2 duration-300 fill-mode-both" key={activeTab}>
           {activeTab === 'aes' && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="glass rounded-[2.5rem] p-6 md:p-10">
@@ -100,8 +85,7 @@ export default function ClientPage() {
               <HowItWorks />
             </div>
           )}
-        </motion.div>
-      </AnimatePresence>
+      </div>
     </div>
   );
 }

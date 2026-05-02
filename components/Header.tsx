@@ -1,5 +1,7 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { motion } from 'framer-motion';
@@ -8,6 +10,11 @@ import Image from 'next/image';
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
@@ -18,6 +25,7 @@ export default function Header() {
               src="/logo.png" 
               alt="Cipherly Logo" 
               fill 
+              sizes="40px"
               className="object-cover scale-110"
             />
           </div>
@@ -25,17 +33,19 @@ export default function Header() {
         </Link>
 
 
-        <button
-          onClick={toggleTheme}
-          className="p-2.5 rounded-full hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
-          aria-label="Toggle dark mode"
-        >
-          {theme === 'dark' ? (
-            <Sun className="w-5 h-5 text-primary" />
-          ) : (
-            <Moon className="w-5 h-5 text-slate-700" />
-          )}
-        </button>
+        {mounted && (
+          <button
+            onClick={toggleTheme}
+            className="p-2.5 rounded-full hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+            aria-label="Toggle dark mode"
+          >
+            {theme === 'dark' ? (
+              <Sun className="w-5 h-5 text-primary" />
+            ) : (
+              <Moon className="w-5 h-5 text-slate-700" />
+            )}
+          </button>
+        )}
       </div>
     </header>
   );

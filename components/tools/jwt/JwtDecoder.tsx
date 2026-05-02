@@ -44,7 +44,7 @@ export default function JwtDecoder() {
         <label className="text-sm font-semibold">Encoded JWT Token</label>
         <textarea
           value={token}
-          onChange={(e) => handleDecode(e.target.value)}
+          onChange={(e) => handleDecode(e.target.value.trim())}
           placeholder="Paste your JWT token here (xxxxx.yyyyy.zzzzz)"
           className="w-full h-32 bg-secondary/30 border border-border rounded-2xl p-4 font-mono text-xs focus:ring-2 focus:ring-primary outline-none transition-all resize-none break-all"
         />

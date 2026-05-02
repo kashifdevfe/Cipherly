@@ -116,7 +116,7 @@ export default function JwtGenerator() {
               <input
                 type="text"
                 value={secret}
-                onChange={(e) => setSecret(e.target.value)}
+                onChange={(e) => setSecret(e.target.value.trim())}
                 placeholder="Enter HMAC secret..."
                 className="w-full bg-secondary/30 border border-border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary transition-all font-mono text-sm"
               />
@@ -126,7 +126,7 @@ export default function JwtGenerator() {
               <label className="text-sm font-medium">Private Key (PEM)</label>
               <textarea
                 value={privateKey}
-                onChange={(e) => setPrivateKey(e.target.value)}
+                onChange={(e) => setPrivateKey(e.target.value.trim())}
                 placeholder="Paste RSA Private Key (PKCS#8)..."
                 className="w-full h-40 bg-secondary/30 border border-border rounded-xl p-4 font-mono text-[10px] resize-none focus:ring-2 focus:ring-primary outline-none transition-all"
               />

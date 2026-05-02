@@ -53,7 +53,7 @@ export default function RsaDecryptPanel() {
         </div>
         <textarea
           value={ciphertext}
-          onChange={(e) => setCiphertext(e.target.value)}
+          onChange={(e) => setCiphertext(e.target.value.trim())}
           placeholder="Paste the encrypted base64 text here..."
           disabled={isLoading}
           className="w-full h-32 bg-secondary/30 border border-border rounded-2xl p-4 focus:ring-2 focus:ring-primary outline-none transition-all resize-none font-mono text-sm"
@@ -67,7 +67,7 @@ export default function RsaDecryptPanel() {
           <label className="text-sm font-medium">Private Key (PEM)</label>
           <textarea
             value={privateKey}
-            onChange={(e) => setPrivateKey(e.target.value)}
+            onChange={(e) => setPrivateKey(e.target.value.trim())}
             placeholder="Paste private key starting with -----BEGIN PRIVATE KEY-----"
             className="w-full h-32 bg-secondary/30 border border-border rounded-xl p-4 font-mono text-[10px] resize-none focus:ring-2 focus:ring-primary outline-none transition-all"
           />

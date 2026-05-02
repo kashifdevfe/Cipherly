@@ -53,7 +53,7 @@ export default function BcryptVerifier() {
           <input
             type="text"
             value={hash}
-            onChange={(e) => setHash(e.target.value)}
+            onChange={(e) => setHash(e.target.value.trim())}
             placeholder="Paste $2b$ or $2a$ hash here..."
             className="w-full bg-secondary/30 border border-border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary transition-all font-mono text-sm"
           />

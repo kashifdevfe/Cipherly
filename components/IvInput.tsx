@@ -40,7 +40,7 @@ export default function IvInput({
         <input
           type="text"
           value={value}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={(e) => onChange(format !== 'Plain Text' ? e.target.value.trim() : e.target.value)}
           placeholder="Enter 16-byte IV..."
           className="w-full bg-secondary/30 border border-border rounded-xl px-4 py-3 pr-10 focus:ring-2 focus:ring-primary outline-none transition-all font-mono text-sm"
         />

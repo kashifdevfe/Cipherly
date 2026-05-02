@@ -39,30 +39,30 @@
    so ALL children pick up the new values
    ───────────────────────────────────────── */
 html.light {
-  --color-background: #F0FDF9;
-  --color-foreground: #064E3B;
+  --color-background: #fafafa;
+  --color-foreground: #09090b;
 
   --color-card: #ffffff;
-  --color-card-foreground: #064E3B;
+  --color-card-foreground: #09090b;
 
-  --color-primary: #059669;
+  --color-primary: #10b981;
   --color-primary-foreground: #ffffff;
 
-  --color-secondary: #DCFCE7;
-  --color-secondary-foreground: #064E3B;
+  --color-secondary: #f4f4f5;
+  --color-secondary-foreground: #18181b;
 
-  --color-muted: #ECFDF5;
-  --color-muted-foreground: #166534;
+  --color-muted: #f4f4f5;
+  --color-muted-foreground: #71717a;
 
-  --color-accent: #059669;
+  --color-accent: #10b981;
   --color-accent-foreground: #ffffff;
 
-  --color-destructive: oklch(0.5 0.15 25);
+  --color-destructive: oklch(0.6 0.2 25);
   --color-destructive-foreground: white;
 
-  --color-border: #A7F3D0;
-  --color-input: #D1FAE5;
-  --color-ring: #059669;
+  --color-border: #e4e4e7;
+  --color-input: #e4e4e7;
+  --color-ring: #10b981;
 }
 
 @layer base {

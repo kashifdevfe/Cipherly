@@ -40,7 +40,7 @@ export default function HashVerifierPanel() {
           <input
             type="text"
             value={knownHash}
-            onChange={(e) => setKnownHash(e.target.value)}
+            onChange={(e) => setKnownHash(e.target.value.trim())}
             placeholder="Paste known hash here..."
             className="w-full bg-secondary/30 border border-border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary transition-all font-mono text-sm"
           />

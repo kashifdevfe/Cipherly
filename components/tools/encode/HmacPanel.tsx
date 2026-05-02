@@ -54,7 +54,7 @@ export default function HmacPanel() {
           <input
             type="text"
             value={secret}
-            onChange={(e) => setSecret(e.target.value)}
+            onChange={(e) => setSecret(e.target.value.trim())}
             placeholder="Enter HMAC secret..."
             className="w-full bg-secondary/30 border border-border rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-primary transition-all font-mono text-sm"
           />
@@ -131,7 +131,7 @@ export default function HmacPanel() {
             <input
               type="text"
               value={verifyHmacInput}
-              onChange={(e) => setVerifyHmacInput(e.target.value)}
+              onChange={(e) => setVerifyHmacInput(e.target.value.trim())}
               placeholder="Paste HMAC to verify..."
               className="w-full bg-secondary/50 border border-border rounded-xl px-4 py-2 outline-none focus:ring-1 focus:ring-primary transition-all font-mono text-xs"
             />

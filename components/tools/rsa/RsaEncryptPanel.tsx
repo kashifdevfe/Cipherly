@@ -68,7 +68,7 @@ export default function RsaEncryptPanel() {
           <label className="text-sm font-medium">Public Key (PEM)</label>
           <textarea
             value={publicKey}
-            onChange={(e) => setPublicKey(e.target.value)}
+            onChange={(e) => setPublicKey(e.target.value.trim())}
             placeholder="Paste public key starting with -----BEGIN PUBLIC KEY-----"
             className="w-full h-32 bg-secondary/30 border border-border rounded-xl p-4 font-mono text-[10px] resize-none focus:ring-2 focus:ring-primary outline-none transition-all"
           />

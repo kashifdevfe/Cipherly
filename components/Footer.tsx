@@ -14,7 +14,8 @@ export default function Footer() {
                 <Image 
                   src="/logo.png" 
                   alt="Cipherly Logo" 
-                  fill 
+                  fill
+                  sizes="48px"
                   className="object-cover scale-110"
                 />
               </div>

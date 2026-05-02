@@ -44,7 +44,7 @@ export default function JwtValidator() {
           <label className="text-sm font-semibold">JWT Token to Validate</label>
           <textarea
             value={token}
-            onChange={(e) => setToken(e.target.value)}
+            onChange={(e) => setToken(e.target.value.trim())}
             placeholder="Paste JWT token here..."
             className="w-full h-40 bg-secondary/30 border border-border rounded-2xl p-4 font-mono text-[10px] focus:ring-2 focus:ring-primary outline-none transition-all resize-none break-all"
           />

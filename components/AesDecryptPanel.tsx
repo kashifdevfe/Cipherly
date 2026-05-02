@@ -101,7 +101,7 @@ export default function AesDecryptPanel() {
         </div>
         <textarea
           value={ciphertext}
-          onChange={(e) => setCiphertext(e.target.value)}
+          onChange={(e) => setCiphertext(e.target.value.trim())}
           placeholder={`Paste ${cipherFormat} encoded ciphertext here...`}
           disabled={isLoading}
           className="w-full h-32 bg-secondary/30 border border-border rounded-2xl p-4 focus:ring-2 focus:ring-primary outline-none transition-all resize-none font-mono text-sm"

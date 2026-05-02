@@ -36,7 +36,7 @@ export default function CipherModeSelector({ value, onChange }: CipherModeSelect
                 </span>
 
               {mode.badge && (
-                <span className={`text-[8px] font-bold uppercase px-1.5 py-0.5 rounded ${mode.badgeColor}`}>
+                <span className={`text-[8px] font-bold uppercase px-1.5 py-0.5 rounded ${value === mode.id ? 'bg-primary-foreground/20 text-primary-foreground' : mode.badgeColor}`}>
                   {mode.badge}
                 </span>
               )}

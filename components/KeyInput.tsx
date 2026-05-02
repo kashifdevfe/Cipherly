@@ -74,7 +74,7 @@ export default function KeyInput({
           <input
             type={showKey ? 'text' : 'password'}
             value={value}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={(e) => onChange(format !== 'Plain Text' ? e.target.value.trim() : e.target.value)}
             placeholder={`Enter ${keySize/8} byte key...`}
             className="w-full bg-secondary/30 border border-border rounded-xl px-4 py-3 pr-12 focus:ring-2 focus:ring-primary outline-none transition-all font-mono text-sm"
           />
