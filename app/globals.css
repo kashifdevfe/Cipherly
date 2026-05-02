@@ -78,6 +78,23 @@ html.light {
     overflow-x: hidden;
   }
 
+  button, 
+  [role="button"],
+  label {
+    cursor: pointer;
+  }
+
+  button,
+  [role="button"] {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  button:disabled,
+  [role="button"]:disabled {
+    cursor: not-allowed;
+  }
+
   ::selection {
     background-color: var(--color-primary);
     color: var(--color-primary-foreground);
@@ -111,6 +128,9 @@ html.light .glass {
   @apply relative overflow-hidden transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-primary/30;
   color: var(--color-primary-foreground) !important;
   will-change: transform;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .premium-btn::after {
