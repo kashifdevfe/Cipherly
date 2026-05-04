@@ -86,6 +86,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${inter.className} antialiased min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300`}>
         {/* Google Analytics */}
         <Script
+          async
           src="https://www.googletagmanager.com/gtag/js?id=G-G73VRWBBHL"
           strategy="afterInteractive"
         />
