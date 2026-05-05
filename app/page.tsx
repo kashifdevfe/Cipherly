@@ -24,7 +24,7 @@ export default function Page() {
     "@type": "WebApplication",
     "name": "Cipherly Security Toolkit",
     "description": "Professional all-in-one cryptographic toolkit. AES, RSA, JWT, Bcrypt, and more.",
-    "url": "https://cipherly.app",
+    "url": "https://cipherlyapp.com",
     "applicationCategory": "SecurityApplication",
     "operatingSystem": "Web Browser",
     "offers": {

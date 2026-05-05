@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: "Generate RSA key pairs (512–4096-bit) and encrypt/decrypt online. 100% client-side — your data never leaves your browser.",
     type: "website",
   },
-  alternates: { canonical: "https://cipherly.app/tools/rsa-encryption" },
+  alternates: { canonical: "https://cipherlyapp.com/tools/rsa-encryption" },
 };
 
 export default function RsaPage() {

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: "Convert text/files to Base64 and generate HMAC signatures for API security.",
     type: "website",
   },
-  alternates: { canonical: "https://cipherly.app/tools/base64-encode-decode" },
+  alternates: { canonical: "https://cipherlyapp.com/tools/base64-encode-decode" },
 };
 
 export default function Base64Page() {

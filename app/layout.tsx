@@ -20,10 +20,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cipherly.app"),
+  metadataBase: new URL("https://cipherlyapp.com"),
   title: {
-    default: "Free Online Text Encryption & Decryption Tool | AES-256",
-    template: "%s | Cipherly Security",
+    default: "Cipherly",
+    template: "%s | Cipherly",
   },
   description: "Securely encrypt and decrypt text online using AES-256, RSA, JWT, and Bcrypt. 100% client-side processing for maximum privacy. No data ever leaves your browser.",
   keywords: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Cipherly | Military-Grade Text Encryption Online",
     description: "Private, secure, and browser-native encryption tools. AES, RSA, JWT, and more.",
-    url: "https://cipherly.app",
+    url: "https://cipherlyapp.com",
     siteName: "Cipherly",
     locale: "en_US",
     type: "website",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://cipherly.app",
+    canonical: "https://cipherlyapp.com",
   },
 };
 

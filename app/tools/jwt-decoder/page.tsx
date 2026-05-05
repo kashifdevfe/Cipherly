@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: "The ultimate tool for JWT developers. Decode payloads, generate signed tokens, and validate signatures.",
     type: "website",
   },
-  alternates: { canonical: "https://cipherly.app/tools/jwt-decoder" },
+  alternates: { canonical: "https://cipherlyapp.com/tools/jwt-decoder" },
 };
 
 export default function JwtPage() {

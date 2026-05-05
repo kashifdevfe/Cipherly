@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: "Secure bcrypt password hashing tool. Adjust cost factors and verify existing hashes 100% locally.",
     type: "website",
   },
-  alternates: { canonical: "https://cipherly.app/tools/bcrypt-hash-generator" },
+  alternates: { canonical: "https://cipherlyapp.com/tools/bcrypt-hash-generator" },
 };
 
 export default function BcryptPage() {

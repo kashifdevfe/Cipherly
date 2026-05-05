@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: "Secure hash generator for text and files. Supports MD5, SHA-1, SHA-256, and SHA-512. 100% private.",
     type: "website",
   },
-  alternates: { canonical: "https://cipherly.app/tools/md5-hash-generator" },
+  alternates: { canonical: "https://cipherlyapp.com/tools/md5-hash-generator" },
 };
 
 export default function HashPage() {
