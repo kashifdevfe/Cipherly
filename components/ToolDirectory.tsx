@@ -8,15 +8,15 @@ const tools = [
   {
     title: 'AES Encryption',
     desc: 'Advanced Encryption Standard (GCM, CBC, CTR, ECB)',
-    href: '/',
+    href: '/tools/aes-encryption-decryption',
     icon: Lock,
     color: 'bg-primary/10 text-primary',
     badge: 'Popular'
   },
   {
-    title: 'RSA Encryption',
+    title: 'RSA Key Gen',
     desc: 'Asymmetric cryptography with 2048/4096-bit key generation.',
-    href: '/tools/rsa-encryption',
+    href: '/tools/rsa-key-generator',
     icon: Key,
     color: 'bg-emerald-400/10 text-emerald-400',
     badge: 'Advanced'
@@ -24,14 +24,14 @@ const tools = [
   {
     title: 'JWT Debugger',
     desc: 'Decode, generate, and validate JSON Web Tokens instantly.',
-    href: '/tools/jwt-decoder',
+    href: '/tools/jwt-decoder-validator',
     icon: Eye,
     color: 'bg-cyan-400/10 text-cyan-400',
   },
   {
     title: 'Hash Generator',
     desc: 'Create MD5, SHA-1, SHA-256, and SHA-512 hashes.',
-    href: '/tools/md5-hash-generator',
+    href: '/tools/online-hash-generator',
     icon: Fingerprint,
     color: 'bg-teal-400/10 text-teal-400',
   },
@@ -43,11 +43,18 @@ const tools = [
     color: 'bg-lime-400/10 text-lime-400',
   },
   {
-    title: 'Base64 & HMAC',
-    desc: 'Encode/decode Base64 or generate HMAC signatures.',
+    title: 'Base64 Tool',
+    desc: 'Encode/decode text or files to Base64 online.',
     href: '/tools/base64-encode-decode',
     icon: ArrowLeftRight,
     color: 'bg-sky-400/10 text-sky-400',
+  },
+  {
+    title: 'HMAC Generator',
+    desc: 'Generate secure HMAC signatures using SHA-256/512.',
+    href: '/tools/hmac-signature-generator',
+    icon: ShieldCheck,
+    color: 'bg-orange-400/10 text-orange-400',
   },
 ];
 

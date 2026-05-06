@@ -38,9 +38,9 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.1 }}
       >
         <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.1]">
-          Privacy First <br />
+          Free Online <br />
           <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-400 to-teal-500 animate-pulse">
-            Cyber Security
+            Encryption Tools
           </span>
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mt-8 leading-relaxed font-medium">

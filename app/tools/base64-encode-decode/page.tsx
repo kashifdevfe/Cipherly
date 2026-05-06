@@ -1,128 +1,89 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeftRight, ShieldCheck, FileText, Zap } from 'lucide-react';
-import Base64HmacWrapper from '@/components/tools/encode/Base64HmacWrapper';
+
+const Base64HmacWrapper = dynamic(() => import('@/components/tools/encode/Base64HmacWrapper'));
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cipherlyapp.com"),
-  title: "Base64 Encode & Decode Online + HMAC Generator | Cipherly",
-  description: "Encode or decode Base64 text and files instantly. Generate secure HMAC-SHA256 and SHA-512 signatures for API authentication. 100% private, browser-native tools.",
-  keywords: [
-    "base64 encode decode", "online hmac generator", "hmac-sha256 online",
-    "base64 encoder decoder", "base64 file converter", "hmac signature tool",
-    "generate hmac online", "base64 text converter", "secure base64 tool"
-  ],
+  title: "Free Online Base64 Encoder and Decoder Tool | Cipherly",
+  description: "Encode and decode text or files to Base64 online instantly. Browser-based processing with no data stored. Convert data securely.",
+  keywords: ["base64 encoder online", "base64 decoder online", "convert text to base64", "base64 file encoder"],
   openGraph: {
-    title: "Base64 Encode & Decode Online + HMAC Generator | Cipherly",
-    description: "Convert text/files to Base64 and generate HMAC signatures for API security.",
+    title: "Free Online Base64 Encoder and Decoder Tool | Cipherly",
+    description: "Encode and decode text or files to Base64 online instantly. Browser-based processing with no data stored.",
     type: "website",
-    siteName: "Cipherly",
+    url: "https://cipherlyapp.com/tools/base64-encode-decode",
     images: "/og-image.png",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Base64 Encode & Decode Online + HMAC Generator | Cipherly",
-    description: "Encode/decode Base64 or generate HMAC signatures. 100% browser-native privacy.",
+    title: "Free Online Base64 Encoder and Decoder Tool | Cipherly",
+    description: "Encode and decode text or files to Base64 online instantly. 100% browser-based.",
     images: "/og-image.png",
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/base64-encode-decode" },
 };
 
 export default function Base64Page() {
-  const softwareAppJsonLd = {
+  const faqJsonLd = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Base64 & HMAC Tool",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Web Browser",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  };
-
-  const webAppJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Base64 & HMAC Tool",
-    "applicationCategory": "DeveloperApplication",
-    "description": "Base64 encoding/decoding and HMAC signature generation online.",
-    "operatingSystem": "Web Browser",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "featureList": [
-      "Base64 Encoding & Decoding",
-      "URL-safe Base64 support",
-      "File to Base64 conversion",
-      "HMAC-SHA256/384/512 Generation",
-      "HMAC verification",
-      "100% Client-side"
-    ]
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Is Base64 a form of encryption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, Base64 is an encoding scheme, not encryption. It can be easily decoded by anyone without a key and does not provide security or privacy for your data."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Can I convert images to Base64 here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, our tool supports file input, allowing you to convert images, PDFs, or any other file into a Base64 string directly in your browser."
+      }
+    }, {
+      "@type": "Question",
+      "name": "Is there a limit to how much I can encode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The limit depends on your browser's available memory. Most modern browsers can handle several megabytes of data for Base64 encoding without any issues."
+      }
+    }]
   };
 
   return (
-    <div className="container mx-auto px-4 py-12 space-y-12">
+    <>
       <script
-        id="software-app-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <script
-        id="web-app-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
-      />
-
-      <div className="text-center space-y-4 max-w-3xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-          Base64 <span className="text-primary">& HMAC Tools</span>
-        </h1>
-        <p className="text-lg text-muted-foreground">
-          Quickly encode/decode Base64 data or generate and verify HMAC signatures 
-          for secure API communication.
-        </p>
-      </div>
-
-      <Base64HmacWrapper />
-
-      <div className="max-w-4xl mx-auto space-y-12 pt-12">
-        <section className="prose prose-invert max-w-none grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold">What is Base64?</h2>
-            <p className="text-sm text-muted-foreground">
-              Base64 is a group of binary-to-text encoding schemes that represent binary data in an ASCII string 
-              format by translating it into a radix-64 representation. It is commonly used when there is a 
-              need to encode binary data that needs to be stored and transferred over media that are 
-              designed to deal with textual data.
+      <div className="container mx-auto px-4 py-12">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="text-center space-y-4">
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight">Fast Base64 Encoding & Decoding Online</h1>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Convert text and files to Base64 instantly. Secure, browser-native processing.
             </p>
           </div>
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold">What is HMAC?</h2>
-            <p className="text-sm text-muted-foreground">
-              HMAC (Keyed-hash message authentication code) is a specific type of message authentication code (MAC) 
-              involving a cryptographic hash function and a secret cryptographic key. It may be used to 
-              simultaneously verify both the data integrity and the authenticity of a message. 
-              Commonly used in API authentication (e.g. AWS, Stripe).
-            </p>
-          </div>
-        </section>
 
-        <div className="p-8 rounded-3xl bg-secondary/20 border border-border">
-          <h3 className="text-xl font-bold mb-6 text-center">Typical HMAC Use Case</h3>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary"><Zap className="w-6 h-6" /></div>
-              <p className="text-xs font-bold">1. CLIENT SENDS MESSAGE + HMAC</p>
-            </div>
-            <div className="text-muted-foreground hidden md:block">→</div>
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-12 h-12 bg-secondary rounded-2xl flex items-center justify-center text-muted-foreground"><ShieldCheck className="w-6 h-6" /></div>
-              <p className="text-xs font-bold">2. SERVER VERIFIES WITH SECRET</p>
-            </div>
+          <div className="glass rounded-[2.5rem] p-6 md:p-10">
+            <Base64HmacWrapper />
           </div>
+
+          <section className="mt-20 max-w-4xl mx-auto prose prose-emerald dark:prose-invert">
+            <h2>What is a Base64 Encoder?</h2>
+            <p>
+              Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. Our Base64 encoder and decoder online tool allows you to convert plain text or file data into a string of 64 printable characters. While not a form of encryption (as it is easily reversible), Base64 is essential for transmitting data over media that are designed to deal with textual data, such as embedding images in HTML or CSS or sending attachments in email. It ensures that the data remains intact during transport without modification.
+            </p>
+            
+            <h2>When should you use Base64 Encoding?</h2>
+            <p>
+              Base64 encoding is frequently used by developers to handle data in JSON payloads, URLs, or data URIs. If you need to convert a small image into a string to use directly in your code, or if you need to decode a Base64-encoded string from an API response, this fast browser-based tool is the perfect solution. It is also helpful for basic data obfuscation during development. As with all our tools, Cipherly processes your data locally. Whether you are encoding or decoding, your information is processed entirely in your browser, ensuring no data transmitted to external servers.
+            </p>
+          </section>
         </div>
       </div>
-    </div>
+    </>
   );
 }

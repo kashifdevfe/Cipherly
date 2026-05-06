@@ -6,26 +6,29 @@ import Hero from '@/components/Hero';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cipherlyapp.com"),
-  title: "AES-256 Encryption Online — Free Browser Crypto Tools | Cipherly",
-  description: "The ultimate all-in-one security toolkit. Securely encrypt text with AES-256, generate RSA keys, debug JWT tokens, and hash passwords with Bcrypt. 100% private, browser-native cryptographic tools.",
+  title: "Free Online Encryption Tools — Secure AES, RSA & JWT | Cipherly",
+  description: "Free online encryption tools. Securely use AES, RSA, JWT, and Bcrypt in your browser. 100% client-side, zero-knowledge architecture. No data stored.",
   keywords: [
-    "cyber security toolkit", "aes encryption online", "rsa key generator", 
-    "jwt debugger online", "bcrypt hash generator", "md5 sha256 sha512", 
-    "base64 hmac generator", "web crypto api tools", "private encryption",
-    "secure text tools", "developer security tools", "all-in-one crypto tool"
+    "free online encryption tools", "aes encryption online", "rsa key generator online", 
+    "jwt debugger online", "bcrypt hash generator online", "sha256 hash generator", 
+    "base64 encoder decoder", "secure hmac generator", "browser-based cryptography",
+    "private encryption tools", "developer security toolkit", "zero knowledge crypto"
   ],
   openGraph: {
-    title: "AES-256 Encryption Online — Free Browser Crypto Tools | Cipherly",
-    description: "The ultimate all-in-one security toolkit. Securely encrypt text with AES-256, generate RSA keys, debug JWT tokens, and hash passwords with Bcrypt. 100% private.",
+    title: "Free Online Encryption Tools — Secure AES, RSA & JWT | Cipherly",
+    description: "Free online encryption tools. Securely use AES, RSA, JWT, and Bcrypt in your browser. 100% client-side, zero-knowledge architecture.",
     images: "/og-image.png",
     siteName: "Cipherly",
     type: "website",
+    url: "https://cipherlyapp.com",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AES-256 Encryption Online | Cipherly",
-    description: "Free AES-256, RSA, JWT, Bcrypt, MD5 & Base64 tools. 100% browser-native. Your data never leaves your device.",
+    title: "Free Online Encryption Tools — Secure AES, RSA & JWT | Cipherly",
+    description: "Free online encryption tools. Securely use AES, RSA, JWT, and Bcrypt in your browser. 100% client-side, zero-knowledge architecture.",
     images: "/og-image.png",
+    creator: "@cipherly",
   }
 };
 

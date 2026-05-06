@@ -23,11 +23,13 @@ export default function Footer() {
           <div className="md:col-span-4">
             <h3 className="font-bold text-sm uppercase tracking-widest mb-6 text-primary">Security Tools</h3>
             <ul className="space-y-4 text-sm font-medium text-muted-foreground">
-              <li><Link href="/" className="hover:text-primary transition-colors">AES Encryption</Link></li>
-              <li><Link href="/tools/rsa-encryption" className="hover:text-primary transition-colors">RSA Key Gen</Link></li>
-              <li><Link href="/tools/jwt-decoder" className="hover:text-primary transition-colors">JWT Debugger</Link></li>
-              <li><Link href="/tools/md5-hash-generator" className="hover:text-primary transition-colors">Hash Generator</Link></li>
+              <li><Link href="/tools/aes-encryption-decryption" className="hover:text-primary transition-colors">AES Encryption</Link></li>
+              <li><Link href="/tools/rsa-key-generator" className="hover:text-primary transition-colors">RSA Key Gen</Link></li>
+              <li><Link href="/tools/jwt-decoder-validator" className="hover:text-primary transition-colors">JWT Debugger</Link></li>
+              <li><Link href="/tools/online-hash-generator" className="hover:text-primary transition-colors">Hash Generator</Link></li>
               <li><Link href="/tools/bcrypt-hash-generator" className="hover:text-primary transition-colors">Bcrypt Tool</Link></li>
+              <li><Link href="/tools/base64-encode-decode" className="hover:text-primary transition-colors">Base64 Tool</Link></li>
+              <li><Link href="/tools/hmac-signature-generator" className="hover:text-primary transition-colors">HMAC Generator</Link></li>
             </ul>
           </div>
 

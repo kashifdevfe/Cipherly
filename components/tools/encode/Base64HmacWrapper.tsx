@@ -15,8 +15,8 @@ const tabs = [
   { id: 'hmac', label: 'HMAC Generator', icon: ShieldCheck },
 ];
 
-export default function Base64HmacWrapper() {
-  const [activeTab, setActiveTab] = useState('base64');
+export default function Base64HmacWrapper({ defaultTab = 'base64' }: { defaultTab?: string }) {
+  const [activeTab, setActiveTab] = useState(defaultTab);
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
