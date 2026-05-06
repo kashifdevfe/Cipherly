@@ -28,6 +28,7 @@ export const metadata: Metadata = {
 
 export default function AesPage() {
   const jsonLd = {
+    
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Cipherly AES Encryption Tool",
