@@ -3,28 +3,27 @@ import BcryptToolWrapper from '@/components/tools/bcrypt/BcryptToolWrapper';
 import { Table } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Free Bcrypt Hash Generator & Password Verifier Online",
-  description: "Generate and verify bcrypt password hashes online with configurable cost factor (4–14). 100% client-side. Compare bcrypt vs Argon2 vs PBKDF2 for secure password storage.",
+  metadataBase: new URL("https://cipherlyapp.com"),
+  title: "Bcrypt Hash Generator & Verifier Online — Secure Password Hashing | Cipherly",
+  description: "Securely generate and verify Bcrypt password hashes online. Custom cost factors (4–14). 100% private, browser-native hashing. Your passwords never touch our servers.",
   keywords: [
-    "bcrypt hash generator", "bcrypt online", "bcrypt generator",
-    "bcrypt hash verifier", "bcrypt password hash", "verify bcrypt hash online",
-    "bcrypt cost factor", "bcrypt rounds calculator", "password hash generator",
-    "bcrypt vs argon2", "secure password hashing online", "bcrypt checker online",
-    "hash password online free", "bcrypt $2b format", "password hashing tool",
-    "bcrypt salt rounds", "online bcrypt tool", "bcrypt hash checker"
+    "bcrypt hash generator", "bcrypt password hashing online", "bcrypt verifier",
+    "bcrypt online tool", "password security tools", "bcrypt cost factor",
+    "generate bcrypt hash online", "verify bcrypt hash", "secure password storage",
+    "bcrypt tool free", "client-side password hashing"
   ],
   openGraph: {
-    title: "Free Bcrypt Hash Generator & Password Verifier Online",
-    description: "Secure bcrypt password hashing tool. Adjust cost factors and verify existing hashes 100% locally.",
+    title: "Bcrypt Hash Generator & Verifier Online — Secure Password Hashing | Cipherly",
+    description: "Secure Bcrypt password hashing tool. Adjust cost factors and verify existing hashes 100% locally.",
     type: "website",
     siteName: "Cipherly",
-    images: [{ url: "https://cipherlyapp.com/og-image.png", width: 1200, height: 630 }],
+    images: "/og-image.png",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Bcrypt Hash Generator & Password Verifier Online",
-    description: "Hash passwords with bcrypt and verify existing hashes. Adjust cost factor 4–14. 100% client-side.",
-    images: ["https://cipherlyapp.com/og-image.png"],
+    title: "Bcrypt Hash Generator & Verifier Online | Cipherly",
+    description: "Secure password hashing with custom cost factors. Verify hashes instantly. 100% local, no server storage.",
+    images: "/og-image.png",
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/bcrypt-hash-generator" },
 };

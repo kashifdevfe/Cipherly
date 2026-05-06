@@ -3,28 +3,26 @@ import dynamic from 'next/dynamic';
 import JwtTabs from '@/components/tools/jwt/JwtTabs';
 
 export const metadata: Metadata = {
-  title: "Free JWT Decoder, Generator & Validator Online | HS256, RS256, PS256",
-  description: "Decode, generate, and validate JSON Web Tokens online. Inspect JWT header and payload claims, verify signatures for HS256 and RS256. 100% client-side — tokens never leave your browser.",
+  metadataBase: new URL("https://cipherlyapp.com"),
+  title: "JWT Decoder & Debugger Online — Validate HS256/RS256 Tokens | Cipherly",
+  description: "Decode JSON Web Tokens (JWT), validate signatures, and generate new tokens instantly. Supports HS256, RS256, and more. 100% private, no token data is ever sent to our servers.",
   keywords: [
-    "jwt decoder", "jwt decoder online", "decode jwt token", "json web token decoder",
-    "jwt generator", "jwt token generator online", "create jwt token online",
-    "jwt validator", "verify jwt token online", "jwt signature validator",
-    "jwt hs256 hs512", "rs256 jwt tool", "jwt expiry checker",
-    "inspect jwt claims", "jwt payload decoder", "free jwt tool online",
-    "json web token tool", "jwt decode without secret", "jwt debug online"
+    "jwt decoder online", "jwt debugger", "decode jwt online", "verify jwt signature",
+    "generate jwt online", "hs256 rs256 validator", "json web token debugger",
+    "jwt payload decoder", "online jwt tool free", "private jwt debugger"
   ],
   openGraph: {
-    title: "Free JWT Decoder, Generator & Validator Online | HS256, RS256, PS256",
-    description: "The ultimate tool for JWT developers. Decode payloads, generate signed tokens, and validate signatures.",
+    title: "JWT Decoder & Debugger Online — Validate HS256/RS256 Tokens | Cipherly",
+    description: "Decode JWT payloads, generate signed tokens (HS256/RS256), validate signatures. No token sent anywhere.",
     type: "website",
     siteName: "Cipherly",
-    images: [{ url: "https://cipherlyapp.com/og-image.png", width: 1200, height: 630 }],
+    images: "/og-image.png",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free JWT Decoder, Generator & Validator Online | HS256, RS256, PS256",
+    title: "JWT Decoder & Debugger Online | Cipherly",
     description: "Decode JWT payloads, generate signed tokens (HS256/RS256), validate signatures. No token sent anywhere.",
-    images: ["https://cipherlyapp.com/og-image.png"],
+    images: "/og-image.png",
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/jwt-decoder" },
 };

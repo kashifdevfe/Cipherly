@@ -79,7 +79,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <head>
+      <head suppressHydrationWarning>
         {/* Google AdSense */}
         <Script
           async

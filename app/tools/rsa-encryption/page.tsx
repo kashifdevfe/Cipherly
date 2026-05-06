@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import RsaToolWrapper from '@/components/tools/rsa/RsaToolWrapper';
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cipherlyapp.com"),
   title: "Free RSA Encryption & Decryption Online Tool | 2048 & 4096-bit",
   description: "Generate RSA key pairs and encrypt or decrypt data online using OAEP-SHA256 or PKCS1v15. Free, 100% client-side, no data ever leaves your browser.",
   keywords: [
@@ -17,13 +18,13 @@ export const metadata: Metadata = {
     description: "Generate RSA key pairs (512–4096-bit) and encrypt/decrypt online. 100% client-side — your data never leaves your browser.",
     type: "website",
     siteName: "Cipherly",
-    images: [{ url: "https://cipherlyapp.com/og-image.png", width: 1200, height: 630 }],
+    images: "/og-image.png",
   },
   twitter: {
     card: "summary_large_image",
     title: "Free RSA Encryption & Decryption Online Tool | 2048 & 4096-bit",
     description: "Generate RSA key pairs (2048/4096-bit) and encrypt or decrypt online. OAEP-SHA256. 100% client-side.",
-    images: ["https://cipherlyapp.com/og-image.png"],
+    images: "/og-image.png",
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/rsa-encryption" },
 };

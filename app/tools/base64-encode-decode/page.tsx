@@ -5,29 +5,26 @@ import { ArrowLeftRight, ShieldCheck, FileText, Zap } from 'lucide-react';
 import Base64HmacWrapper from '@/components/tools/encode/Base64HmacWrapper';
 
 export const metadata: Metadata = {
-  title: "Free Base64 Encode & Decode Online + HMAC SHA-256 Generator",
-  description: "Base64 encode or decode any text or file online instantly. Generate and verify HMAC-SHA256, SHA-384, SHA-512 signatures for API authentication. 100% client-side.",
+  metadataBase: new URL("https://cipherlyapp.com"),
+  title: "Base64 Encode & Decode Online + HMAC Generator | Cipherly",
+  description: "Encode or decode Base64 text and files instantly. Generate secure HMAC-SHA256 and SHA-512 signatures for API authentication. 100% private, browser-native tools.",
   keywords: [
-    "base64 encode", "base64 decode", "base64 encoder", "base64 decoder online",
-    "base64 encode decode online", "base64 string encoder", "online base64 encoder",
-    "text to base64", "base64 to text", "base64 file converter",
-    "hmac sha256 online", "hmac generator", "hmac sha256 generator",
-    "generate hmac signature", "verify hmac online", "hmac-sha256 free tool",
-    "api authentication hmac", "message authentication code online",
-    "hmac sha512 generator", "url safe base64 encoder"
+    "base64 encode decode", "online hmac generator", "hmac-sha256 online",
+    "base64 encoder decoder", "base64 file converter", "hmac signature tool",
+    "generate hmac online", "base64 text converter", "secure base64 tool"
   ],
   openGraph: {
-    title: "Free Base64 Encode & Decode Online + HMAC SHA-256 Generator",
+    title: "Base64 Encode & Decode Online + HMAC Generator | Cipherly",
     description: "Convert text/files to Base64 and generate HMAC signatures for API security.",
     type: "website",
     siteName: "Cipherly",
-    images: [{ url: "https://cipherlyapp.com/og-image.png", width: 1200, height: 630 }],
+    images: "/og-image.png",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Base64 Encode & Decode Online + HMAC SHA-256 Generator",
-    description: "Encode or decode Base64 and generate HMAC-SHA256 signatures for API authentication. 100% client-side.",
-    images: ["https://cipherlyapp.com/og-image.png"],
+    title: "Base64 Encode & Decode Online + HMAC Generator | Cipherly",
+    description: "Encode/decode Base64 or generate HMAC signatures. 100% browser-native privacy.",
+    images: "/og-image.png",
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/base64-encode-decode" },
 };

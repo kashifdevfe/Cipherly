@@ -5,6 +5,7 @@ import ToolDirectory from '@/components/ToolDirectory';
 import Hero from '@/components/Hero';
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cipherlyapp.com"),
   title: "AES-256 Encryption Online — Free Browser Crypto Tools | Cipherly",
   description: "The ultimate all-in-one security toolkit. Securely encrypt text with AES-256, generate RSA keys, debug JWT tokens, and hash passwords with Bcrypt. 100% private, browser-native cryptographic tools.",
   keywords: [
@@ -15,10 +16,16 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "AES-256 Encryption Online — Free Browser Crypto Tools | Cipherly",
+    description: "The ultimate all-in-one security toolkit. Securely encrypt text with AES-256, generate RSA keys, debug JWT tokens, and hash passwords with Bcrypt. 100% private.",
+    images: "/og-image.png",
+    siteName: "Cipherly",
+    type: "website",
   },
   twitter: {
+    card: "summary_large_image",
     title: "AES-256 Encryption Online | Cipherly",
     description: "Free AES-256, RSA, JWT, Bcrypt, MD5 & Base64 tools. 100% browser-native. Your data never leaves your device.",
+    images: "/og-image.png",
   }
 };
 

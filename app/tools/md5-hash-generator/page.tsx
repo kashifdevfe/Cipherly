@@ -4,28 +4,26 @@ import { Fingerprint, Search, FileCode } from 'lucide-react';
 import HashToolWrapper from '@/components/tools/hash/HashToolWrapper';
 
 export const metadata: Metadata = {
-  title: "Free MD5 Hash Generator & SHA-256 Online Tool | Verify Checksums",
-  description: "Generate and verify MD5, SHA-1, SHA-256, and SHA-512 hashes online. Hash text or files up to 100MB. 100% client-side — no data uploaded.",
+  metadataBase: new URL("https://cipherlyapp.com"),
+  title: "MD5 Hash Generator & SHA-256 Tool — Secure Checksums | Cipherly",
+  description: "Generate and verify MD5, SHA-1, SHA-256, and SHA-512 hashes instantly. Hash text or files locally in your browser. 100% private, no data is ever uploaded.",
   keywords: [
-    "md5 hash generator", "md5 generator online", "md5 hash online",
-    "generate md5 hash", "md5 checksum online", "md5 checksum verifier",
-    "sha256 hash generator", "sha-256 online", "sha512 generator",
-    "sha1 hash online", "file hash checker online", "md5 file checksum",
-    "hash text online", "verify md5 hash", "hash generator free",
-    "md5 sha256 sha512 online", "cryptographic hash tool", "checksum verifier online"
+    "md5 hash generator", "sha-256 generator online", "sha-512 online",
+    "md5 checksum verifier", "file hash checker", "md5 generator free",
+    "generate sha256 hash", "online hash tool", "private checksum tool"
   ],
   openGraph: {
-    title: "Free MD5 Hash Generator & SHA-256 Online Tool | Verify Checksums",
-    description: "Secure hash generator for text and files. Supports MD5, SHA-1, SHA-256, and SHA-512. 100% private.",
+    title: "MD5 Hash Generator & SHA-256 Tool — Secure Checksums | Cipherly",
+    description: "Generate MD5, SHA-1, SHA-256, SHA-512 hashes for text or files. Verify checksums. 100% private.",
     type: "website",
     siteName: "Cipherly",
-    images: [{ url: "https://cipherlyapp.com/og-image.png", width: 1200, height: 630 }],
+    images: "/og-image.png",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free MD5 Hash Generator & SHA-256 Online Tool | Verify Checksums",
+    title: "MD5 Hash Generator & SHA-256 Tool | Cipherly",
     description: "Generate MD5, SHA-1, SHA-256, SHA-512 hashes for text or files. Verify checksums. 100% client-side.",
-    images: ["https://cipherlyapp.com/og-image.png"],
+    images: "/og-image.png",
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/md5-hash-generator" },
 };
