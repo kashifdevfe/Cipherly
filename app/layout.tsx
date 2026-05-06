@@ -23,14 +23,15 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://cipherlyapp.com"),
   title: {
-    default: "Cipherly",
+    default: "Cipherly | Professional Online Cryptography & Security Tools",
     template: "%s | Cipherly",
   },
-  description: "Securely encrypt and decrypt text online using AES-256, RSA, JWT, and Bcrypt. 100% client-side processing for maximum privacy. No data ever leaves your browser.",
+  description: "Free, browser-native cryptographic toolkit. Securely use AES-256, RSA, JWT, and Bcrypt online. 100% private, zero-knowledge security for developers and users.",
   keywords: [
-    "text encryption", "text decryption", "AES-256 online", "RSA generator", 
-    "JWT debugger", "Bcrypt hash generator", "MD5 hash online", "Base64 encoder",
-    "secure messaging", "client-side encryption", "privacy tools", "free crypto tools"
+    "free online encryption tools", "aes encryption online", "rsa key generator online", 
+    "jwt debugger online", "bcrypt hash generator online", "sha256 hash generator", 
+    "base64 encoder decoder", "secure hmac generator", "browser-based cryptography",
+    "private encryption tools", "developer security toolkit", "zero knowledge crypto"
   ],
   authors: [{ name: "Cipherly Team" }],
   creator: "Cipherly",
@@ -39,6 +40,10 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
+  },
+  verification: {
+    google: "G6H4q-VjE8_hY7b8e-P9uI6y5t4r3e2w1q0", // User can replace with actual tag
+    yandex: "yandex-verification-code",
   },
   openGraph: {
     title: "Cipherly | Military-Grade Text Encryption Online",

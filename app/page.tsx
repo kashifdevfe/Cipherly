@@ -6,7 +6,7 @@ import Hero from '@/components/Hero';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cipherlyapp.com"),
-  title: "Free Online Encryption Tools — Secure AES, RSA & JWT | Cipherly",
+  title: "Free Online Encryption & Cryptography Tools | AES, RSA & JWT | Cipherly",
   description: "Free online encryption tools. Securely use AES, RSA, JWT, and Bcrypt in your browser. 100% client-side, zero-knowledge architecture. No data stored.",
   keywords: [
     "free online encryption tools", "aes encryption online", "rsa key generator online", 
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "private encryption tools", "developer security toolkit", "zero knowledge crypto"
   ],
   openGraph: {
-    title: "Free Online Encryption Tools — Secure AES, RSA & JWT | Cipherly",
+    title: "Free Online Encryption & Cryptography Tools | AES, RSA & JWT | Cipherly",
     description: "Free online encryption tools. Securely use AES, RSA, JWT, and Bcrypt in your browser. 100% client-side, zero-knowledge architecture.",
     images: "/og-image.png",
     siteName: "Cipherly",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Online Encryption Tools — Secure AES, RSA & JWT | Cipherly",
+    title: "Free Online Encryption & Cryptography Tools | AES, RSA & JWT | Cipherly",
     description: "Free online encryption tools. Securely use AES, RSA, JWT, and Bcrypt in your browser. 100% client-side, zero-knowledge architecture.",
     images: "/og-image.png",
     creator: "@cipherly",

@@ -5,26 +5,40 @@ const BcryptToolWrapper = dynamic(() => import('@/components/tools/bcrypt/Bcrypt
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cipherlyapp.com"),
-  title: "Free Online Bcrypt Hash Generator and Verifier | Cipherly",
-  description: "Generate and verify Bcrypt hashes online for password security. Browser-based hashing with no data transmitted. Secure your passwords.",
-  keywords: ["bcrypt hash generator", "bcrypt online", "verify bcrypt hash", "bcrypt cost factor"],
+  title: "Bcrypt Hash Generator & Verifier Online | Cipherly",
+  description: "Generate and verify Bcrypt hashes online for password security. Secure browser-based hashing with custom cost factors. 100% private.",
+  keywords: ["bcrypt hash generator", "bcrypt online", "verify bcrypt hash", "bcrypt cost factor", "password hashing tool"],
   openGraph: {
-    title: "Free Online Bcrypt Hash Generator and Verifier | Cipherly",
-    description: "Generate and verify Bcrypt hashes online for password security. Browser-based hashing with no data transmitted.",
+    title: "Bcrypt Hash Generator & Verifier Online | Cipherly",
+    description: "Generate and verify Bcrypt hashes online for password security. Secure browser-based hashing with custom cost factors.",
     type: "website",
     url: "https://cipherlyapp.com/tools/bcrypt-hash-generator",
     images: "/og-image.png",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Online Bcrypt Hash Generator and Verifier | Cipherly",
-    description: "Generate and verify Bcrypt hashes online. 100% browser-based.",
+    title: "Cipherly | Private Bcrypt Hash Generator",
+    description: "Generate secure Bcrypt password hashes directly in your browser. Raw passwords never leave your computer.",
     images: "/og-image.png",
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/bcrypt-hash-generator" },
 };
 
 export default function BcryptPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cipherly Bcrypt Tool",
+    "description": "Generate and verify Bcrypt password hashes locally in your browser.",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -33,21 +47,21 @@ export default function BcryptPage() {
       "name": "What cost factor should I use for Bcrypt?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A cost factor of 10 or 12 is currently recommended for most web applications. Higher numbers increase security but also increase the server time required for each login."
+        "text": "A cost factor of 10 or 12 is currently recommended for most modern web applications. This value determines the number of iterations; higher numbers exponentially increase security against brute-force attacks but also increase the computation time for each login. Cipherly allows you to test different cost factors locally."
       }
     }, {
       "@type": "Question",
       "name": "Does this tool send my password to a server?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Absolutely not. Your raw password stays in your browser. We only perform the hashing calculation locally using JavaScript, ensuring complete privacy."
+        "text": "Absolutely not. Your raw password stays entirely within your browser. We perform all hashing calculations locally using JavaScript, ensuring your sensitive data never touches our infrastructure. This is the core of our zero-knowledge security commitment."
       }
     }, {
       "@type": "Question",
-      "name": "Can I verify a Bcrypt hash against a password?",
+      "name": "Can I verify an existing Bcrypt hash?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, our tool includes a verifier feature that allows you to check if a plain text password matches a previously generated Bcrypt hash string."
+        "text": "Yes, our tool includes a built-in verifier. You can paste a previously generated Bcrypt hash string and a plain text password to check if they match. This is a common task for developers testing their own database implementations."
       }
     }]
   };

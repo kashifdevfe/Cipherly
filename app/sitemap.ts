@@ -11,19 +11,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/tools/rsa-encryption`,
+      url: `${baseUrl}/tools/aes-encryption-decryption`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/tools/jwt-decoder`,
+      url: `${baseUrl}/tools/rsa-key-generator`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/tools/md5-hash-generator`,
+      url: `${baseUrl}/tools/jwt-decoder-validator`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/tools/online-hash-generator`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -39,6 +45,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/tools/hmac-signature-generator`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
   ]
 }

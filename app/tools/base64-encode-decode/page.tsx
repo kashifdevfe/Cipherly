@@ -5,26 +5,40 @@ const Base64HmacWrapper = dynamic(() => import('@/components/tools/encode/Base64
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cipherlyapp.com"),
-  title: "Free Online Base64 Encoder and Decoder Tool | Cipherly",
-  description: "Encode and decode text or files to Base64 online instantly. Browser-based processing with no data stored. Convert data securely.",
-  keywords: ["base64 encoder online", "base64 decoder online", "convert text to base64", "base64 file encoder"],
+  title: "Fast Base64 Encoder & Decoder Online | Cipherly",
+  description: "Encode and decode text or files to Base64 online instantly. Professional browser-based conversion with no data stored. Secure and fast.",
+  keywords: ["base64 encoder online", "base64 decoder online", "convert text to base64", "base64 file encoder", "binary to text online"],
   openGraph: {
-    title: "Free Online Base64 Encoder and Decoder Tool | Cipherly",
-    description: "Encode and decode text or files to Base64 online instantly. Browser-based processing with no data stored.",
+    title: "Fast Base64 Encoder & Decoder Online | Cipherly",
+    description: "Encode and decode text or files to Base64 online instantly. Professional browser-based conversion.",
     type: "website",
     url: "https://cipherlyapp.com/tools/base64-encode-decode",
     images: "/og-image.png",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Online Base64 Encoder and Decoder Tool | Cipherly",
-    description: "Encode and decode text or files to Base64 online instantly. 100% browser-based.",
+    title: "Cipherly | Online Base64 Encoder & Decoder",
+    description: "Convert text and files to Base64 instantly in your browser. All processing is local and private.",
     images: "/og-image.png",
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/base64-encode-decode" },
 };
 
 export default function Base64Page() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cipherly Base64 Tool",
+    "description": "Encode and decode text or files to Base64 locally in your browser.",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -33,21 +47,21 @@ export default function Base64Page() {
       "name": "Is Base64 a form of encryption?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No, Base64 is an encoding scheme, not encryption. It can be easily decoded by anyone without a key and does not provide security or privacy for your data."
+        "text": "No, Base64 is an encoding scheme, not encryption. It can be easily decoded by anyone without a key and does not provide any confidentiality or privacy for your data. Its purpose is to represent binary data in a text-based format for transmission."
       }
     }, {
       "@type": "Question",
       "name": "Can I convert images to Base64 here?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, our tool supports file input, allowing you to convert images, PDFs, or any other file into a Base64 string directly in your browser."
+        "text": "Yes, our tool supports file input, allowing you to convert images, PDFs, or any other file into a Base64 string directly in your browser. The conversion happens on your local machine, which is faster for large files than uploading them."
       }
     }, {
       "@type": "Question",
       "name": "Is there a limit to how much I can encode?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The limit depends on your browser's available memory. Most modern browsers can handle several megabytes of data for Base64 encoding without any issues."
+        "text": "The limit depends on your browser's available memory. Most modern browsers can handle several megabytes of data for Base64 encoding without any issues. Since the processing is local, the speed depends on your device's CPU."
       }
     }]
   };

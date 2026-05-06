@@ -5,26 +5,40 @@ const Base64HmacWrapper = dynamic(() => import('@/components/tools/encode/Base64
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cipherlyapp.com"),
-  title: "Free Online HMAC Generator - SHA-256/SHA-512 | Cipherly",
-  description: "Generate secure HMAC signatures online using SHA-256 and SHA-512. Browser-based tool with no data stored. Verify message integrity.",
-  keywords: ["hmac generator online", "hmac sha256 generator", "generate hmac signature", "verify hmac online"],
+  title: "Secure HMAC Signature Generator Online | Cipherly",
+  description: "Generate secure HMAC signatures online using SHA-256 and SHA-512. Professional browser-based integrity verification with no data stored.",
+  keywords: ["hmac generator online", "hmac sha256 generator", "generate hmac signature", "verify hmac online", "message authentication code"],
   openGraph: {
-    title: "Free Online HMAC Generator - SHA-256/SHA-512 | Cipherly",
-    description: "Generate secure HMAC signatures online using SHA-256 and SHA-512. Browser-based tool with no data stored.",
+    title: "Secure HMAC Signature Generator Online | Cipherly",
+    description: "Generate secure HMAC signatures online using SHA-256 and SHA-512. Professional browser-based integrity verification.",
     type: "website",
     url: "https://cipherlyapp.com/tools/hmac-signature-generator",
     images: "/og-image.png",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Online HMAC Generator - SHA-256/SHA-512 | Cipherly",
-    description: "Generate secure HMAC signatures online. 100% browser-based.",
+    title: "Cipherly | Online HMAC-SHA256 Generator",
+    description: "Generate secure HMAC signatures for API authentication directly in your browser. Secret keys never leave your device.",
     images: "/og-image.png",
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/hmac-signature-generator" },
 };
 
 export default function HmacPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cipherly HMAC Generator",
+    "description": "Generate secure HMAC signatures locally in your browser.",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -33,21 +47,21 @@ export default function HmacPage() {
       "name": "What is the difference between Hashing and HMAC?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hashing only provides data integrity. HMAC uses a secret key to provide both integrity and authenticity, proving the message came from someone who knows the key."
+        "text": "Hashing only provides data integrity (proving the data hasn't changed). HMAC (Hash-based Message Authentication Code) uses a secret key to provide both integrity and authenticity, proving that the message was created by someone who possesses the secret key."
       }
     }, {
       "@type": "Question",
       "name": "Is my HMAC secret key safe?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Because Cipherly is a client-side tool, your secret key is never sent to our servers. It remains strictly in your browser's local environment."
+        "text": "Yes. Because Cipherly is a 100% client-side tool, your secret key is never sent to our servers or stored anywhere. All cryptographic operations occur strictly within your browser's local environment, protecting your keys from network interception."
       }
     }, {
       "@type": "Question",
       "name": "Which hash algorithm should I use with HMAC?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "HMAC-SHA256 is the industry standard for most web APIs and provides an excellent balance of security and performance."
+        "text": "HMAC-SHA256 is currently the industry standard for most web APIs and authentication protocols. It provides an excellent balance of security and performance. For extremely high-security requirements, HMAC-SHA512 is also supported."
       }
     }]
   };

@@ -5,26 +5,40 @@ const RsaToolWrapper = dynamic(() => import('@/components/tools/rsa/RsaToolWrapp
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cipherlyapp.com"),
-  title: "Free Online RSA Key Generator - 2048/4096 bit | Cipherly",
-  description: "Generate secure RSA public and private key pairs online. Browser-based generation with no data transmitted. Download keys locally.",
-  keywords: ["rsa key generator online", "generate rsa keys online", "rsa public private key pair", "free rsa tool"],
+  title: "Free RSA Key Generator & Encryption Tool | Cipherly",
+  description: "Generate secure RSA public and private key pairs online. Professional 2048-bit and 4096-bit key generation. 100% browser-based security with no data transmitted.",
+  keywords: ["rsa key generator online", "generate rsa keys online", "rsa public private key pair", "free rsa tool", "asymmetric encryption online"],
   openGraph: {
-    title: "Free Online RSA Key Generator - 2048/4096 bit | Cipherly",
-    description: "Generate secure RSA public and private key pairs online. Browser-based generation with no data transmitted.",
+    title: "Free RSA Key Generator & Encryption Tool | Cipherly",
+    description: "Generate secure RSA public and private key pairs online. Professional 2048-bit and 4096-bit key generation.",
     type: "website",
     url: "https://cipherlyapp.com/tools/rsa-key-generator",
     images: "/og-image.png",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Online RSA Key Generator - 2048/4096 bit | Cipherly",
-    description: "Generate secure RSA public and private key pairs online. 100% browser-based.",
+    title: "Cipherly | Free RSA Key Generator Online",
+    description: "Generate 2048/4096-bit RSA keys securely in your browser. Private keys never leave your device.",
     images: "/og-image.png",
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/rsa-key-generator" },
 };
 
 export default function RsaPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cipherly RSA Key Generator",
+    "description": "Generate secure RSA public and private key pairs locally in your browser.",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -33,27 +47,31 @@ export default function RsaPage() {
       "name": "Should I use 2048-bit or 4096-bit RSA keys?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "2048-bit keys are currently the standard and offer great security for most use cases. 4096-bit keys provide even higher security but are slower to process. Both are supported by Cipherly."
+        "text": "2048-bit keys are currently the industry standard and offer robust security for most modern use cases, providing a good balance between security and performance. 4096-bit keys provide even higher security margins and are recommended for long-term data protection or extremely high-security environments, though they are significantly slower to process. Both lengths are fully supported by Cipherly's local generation tool."
       }
     }, {
       "@type": "Question",
       "name": "Where are my RSA keys generated?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Your keys are generated locally in your browser's memory. They are never sent to our servers, and we do not have a copy of your private key."
+        "text": "Your RSA keys are generated entirely locally within your browser's memory using the native Web Crypto API. Unlike server-side generators, your private key is never transmitted over the network and is never seen by our servers. This zero-knowledge approach ensures that you are the sole owner of the generated cryptographic material."
       }
     }, {
       "@type": "Question",
-      "name": "Can I use these RSA keys for SSH?",
+      "name": "Can I use these RSA keys for SSH or SSL?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, you can use the generated keys for SSH authentication, though you may need to format them into OpenSSH format depending on your specific client requirements."
+        "text": "Yes, you can use the generated keys for various purposes including SSH authentication, SSL/TLS certificates, and secure email (S/MIME). However, please note that you may need to convert the output into specific formats like OpenSSH or PEM depending on the requirements of your target application or server configuration."
       }
     }]
   };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
@@ -74,12 +92,18 @@ export default function RsaPage() {
           <section className="mt-20 max-w-4xl mx-auto prose prose-emerald dark:prose-invert">
             <h2>What is an RSA Key Generator?</h2>
             <p>
-              RSA (Rivest-Shamir-Adleman) is a widely used asymmetric cryptographic algorithm that relies on a pair of keys: a public key for encryption and a private key for decryption. Our RSA key generator online allows you to create these essential pairs in common lengths like 2048-bit or 4096-bit. Asymmetric encryption is a cornerstone of digital signatures and secure communication protocols like SSH and HTTPS. The security of RSA is based on the mathematical difficulty of factoring large prime numbers, making it a robust choice for establishing secure connections.
+              RSA (Rivest-Shamir-Adleman) is a widely used asymmetric cryptographic algorithm that relies on a pair of keys: a public key for encryption and a private key for decryption. Our RSA key generator online allows you to create these essential pairs in common lengths like 2048-bit or 4096-bit. Asymmetric encryption is a cornerstone of digital signatures and secure communication protocols like SSH and HTTPS. The security of RSA is based on the mathematical difficulty of factoring large prime numbers, making it a robust choice for establishing secure connections. 
+            </p>
+            <p>
+              When you generate an RSA key pair, the two keys are mathematically linked. The public key can be shared with anyone and is used to encrypt data or verify a signature. The private key, however, must be kept secret and is used to decrypt data encrypted with the corresponding public key or to create digital signatures. This dual-key system solves the problem of secure key exchange, as you don't need to share a secret password with the other party to establish a secure line of communication. By using a browser-native tool like Cipherly, you eliminate the risk of a third party intercepting your private key during the generation process, as the entire computation happens on your local machine.
             </p>
             
             <h2>When should you use RSA Key Pairs?</h2>
             <p>
               RSA key pairs are vital when you need to receive encrypted data from someone else without sharing a secret password beforehand. You provide your public key to the sender, and they use it to encrypt a message that only your private key can unlock. This client-side RSA tool is also used for creating digital signatures to prove the authenticity of a document or software. For maximum security, always use at least a 2048-bit key length. At Cipherly, we prioritize your security by generating these keys entirely within your browser's environment, ensuring your private key never leaves your device.
+            </p>
+            <p>
+              Common use cases for RSA include securing web traffic via SSL/TLS, where RSA is often used for the initial handshake and key exchange. It is also the standard for SSH (Secure Shell) authentication, allowing developers to log into remote servers without passwords by placing their public key on the server. Furthermore, RSA is used in secure email systems and for signing software packages to ensure they haven't been tampered with. In modern cryptography, RSA is often used in combination with symmetric algorithms like AES; RSA handles the secure exchange of a temporary AES key, which is then used for the high-speed encryption of the actual data. This "hybrid" approach combines the key-distribution benefits of RSA with the performance of AES.
             </p>
           </section>
         </div>

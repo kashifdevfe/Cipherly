@@ -40,7 +40,7 @@ export default function Hero() {
         <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.1]">
           Free Online <br />
           <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-400 to-teal-500 animate-pulse">
-            Encryption Tools
+            Encryption & Cryptography Tools
           </span>
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mt-8 leading-relaxed font-medium">

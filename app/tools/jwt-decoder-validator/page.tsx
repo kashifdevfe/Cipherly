@@ -5,26 +5,40 @@ const JwtTabs = dynamic(() => import('@/components/tools/jwt/JwtTabs'));
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cipherlyapp.com"),
-  title: "Free Online JWT Decoder and Validator Tool | Cipherly",
-  description: "Decode and validate JSON Web Tokens (JWT) online. No data stored. Inspect headers, payloads, and verify signatures in your browser.",
-  keywords: ["jwt decoder online", "jwt validator online", "decode jwt online", "jwt debugger free"],
+  title: "Professional JWT Decoder & Validator Online | Cipherly",
+  description: "Decode and validate JSON Web Tokens (JWT) online instantly. Inspect headers and payloads locally. 100% browser-based with no data stored.",
+  keywords: ["jwt decoder online", "jwt validator online", "decode jwt online", "jwt debugger free", "json web token debugger"],
   openGraph: {
-    title: "Free Online JWT Decoder and Validator Tool | Cipherly",
-    description: "Decode and validate JSON Web Tokens (JWT) online. No data stored.",
+    title: "Professional JWT Decoder & Validator Online | Cipherly",
+    description: "Decode and validate JSON Web Tokens (JWT) online. No data stored. Inspect headers and payloads locally.",
     type: "website",
     url: "https://cipherlyapp.com/tools/jwt-decoder-validator",
     images: "/og-image.png",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Online JWT Decoder and Validator Tool | Cipherly",
-    description: "Decode and validate JSON Web Tokens (JWT) online. 100% browser-based.",
+    title: "Cipherly | Private JWT Decoder & Debugger",
+    description: "Inspect and validate JWT tokens securely in your browser. Authentication tokens never leave your device.",
     images: "/og-image.png",
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/jwt-decoder-validator" },
 };
 
 export default function JwtPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cipherly JWT Decoder",
+    "description": "Decode and validate JSON Web Tokens locally in your browser.",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -33,21 +47,21 @@ export default function JwtPage() {
       "name": "Is it safe to decode a JWT online?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most online decoders send your token to their server, which is a security risk. Cipherly's JWT decoder is 100% browser-based, meaning your authentication token never leaves your device."
+        "text": "Most online decoders send your token to their server, which is a major security risk as these tokens often contain sensitive session data. Cipherly's JWT decoder is 100% browser-based, meaning your authentication token never leaves your device and is processed entirely in local memory."
       }
     }, {
       "@type": "Question",
       "name": "Can Cipherly verify JWT signatures?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, our tool can verify signatures for algorithms like HS256 and RS256 if you provide the secret key or public certificate, all processed locally."
+        "text": "Yes, our tool can verify signatures for standard algorithms like HS256 and RS256. If you provide the secret key or public certificate, the verification is performed locally using standard cryptographic libraries, ensuring the integrity of the token."
       }
     }, {
       "@type": "Question",
       "name": "Does this tool store my JWT tokens?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. We do not store any token data. Once you close the tab, all decoded information is cleared from your browser's temporary memory."
+        "text": "No. We do not store any token data. Our application follows a zero-knowledge architecture. Once you close the browser tab or refresh the page, all decoded information is cleared from your browser's temporary memory."
       }
     }]
   };

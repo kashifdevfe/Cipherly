@@ -7,26 +7,40 @@ const DecryptPanel = dynamic(() => import('@/components/AesDecryptPanel'));
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cipherlyapp.com"),
-  title: "Free Online AES Encryption and Decryption Tool | Cipherly",
-  description: "Encrypt and decrypt text using AES-256 online. Browser-based security with no data stored. Secure your messages instantly.",
-  keywords: ["aes encryption online", "aes-256 tool free", "encrypt text aes online", "aes decryption tool"],
+  title: "Secure AES-256 Encryption & Decryption Online | Cipherly",
+  description: "Encrypt and decrypt text using AES-256 online. Professional-grade security with 100% browser-based processing. No data stored or transmitted.",
+  keywords: ["aes encryption online", "aes-256 tool free", "encrypt text aes online", "aes decryption tool", "secure messaging online"],
   openGraph: {
-    title: "Free Online AES Encryption and Decryption Tool | Cipherly",
-    description: "Encrypt and decrypt text using AES-256 online. Browser-based security with no data stored.",
+    title: "Secure AES-256 Encryption & Decryption Online | Cipherly",
+    description: "Encrypt and decrypt text using AES-256 online. Professional-grade security with 100% browser-based processing.",
     type: "website",
     url: "https://cipherlyapp.com/tools/aes-encryption-decryption",
     images: "/og-image.png",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Online AES Encryption and Decryption Tool | Cipherly",
-    description: "Encrypt and decrypt text using AES-256 online. Browser-based security with no data stored.",
+    title: "Cipherly | Secure AES-256 Text Encryption",
+    description: "Encrypt your sensitive messages with military-grade AES-256 directly in your browser. Private and secure.",
     images: "/og-image.png",
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/aes-encryption-decryption" },
 };
 
 export default function AesPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cipherly AES Encryption Tool",
+    "description": "Encrypt and decrypt text using AES-256 locally in your browser.",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
