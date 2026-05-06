@@ -5,7 +5,7 @@ import ToolDirectory from '@/components/ToolDirectory';
 import Hero from '@/components/Hero';
 
 export const metadata: Metadata = {
-  title: "Professional Cyber Security Toolkit | AES, RSA, JWT & Bcrypt Online",
+  title: "AES-256 Encryption Online — Free Browser Crypto Tools | Cipherly",
   description: "The ultimate all-in-one security toolkit. Securely encrypt text with AES-256, generate RSA keys, debug JWT tokens, and hash passwords with Bcrypt. 100% private, browser-native cryptographic tools.",
   keywords: [
     "cyber security toolkit", "aes encryption online", "rsa key generator", 
@@ -13,6 +13,13 @@ export const metadata: Metadata = {
     "base64 hmac generator", "web crypto api tools", "private encryption",
     "secure text tools", "developer security tools", "all-in-one crypto tool"
   ],
+  openGraph: {
+    title: "AES-256 Encryption Online — Free Browser Crypto Tools | Cipherly",
+  },
+  twitter: {
+    title: "AES-256 Encryption Online | Cipherly",
+    description: "Free AES-256, RSA, JWT, Bcrypt, MD5 & Base64 tools. 100% browser-native. Your data never leaves your device.",
+  }
 };
 
 export const dynamic = 'force-static';

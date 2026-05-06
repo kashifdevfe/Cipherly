@@ -20,6 +20,14 @@ export const metadata: Metadata = {
     title: "Free Base64 Encode & Decode Online + HMAC SHA-256 Generator",
     description: "Convert text/files to Base64 and generate HMAC signatures for API security.",
     type: "website",
+    siteName: "Cipherly",
+    images: [{ url: "https://cipherlyapp.com/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Base64 Encode & Decode Online + HMAC SHA-256 Generator",
+    description: "Encode or decode Base64 and generate HMAC-SHA256 signatures for API authentication. 100% client-side.",
+    images: ["https://cipherlyapp.com/og-image.png"],
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/base64-encode-decode" },
 };

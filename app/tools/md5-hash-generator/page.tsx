@@ -15,9 +15,17 @@ export const metadata: Metadata = {
     "md5 sha256 sha512 online", "cryptographic hash tool", "checksum verifier online"
   ],
   openGraph: {
-    title: "Free MD5 Hash Generator, SHA-256, SHA-512 Online",
+    title: "Free MD5 Hash Generator & SHA-256 Online Tool | Verify Checksums",
     description: "Secure hash generator for text and files. Supports MD5, SHA-1, SHA-256, and SHA-512. 100% private.",
     type: "website",
+    siteName: "Cipherly",
+    images: [{ url: "https://cipherlyapp.com/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free MD5 Hash Generator & SHA-256 Online Tool | Verify Checksums",
+    description: "Generate MD5, SHA-1, SHA-256, SHA-512 hashes for text or files. Verify checksums. 100% client-side.",
+    images: ["https://cipherlyapp.com/og-image.png"],
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/md5-hash-generator" },
 };

@@ -17,6 +17,14 @@ export const metadata: Metadata = {
     title: "Free Bcrypt Hash Generator & Password Verifier Online",
     description: "Secure bcrypt password hashing tool. Adjust cost factors and verify existing hashes 100% locally.",
     type: "website",
+    siteName: "Cipherly",
+    images: [{ url: "https://cipherlyapp.com/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Bcrypt Hash Generator & Password Verifier Online",
+    description: "Hash passwords with bcrypt and verify existing hashes. Adjust cost factor 4–14. 100% client-side.",
+    images: ["https://cipherlyapp.com/og-image.png"],
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/bcrypt-hash-generator" },
 };

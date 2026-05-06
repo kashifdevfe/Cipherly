@@ -14,9 +14,17 @@ export const metadata: Metadata = {
     "json web token tool", "jwt decode without secret", "jwt debug online"
   ],
   openGraph: {
-    title: "Free JWT Decoder, Generator & Validator Online",
+    title: "Free JWT Decoder, Generator & Validator Online | HS256, RS256, PS256",
     description: "The ultimate tool for JWT developers. Decode payloads, generate signed tokens, and validate signatures.",
     type: "website",
+    siteName: "Cipherly",
+    images: [{ url: "https://cipherlyapp.com/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free JWT Decoder, Generator & Validator Online | HS256, RS256, PS256",
+    description: "Decode JWT payloads, generate signed tokens (HS256/RS256), validate signatures. No token sent anywhere.",
+    images: ["https://cipherlyapp.com/og-image.png"],
   },
   alternates: { canonical: "https://cipherlyapp.com/tools/jwt-decoder" },
 };
