@@ -17,6 +17,7 @@ export const viewport: Viewport = {
   themeColor: "#00FF9C",
   width: "device-width",
   initialScale: 1,
+  colorScheme: 'dark light',
 };
 
 export const metadata: Metadata = {
@@ -35,6 +36,10 @@ export const metadata: Metadata = {
   creator: "Cipherly",
   publisher: "Cipherly",
   manifest: "/manifest.json",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Cipherly | Military-Grade Text Encryption Online",
     description: "Private, secure, and browser-native encryption tools. AES, RSA, JWT, and more.",

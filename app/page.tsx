@@ -41,12 +41,57 @@ export default function Page() {
       "100% Browser-Native Privacy"
     ]
   };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How secure is Cipherly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cipherly uses the industry-standard Web Crypto API. All operations occur in your device's memory. No data is sent to our servers, ever."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which encryption mode is best?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For general text, AES-GCM is highly recommended. It provides both confidentiality and integrity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between Hashing and Encryption?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Encryption is two-way (can be decrypted with a key). Hashing is one-way."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Cipherly offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once the site is loaded, all tools work offline as they rely solely on your browser's processing power."
+        }
+      }
+    ]
+  };
   
   return (
     <>
       <script
+        id="web-app-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       
       <div className="container mx-auto px-4 py-12 md:py-20">
@@ -67,16 +112,16 @@ export default function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 not-prose">
             {[
               {
-                q: "Is Cipherly safe for production data?",
-                a: "Yes. Cipherly uses the browser's native Web Crypto API. All operations occur in your device's memory. No data is sent to our servers, ever."
+                q: "How secure is Cipherly?",
+                a: "Cipherly uses the industry-standard Web Crypto API. All operations occur in your device's memory. No data is sent to our servers, ever."
               },
               {
                 q: "Which encryption mode is best?",
-                a: "For general text, AES-GCM is highly recommended. It provides both confidentiality and integrity, making it the industry standard."
+                a: "For general text, AES-GCM is highly recommended. It provides both confidentiality and integrity."
               },
               {
                 q: "What is the difference between Hashing and Encryption?",
-                a: "Encryption is two-way (can be decrypted with a key). Hashing is one-way (cannot be reversed), making it ideal for passwords."
+                a: "Encryption is two-way (can be decrypted with a key). Hashing is one-way."
               },
               {
                 q: "Can I use Cipherly offline?",

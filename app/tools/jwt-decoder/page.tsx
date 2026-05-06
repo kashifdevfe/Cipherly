@@ -22,7 +22,20 @@ export const metadata: Metadata = {
 };
 
 export default function JwtPage() {
-  const jsonLd = {
+  const softwareAppJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "JWT Decoder & Debugger",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
+  const webAppJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "JWT Decoder & Debugger",
@@ -43,8 +56,14 @@ export default function JwtPage() {
   return (
     <div className="container mx-auto px-4 py-12 space-y-12">
       <script
+        id="software-app-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }}
+      />
+      <script
+        id="web-app-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
       />
 
       <div className="text-center space-y-4 max-w-3xl mx-auto">
