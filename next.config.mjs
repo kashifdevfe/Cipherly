@@ -55,6 +55,25 @@ const nextConfig = {
       },
     ];
   },
+
+  // Redirects
+  async redirects() {
+    return [
+      // Redirect www to non-www
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.cipherlyapp.com' }],
+        destination: 'https://cipherlyapp.com/:path*',
+        permanent: true,
+      },
+      // Redirect legacy AES path to the current tool path
+      {
+        source: '/tools/aes-encryption',
+        destination: '/tools/aes-encryption-decryption',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

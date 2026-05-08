@@ -7,11 +7,11 @@ const DecryptPanel = dynamic(() => import('@/components/AesDecryptPanel'));
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cipherlyapp.com"),
-  title: "Secure AES-256 Encryption & Decryption Online | Cipherly",
+  title: "Secure AES-256 Encryption & Decryption Online",
   description: "Encrypt and decrypt text using AES-256 online. Professional-grade security with 100% browser-based processing. No data stored or transmitted.",
   keywords: ["aes encryption online", "aes-256 tool free", "encrypt text aes online", "aes decryption tool", "secure messaging online"],
   openGraph: {
-    title: "Secure AES-256 Encryption & Decryption Online | Cipherly",
+    title: "Secure AES-256 Encryption & Decryption Online",
     description: "Encrypt and decrypt text using AES-256 online. Professional-grade security with 100% browser-based processing.",
     type: "website",
     url: "https://cipherlyapp.com/tools/aes-encryption-decryption",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cipherly | Secure AES-256 Text Encryption",
+    title: "Secure AES-256 Encryption & Decryption Online",
     description: "Encrypt your sensitive messages with military-grade AES-256 directly in your browser. Private and secure.",
     images: "/og-image.png",
   },

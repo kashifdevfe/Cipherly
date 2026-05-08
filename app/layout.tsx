@@ -22,10 +22,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cipherlyapp.com"),
-  title: {
-    default: "Cipherly | Professional Online Cryptography & Security Tools",
-    template: "%s | Cipherly",
-  },
+  title: "Cipherly | Professional Online Cryptography & Security Tools",
   description: "Free, browser-native cryptographic toolkit. Securely use AES-256, RSA, JWT, and Bcrypt online. 100% private, zero-knowledge security for developers and users.",
   keywords: [
     "free online encryption tools", "aes encryption online", "rsa key generator online", 
@@ -38,12 +35,11 @@ export const metadata: Metadata = {
   publisher: "Cipherly",
   manifest: "/manifest.json",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.svg",
     apple: "/apple-touch-icon.png",
   },
   verification: {
     google: "G6H4q-VjE8_hY7b8e-P9uI6y5t4r3e2w1q0", // User can replace with actual tag
-    yandex: "yandex-verification-code",
   },
   openGraph: {
     title: "Cipherly | Military-Grade Text Encryption Online",
@@ -90,7 +86,7 @@ export default function RootLayout({
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9460915138481579"
           crossOrigin="anonymous"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
       </head>
       <body className={`${inter.variable} ${inter.className} antialiased min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300`}>
