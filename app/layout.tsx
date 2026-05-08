@@ -81,6 +81,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head suppressHydrationWarning>
+        <meta name="google-adsense-account" content="ca-pub-9460915138481579" />
         {/* Google AdSense */}
         <Script
           async
