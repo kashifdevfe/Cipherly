@@ -3,6 +3,7 @@ import ClientPage from '@/components/ClientPage';
 import TrustBadges from '@/components/TrustBadges';
 import ToolDirectory from '@/components/ToolDirectory';
 import Hero from '@/components/Hero';
+import AdUnit from '@/components/AdUnit';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cipherlyapp.com"),
@@ -117,12 +118,15 @@ export default function Page() {
         <ClientPage />
 
         <div className="mt-40">
+          <AdUnit slot="1234567890" format="horizontal" />
           <TrustBadges />
         </div>
 
         <div className="mt-40">
           <ToolDirectory />
         </div>
+
+        <AdUnit slot="1234567891" format="horizontal" />
 
         <section className="mt-40 max-w-4xl mx-auto prose prose-emerald">
           <h2 className="text-3xl font-black tracking-tight text-center mb-12 uppercase text-primary">Frequently Asked Questions</h2>

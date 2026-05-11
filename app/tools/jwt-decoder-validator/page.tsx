@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import AdUnit from '@/components/AdUnit';
 
 const JwtTabs = dynamic(() => import('@/components/tools/jwt/JwtTabs'));
 
@@ -84,6 +85,8 @@ export default function JwtPage() {
           <div className="glass rounded-[2.5rem] p-6 md:p-10">
             <JwtTabs />
           </div>
+
+          <AdUnit slot="3456789012" format="horizontal" />
 
           <section className="mt-20 max-w-4xl mx-auto prose prose-emerald dark:prose-invert">
             <h2>What is a JWT Decoder?</h2>

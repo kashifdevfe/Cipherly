@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Lock } from 'lucide-react';
+import AdUnit from '@/components/AdUnit';
 
 const EncryptPanel = dynamic(() => import('@/components/AesEncryptPanel'));
 const DecryptPanel = dynamic(() => import('@/components/AesDecryptPanel'));
@@ -105,6 +106,8 @@ export default function AesPage() {
               <DecryptPanel />
             </div>
           </div>
+
+          <AdUnit slot="2345678901" format="horizontal" />
 
           {/* Educational Content Section */}
           <section className="mt-20 max-w-4xl mx-auto prose prose-emerald dark:prose-invert">

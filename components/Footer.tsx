@@ -50,7 +50,8 @@ export default function Footer() {
 
         <div className="border-t border-border/50 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-sm font-medium text-muted-foreground">
           <p>© {currentYear} Cipherly Security. All rights reserved.</p>
-          <div className="flex gap-8 font-bold uppercase tracking-tighter text-[10px]">
+          <div className="flex gap-8 font-bold uppercase tracking-tighter text-[10px] flex-wrap justify-center">
+            <Link href="/about" className="hover:text-primary transition-colors">About</Link>
             <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
             <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
             <Link href="/cookies" className="hover:text-primary transition-colors">Cookie Policy</Link>
