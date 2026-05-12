@@ -76,6 +76,14 @@ export default function Page() {
       },
       {
         "@type": "Question",
+        "name": "Is it safe to use an online encryption tool?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, when you use a zero-knowledge tool like Cipherly! Our online encryption tool for developers processes everything in your browser, so your data never leaves your device. This makes it completely safe and private."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "Which encryption mode is best?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -96,6 +104,14 @@ export default function Page() {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes. Once the site is loaded, all tools work offline as they rely solely on your browser's processing power."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you store my data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely not! We are a zero knowledge encryption tool. No data is stored on our servers. Everything happens locally in your browser memory."
         }
       }
     ]
@@ -152,7 +168,7 @@ export default function Page() {
                   </div>
                   <h3 className="mt-6 text-xl font-semibold text-foreground">Zero-knowledge security</h3>
                   <p className="mt-3 text-muted-foreground leading-relaxed">
-                    AES, RSA, JWT, Bcrypt and HMAC are all calculated locally. No raw input is transmitted to our infrastructure, which preserves the true meaning of private cryptography.
+                    AES, RSA, JWT, Bcrypt and HMAC are all calculated locally using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline">Web Crypto API</a>. No raw input is transmitted to our infrastructure, which preserves the true meaning of private cryptography. This makes Cipherly an online encryption tool for developers with no data stored.
                   </p>
                 </div>
 
@@ -201,6 +217,10 @@ export default function Page() {
                 a: "Cipherly uses the industry-standard Web Crypto API. All operations occur in your device's memory. No data is sent to our servers, ever."
               },
               {
+                q: "Is it safe to use an online encryption tool?",
+                a: "Yes, when you use a zero-knowledge tool like Cipherly! Our online encryption tool for developers processes everything in your browser, so your data never leaves your device. This makes it completely safe and private."
+              },
+              {
                 q: "Which encryption mode is best?",
                 a: "For general text, AES-GCM is highly recommended. It provides both confidentiality and integrity."
               },
@@ -211,6 +231,10 @@ export default function Page() {
               {
                 q: "Can I use Cipherly offline?",
                 a: "Yes. Once the site is loaded, all tools work offline as they rely solely on your browser's processing power."
+              },
+              {
+                q: "Do you store my data?",
+                a: "Absolutely not! We are a zero knowledge encryption tool. No data is stored on our servers. Everything happens locally in your browser memory."
               }
             ].map((faq, i) => (
               <div key={i} className="space-y-3">

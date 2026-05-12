@@ -39,7 +39,8 @@ export default function BlogPost() {
             <p>
               The "military-grade" label comes from its adoption by the U.S. National Security Agency (NSA) 
               and the U.S. Department of Defense for protecting classified information. This isn't marketing—
-              it's backed by decades of cryptanalysis and has never been successfully broken.
+              it's backed by decades of cryptanalysis and has never been successfully broken. AES is standardized by 
+              <a href="https://csrc.nist.gov/publications/detail/fips/197/final" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline"> NIST FIPS 197</a>, the official cryptographic standard.
             </p>
           </section>
 

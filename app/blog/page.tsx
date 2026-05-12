@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 
 export default function BlogLanding() {
   const articles = [
+    { title: "How to Use AES Encryption for Beginners: Step-by-Step Guide", slug: "how-to-use-aes-encryption-for-beginners", cat: "Tutorial" },
     { title: "How AES-256 Encryption Works: A Plain English Guide", slug: "aes-256-encryption-works-guide", cat: "Informational" },
     { title: "AES vs RSA: Which Encryption Algorithm Should You Choose?", slug: "aes-vs-rsa-comparison", cat: "Comparison" },
     { title: "The Ultimate Guide to RSA Key Pairs for Beginners", slug: "rsa-key-pairs-beginners-guide", cat: "Informational" },

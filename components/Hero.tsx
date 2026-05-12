@@ -30,9 +30,11 @@ export default function Hero() {
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mt-8 leading-relaxed font-medium">
           Professional-grade cryptographic tools directly in your browser. 
-          Encrypt text with <span className="text-primary font-bold">AES-256</span>, 
-          generate <span className="text-primary font-bold">RSA</span> keys, 
-          or verify <span className="text-primary font-bold">JWT</span> tokens instantly.
+          Encrypt and decrypt text with <span className="text-primary font-bold">AES-256</span>, 
+          generate <span className="text-primary font-bold">RSA</span> key pairs, 
+          verify <span className="text-primary font-bold">JWT</span> tokens, 
+          and more - all 100% client-side. Perfect for developers who need 
+          a free browser-based encryption toolkit with zero data storage.
         </p>
       </div>
 
