@@ -4,7 +4,6 @@ import { useState, useCallback, useMemo } from 'react';
 import { Copy, Check, AlertTriangle, Fingerprint, Zap } from 'lucide-react';
 import { generateHash } from '@/lib/hash-crypto';
 import AlgorithmTabs, { HashAlgo } from './AlgorithmTabs';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function HashGeneratorPanel() {
   const [text, setText] = useState('');
@@ -81,33 +80,27 @@ export default function HashGeneratorPanel() {
         </div>
       )}
 
-      <AnimatePresence>
-        {result && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="space-y-4"
-          >
-            <div className="flex items-center justify-between">
-              <label className="text-sm font-semibold">Computed {algorithm} Hash</label>
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] px-2 py-0.5 bg-secondary border border-border rounded-full text-muted-foreground">
-                  {result.length} chars / {result.length * 4}-bit
-                </span>
-                <button
-                  onClick={handleCopy}
-                  className="p-1.5 hover:bg-secondary rounded-lg transition-colors"
-                >
-                  {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
-                </button>
-              </div>
+      {result && (
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <label className="text-sm font-semibold">Computed {algorithm} Hash</label>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] px-2 py-0.5 bg-secondary border border-border rounded-full text-muted-foreground">
+                {result.length} chars / {result.length * 4}-bit
+              </span>
+              <button
+                onClick={handleCopy}
+                className="p-1.5 hover:bg-secondary rounded-lg transition-colors"
+              >
+                {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
+              </button>
             </div>
-            <div className="w-full p-4 bg-secondary/50 border border-border rounded-2xl font-mono text-sm break-all text-primary select-all">
-              {result}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+          <div className="w-full p-4 bg-secondary/50 border border-border rounded-2xl font-mono text-sm break-all text-primary select-all">
+            {result}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -6,7 +6,6 @@ import CipherModeSelector from './CipherModeSelector';
 import KeyInput from './KeyInput';
 import IvInput from './IvInput';
 import { AesMode, FormatType, KeySize, decryptAes, bytesToString } from '@/lib/aes-crypto';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function AesDecryptPanel() {
   const [ciphertext, setCiphertext] = useState('');
@@ -187,19 +186,12 @@ export default function AesDecryptPanel() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {error && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 text-sm text-center font-medium flex items-center justify-center gap-2"
-          >
-            <AlertCircle className="w-4 h-4" />
-            {error}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {error && (
+        <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 text-sm text-center font-medium flex items-center justify-center gap-2">
+          <AlertCircle className="w-4 h-4" />
+          {error}
+        </div>
+      )}
 
       <div className="space-y-4 pt-4 border-t border-border/50">
         <div className="flex items-center justify-between">

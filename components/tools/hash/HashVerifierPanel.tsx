@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { CheckCircle2, XCircle, Search } from 'lucide-react';
 import { generateHash } from '@/lib/hash-crypto';
 import AlgorithmTabs, { HashAlgo } from './AlgorithmTabs';
-import { motion } from 'framer-motion';
 
 export default function HashVerifierPanel() {
   const [text, setText] = useState('');
@@ -56,14 +55,11 @@ export default function HashVerifierPanel() {
       </div>
 
       {result && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className={`p-6 rounded-3xl border text-center space-y-4 ${
-            result.match 
-              ? 'bg-green-500/10 border-green-500/20 text-green-500' 
-              : 'bg-red-500/10 border-red-500/20 text-red-500'
-          }`}
+        <div className={`p-6 rounded-3xl border text-center space-y-4 ${
+          result.match 
+            ? 'bg-green-500/10 border-green-500/20 text-green-500' 
+            : 'bg-red-500/10 border-red-500/20 text-red-500'
+        }`}
         >
           <div className="flex flex-col items-center gap-2">
             {result.match ? (
@@ -82,7 +78,7 @@ export default function HashVerifierPanel() {
             <p className="text-[10px] uppercase font-bold text-muted-foreground">Computed Hash:</p>
             <p className="font-mono text-xs break-all">{result.computed}</p>
           </div>
-        </motion.div>
+        </div>
       )}
     </div>
   );

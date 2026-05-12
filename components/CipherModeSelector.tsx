@@ -1,7 +1,6 @@
 'use client';
 
 import { AesMode } from '@/lib/aes-crypto';
-import { motion } from 'framer-motion';
 
 interface CipherModeSelectorProps {
   value: AesMode;

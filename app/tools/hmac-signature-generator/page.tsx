@@ -1,5 +1,10 @@
 import { Metadata } from 'next';
+import Script from 'next/script';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { ShieldCheck, Key, Lock, Sparkles } from 'lucide-react';
+
+import ToolOverview from '@/components/ToolOverview';
 
 const Base64HmacWrapper = dynamic(() => import('@/components/tools/encode/Base64HmacWrapper'));
 
@@ -68,9 +73,17 @@ export default function HmacPage() {
 
   return (
     <>
-      <script
+      <Script
+        id="hmac-faq-jsonld"
         type="application/ld+json"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <Script
+        id="hmac-jsonld"
+        type="application/ld+json"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-7xl mx-auto space-y-12">
@@ -85,17 +98,45 @@ export default function HmacPage() {
             <Base64HmacWrapper defaultTab="hmac" />
           </div>
 
-          <section className="mt-20 max-w-4xl mx-auto prose prose-emerald dark:prose-invert">
+          <ToolOverview
+            heading="Why HMAC should be generated locally"
+            tagline="Create and verify HMAC signatures in the browser so shared secrets remain private."
+            cards={[
+              {
+                title: 'Authenticated integrity',
+                description: 'HMAC proves both message integrity and authenticity using a secret key.',
+                icon: ShieldCheck,
+              },
+              {
+                title: 'Secret key privacy',
+                description: 'Your HMAC key never leaves the browser, keeping API signature secrets safe.',
+                icon: Key,
+              },
+              {
+                title: 'Protocol-ready',
+                description: 'Use HMAC for secure API requests, webhooks, and integrity checks.',
+                icon: Lock,
+              },
+              {
+                title: 'Client-side verification',
+                description: 'Verify signatures locally without sending data to a remote service.',
+                icon: Sparkles,
+              },
+            ]}
+          >
             <h2>What is an HMAC Generator?</h2>
             <p>
               Hash-based Message Authentication Code (HMAC) is a specific type of message authentication code (MAC) involving a cryptographic hash function and a secret cryptographic key. An HMAC generator online allows you to verify both the data integrity and the authenticity of a message simultaneously. By using a secret key, HMACs ensure that a message cannot be modified by an attacker without the key, making them more secure against certain types of attacks than simple hashing. It is a fundamental component of secure API authentication and webhooks.
             </p>
-            
+
             <h2>When should you use HMAC?</h2>
             <p>
               HMACs are widely used in protocols like IPsec, SSH, and for securing communication with APIs (such as Amazon Web Services or Stripe). You should use this free online tool to generate or verify signatures when testing your API integrations or implementing secure messaging. It supports algorithms like HMAC-SHA256 and HMAC-SHA512 for maximum compatibility. To ensure your secret keys remain secret, Cipherly never sends your key or message to a server. Everything is calculated locally using the Web Crypto API, maintaining a zero-knowledge environment for your most sensitive cryptographic keys.
             </p>
-          </section>
+            <p>
+              HMAC is often paired with hashing tools for key derivation and token signing. If you want to verify message integrity before applying an HMAC, try our <Link href="/tools/online-hash-generator" className="font-semibold text-primary hover:underline">hash generator</Link>. For secure token workflows, use HMAC signatures with the <Link href="/tools/jwt-decoder-validator" className="font-semibold text-primary hover:underline">JWT debugger</Link>.
+            </p>
+          </ToolOverview>
         </div>
       </div>
     </>

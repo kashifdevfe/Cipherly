@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { ShieldCheck, ShieldAlert, Key, RefreshCw, Copy, Check, Zap } from 'lucide-react';
 import { generateHmac, verifyHmac } from '@/lib/encode-tools';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function HmacPanel() {
   const [message, setMessage] = useState('');
@@ -143,29 +142,24 @@ export default function HmacPanel() {
             Verify Signature
           </button>
           
-          <AnimatePresence>
-            {verificationResult !== null && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className={`flex items-center justify-center gap-2 p-3 rounded-xl border font-bold text-xs ${
-                  verificationResult ? 'bg-green-500/10 border-green-500/20 text-green-500' : 'bg-red-500/10 border-red-500/20 text-red-500'
-                }`}
-              >
-                {verificationResult ? (
-                  <>
-                    <ShieldCheck className="w-4 h-4" />
-                    SIGNATURE VALID
-                  </>
-                ) : (
-                  <>
-                    <ShieldAlert className="w-4 h-4" />
-                    SIGNATURE INVALID
-                  </>
-                )}
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {verificationResult !== null && (
+            <div className={`flex items-center justify-center gap-2 p-3 rounded-xl border font-bold text-xs ${
+              verificationResult ? 'bg-green-500/10 border-green-500/20 text-green-500' : 'bg-red-500/10 border-red-500/20 text-red-500'
+            }`}
+            >
+              {verificationResult ? (
+                <>
+                  <ShieldCheck className="w-4 h-4" />
+                  SIGNATURE VALID
+                </>
+              ) : (
+                <>
+                  <ShieldAlert className="w-4 h-4" />
+                  SIGNATURE INVALID
+                </>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

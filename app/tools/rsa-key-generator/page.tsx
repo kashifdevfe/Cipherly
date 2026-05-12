@@ -1,5 +1,10 @@
 import { Metadata } from 'next';
+import Script from 'next/script';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { Key, ShieldCheck, Fingerprint, Sparkles } from 'lucide-react';
+
+import ToolOverview from '@/components/ToolOverview';
 
 const RsaToolWrapper = dynamic(() => import('@/components/tools/rsa/RsaToolWrapper'));
 
@@ -68,12 +73,16 @@ export default function RsaPage() {
 
   return (
     <>
-      <script
+      <Script
+        id="rsa-jsonld"
         type="application/ld+json"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <script
+      <Script
+        id="rsa-faq-jsonld"
         type="application/ld+json"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <div className="container mx-auto px-4 py-12">
@@ -89,15 +98,40 @@ export default function RsaPage() {
             <RsaToolWrapper />
           </div>
 
-          <section className="mt-20 max-w-4xl mx-auto prose prose-emerald dark:prose-invert">
+          <ToolOverview
+            heading="Why this RSA key generator is safer locally"
+            tagline="Generate RSA key pairs directly in your browser so your private key never leaves your device."
+            cards={[
+              {
+                title: 'Local key generation',
+                description: 'Your RSA key pair is created entirely in browser memory, eliminating server-side key exposure.',
+                icon: Key,
+              },
+              {
+                title: 'Zero-knowledge privacy',
+                description: 'The private key never leaves your machine, so you retain full control of your secrets.',
+                icon: ShieldCheck,
+              },
+              {
+                title: 'Trusted use cases',
+                description: 'Use generated keys for SSH, TLS, and digital signatures with confidence.',
+                icon: Fingerprint,
+              },
+              {
+                title: 'Browser-native process',
+                description: 'The Web Crypto API handles the math securely without uploading anything to a backend.',
+                icon: Sparkles,
+              },
+            ]}
+          >
             <h2>What is an RSA Key Generator?</h2>
             <p>
-              RSA (Rivest-Shamir-Adleman) is a widely used asymmetric cryptographic algorithm that relies on a pair of keys: a public key for encryption and a private key for decryption. Our RSA key generator online allows you to create these essential pairs in common lengths like 2048-bit or 4096-bit. Asymmetric encryption is a cornerstone of digital signatures and secure communication protocols like SSH and HTTPS. The security of RSA is based on the mathematical difficulty of factoring large prime numbers, making it a robust choice for establishing secure connections. 
+              RSA (Rivest-Shamir-Adleman) is a widely used asymmetric cryptographic algorithm that relies on a pair of keys: a public key for encryption and a private key for decryption. Our RSA key generator online allows you to create these essential pairs in common lengths like 2048-bit or 4096-bit. Asymmetric encryption is a cornerstone of digital signatures and secure communication protocols like SSH and HTTPS. The security of RSA is based on the mathematical difficulty of factoring large prime numbers, making it a robust choice for establishing secure connections.
             </p>
             <p>
               When you generate an RSA key pair, the two keys are mathematically linked. The public key can be shared with anyone and is used to encrypt data or verify a signature. The private key, however, must be kept secret and is used to decrypt data encrypted with the corresponding public key or to create digital signatures. This dual-key system solves the problem of secure key exchange, as you don't need to share a secret password with the other party to establish a secure line of communication. By using a browser-native tool like Cipherly, you eliminate the risk of a third party intercepting your private key during the generation process, as the entire computation happens on your local machine.
             </p>
-            
+
             <h2>When should you use RSA Key Pairs?</h2>
             <p>
               RSA key pairs are vital when you need to receive encrypted data from someone else without sharing a secret password beforehand. You provide your public key to the sender, and they use it to encrypt a message that only your private key can unlock. This client-side RSA tool is also used for creating digital signatures to prove the authenticity of a document or software. For maximum security, always use at least a 2048-bit key length. At Cipherly, we prioritize your security by generating these keys entirely within your browser's environment, ensuring your private key never leaves your device.
@@ -105,7 +139,10 @@ export default function RsaPage() {
             <p>
               Common use cases for RSA include securing web traffic via SSL/TLS, where RSA is often used for the initial handshake and key exchange. It is also the standard for SSH (Secure Shell) authentication, allowing developers to log into remote servers without passwords by placing their public key on the server. Furthermore, RSA is used in secure email systems and for signing software packages to ensure they haven't been tampered with. In modern cryptography, RSA is often used in combination with symmetric algorithms like AES; RSA handles the secure exchange of a temporary AES key, which is then used for the high-speed encryption of the actual data. This "hybrid" approach combines the key-distribution benefits of RSA with the performance of AES.
             </p>
-          </section>
+            <p>
+              If you are working with encrypted payloads, pair RSA key generation with our <Link href="/tools/aes-encryption-decryption" className="font-semibold text-primary hover:underline">AES encrypt/decrypt tool</Link> or with the <Link href="/tools/jwt-decoder-validator" className="font-semibold text-primary hover:underline">JWT debugger</Link> for secure token workflows.
+            </p>
+          </ToolOverview>
         </div>
       </div>
     </>

@@ -86,25 +86,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+    <html lang="en" suppressHydrationWarning className="scroll-smooth" data-scroll-behavior="smooth">
       <head suppressHydrationWarning>
         <meta name="google-adsense-account" content="ca-pub-9460915138481579" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         {/* Google AdSense */}
-        <Script
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9460915138481579"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        ></script>
       </head>
-      <body className={`${inter.variable} ${inter.className} antialiased min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300`}>
+      <body className={`${inter.variable} ${inter.className} antialiased min-h-screen flex flex-col bg-background text-foreground`}>
+        <a href="#main-content" className="sr-only focus:not-sr-only">Skip to content</a>
         {/* Google Analytics */}
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-G73VRWBBHL"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -117,7 +118,7 @@ export default function RootLayout({
 
         <ThemeProvider>
           <Header />
-          <main className="flex-grow">
+          <main id="main-content" className="flex-grow">
             {children}
           </main>
           <Footer />

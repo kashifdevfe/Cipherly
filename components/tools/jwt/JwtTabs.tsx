@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { Eye, PlusCircle, ShieldCheck } from 'lucide-react';
 
@@ -31,11 +30,7 @@ export default function JwtTabs() {
               }`}
             >
               {activeTab === tab.id && (
-                <motion.div
-                  layoutId="active-jwt-tab"
-                  className="absolute inset-0 bg-primary rounded-xl shadow-lg shadow-primary/20"
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                />
+                <div className="absolute inset-0 bg-primary rounded-xl shadow-lg shadow-primary/20" />
               )}
               <tab.icon className={`relative z-10 w-4 h-4 ${activeTab === tab.id ? 'text-primary-foreground' : ''}`} />
 
@@ -45,43 +40,11 @@ export default function JwtTabs() {
         </div>
       </div>
 
-      <motion.div
-        layout
-        className="glass rounded-3xl p-6 md:p-8 min-h-[500px]"
-      >
-        <AnimatePresence mode="wait">
-          {activeTab === 'decode' && (
-            <motion.div
-              key="decode"
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 10 }}
-            >
-              <JwtDecoder />
-            </motion.div>
-          )}
-          {activeTab === 'generate' && (
-            <motion.div
-              key="generate"
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 10 }}
-            >
-              <JwtGenerator />
-            </motion.div>
-          )}
-          {activeTab === 'validate' && (
-            <motion.div
-              key="validate"
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 10 }}
-            >
-              <JwtValidator />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
+      <div className="glass rounded-3xl p-6 md:p-8 min-h-[500px]">
+        {activeTab === 'decode' && <JwtDecoder />}
+        {activeTab === 'generate' && <JwtGenerator />}
+        {activeTab === 'validate' && <JwtValidator />}
+      </div>
     </div>
   );
 }

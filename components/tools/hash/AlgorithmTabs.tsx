@@ -1,7 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
 export type HashAlgo = 'MD5' | 'SHA-1' | 'SHA-256' | 'SHA-512';
 
 interface AlgorithmTabsProps {
@@ -24,11 +22,7 @@ export default function AlgorithmTabs({ value, onChange }: AlgorithmTabsProps) {
             }`}
           >
             {value === algo && (
-              <motion.div
-                layoutId="active-hash-tab"
-                className="absolute inset-0 bg-primary rounded-lg shadow-sm"
-                transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-              />
+              <div className="absolute inset-0 bg-primary rounded-lg shadow-sm" />
             )}
             <span className="relative z-10">{algo}</span>
           </button>

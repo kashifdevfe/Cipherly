@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Upload, FileText, Loader2, Copy, Check, Info } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function FileToBase64() {
   const [file, setFile] = useState<File | null>(null);
@@ -71,38 +70,32 @@ export default function FileToBase64() {
         </button>
       </div>
 
-      <AnimatePresence>
-        {result && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="space-y-3"
-          >
-            <div className="flex items-center justify-between">
-              <label className="text-[10px] font-bold uppercase text-muted-foreground">Base64 String</label>
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText(result);
-                  setCopied(true);
-                  setTimeout(() => setCopied(false), 2000);
-                }}
-                className="p-1.5 hover:bg-secondary rounded-lg transition-colors"
-              >
-                {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
-              </button>
-            </div>
-            <textarea
-              readOnly
-              value={result}
-              className="w-full h-32 bg-secondary/50 border border-border rounded-xl p-4 font-mono text-[10px] resize-none focus:outline-none opacity-80"
-            />
-            <div className="flex gap-2 p-3 rounded-xl bg-secondary/30 border border-border text-[10px] text-muted-foreground">
-              <Info className="w-4 h-4 shrink-0 text-primary" />
-              <p>Base64 increases file size by approximately 33.3% compared to binary format.</p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {result && (
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <label className="text-[10px] font-bold uppercase text-muted-foreground">Base64 String</label>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(result);
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+              }}
+              className="p-1.5 hover:bg-secondary rounded-lg transition-colors"
+            >
+              {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
+            </button>
+          </div>
+          <textarea
+            readOnly
+            value={result}
+            className="w-full h-32 bg-secondary/50 border border-border rounded-xl p-4 font-mono text-[10px] resize-none focus:outline-none opacity-80"
+          />
+          <div className="flex gap-2 p-3 rounded-xl bg-secondary/30 border border-border text-[10px] text-muted-foreground">
+            <Info className="w-4 h-4 shrink-0 text-primary" />
+            <p>Base64 increases file size by approximately 33.3% compared to binary format.</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

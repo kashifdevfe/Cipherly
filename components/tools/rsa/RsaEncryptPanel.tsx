@@ -4,7 +4,6 @@ import { useState, useCallback } from 'react';
 import { Lock, Loader2, Copy, Check, Trash2, ShieldCheck, AlertCircle, HelpCircle } from 'lucide-react';
 import { RsaPadding, encryptRsa } from '@/lib/rsa-crypto';
 import PaddingSelector from './PaddingSelector';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function RsaEncryptPanel() {
   const [text, setText] = useState('');
@@ -101,18 +100,11 @@ export default function RsaEncryptPanel() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {error && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 text-xs text-center font-medium"
-          >
-            {error}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {error && (
+        <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 text-xs text-center font-medium">
+          {error}
+        </div>
+      )}
 
       <div className="space-y-4">
         <div className="flex items-center justify-between">

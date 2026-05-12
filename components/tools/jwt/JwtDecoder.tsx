@@ -5,7 +5,6 @@ import { ShieldCheck, AlertCircle, Clock } from 'lucide-react';
 import { base64urlDecode, isTokenExpired } from '@/lib/jwt-tools';
 import JsonViewer from './JsonViewer';
 import ClaimBadge from './ClaimBadge';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function JwtDecoder() {
   const [token, setToken] = useState('');
@@ -50,25 +49,15 @@ export default function JwtDecoder() {
         />
       </div>
 
-      <AnimatePresence>
-        {error && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 text-xs flex items-center gap-2"
-          >
-            <AlertCircle className="w-4 h-4" />
-            {error}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {error && (
+        <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 text-xs flex items-center gap-2">
+          <AlertCircle className="w-4 h-4" />
+          {error}
+        </div>
+      )}
 
       {decoded && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="space-y-8"
-        >
+        <div className="space-y-8">
           <div className="flex flex-wrap gap-3">
             <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full border text-[10px] font-bold uppercase ${
               expired ? 'bg-red-500/10 border-red-500/20 text-red-500' : 'bg-green-500/10 border-green-500/20 text-green-500'
@@ -102,7 +91,7 @@ export default function JwtDecoder() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       )}
     </div>
   );

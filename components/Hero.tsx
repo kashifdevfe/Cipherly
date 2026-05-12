@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { ShieldCheck, Lock, Zap } from 'lucide-react';
 import Logo from './Logo';
 
@@ -11,32 +10,18 @@ export default function Hero() {
       <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/15 blur-[120px] rounded-full -z-10" />
 
       {/* Hero Logo */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.6 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="flex justify-center mb-2"
-      >
+      <div className="flex justify-center mb-2">
         <div className="relative group">
           <Logo size={100} className="relative transition-transform group-hover:scale-105" />
         </div>
-      </motion.div>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.15 }}
-        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest"
-      >
+      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
         <ShieldCheck className="w-4 h-4" />
         Zero-Knowledge Architecture
-      </motion.div>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-      >
+      <div>
         <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.1]">
           Free Online <br />
           <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-400 to-teal-500 animate-pulse">
@@ -49,14 +34,9 @@ export default function Hero() {
           generate <span className="text-primary font-bold">RSA</span> keys, 
           or verify <span className="text-primary font-bold">JWT</span> tokens instantly.
         </p>
-      </motion.div>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="flex flex-wrap items-center justify-center gap-6 pt-4"
-      >
+      <div className="flex flex-wrap items-center justify-center gap-6 pt-4">
         <div className="flex items-center gap-2 text-sm font-semibold text-muted-foreground">
           <Zap className="w-4 h-4 text-primary" />
           Fast & Local
@@ -65,7 +45,7 @@ export default function Hero() {
           <Lock className="w-4 h-4 text-primary" />
           No Data Storage
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Upload, File, Loader2, Copy, Check, Info } from 'lucide-react';
 import { generateFileHash } from '@/lib/hash-crypto';
 import AlgorithmTabs, { HashAlgo } from './AlgorithmTabs';
-import { motion } from 'framer-motion';
 
 export default function FileHashPanel() {
   const [file, setFile] = useState<File | null>(null);
@@ -80,11 +79,7 @@ export default function FileHashPanel() {
       </div>
 
       {result && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="space-y-3"
-        >
+        <div className="space-y-3">
           <div className="flex items-center justify-between">
             <label className="text-xs font-bold uppercase text-muted-foreground">File Checksum ({algorithm})</label>
             <button
@@ -101,7 +96,7 @@ export default function FileHashPanel() {
           <div className="w-full p-4 bg-secondary/50 border border-border rounded-2xl font-mono text-sm break-all">
             {result}
           </div>
-        </motion.div>
+        </div>
       )}
     </div>
   );

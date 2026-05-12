@@ -66,15 +66,15 @@ html.light {
 }
 
 @layer base {
-  * {
+  *, *::before, *::after {
     @apply border-border;
+    transition: none !important;
+    animation: none !important;
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    transition-property: color, background-color;
-    transition-duration: 250ms;
     overflow-x: hidden;
   }
 
@@ -103,17 +103,15 @@ html.light {
 
 /* ─── Glass card ─── */
 .glass {
-  background-color: color-mix(in srgb, var(--color-card) 80%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: color-mix(in srgb, var(--color-card) 92%, transparent);
   border: 1px solid color-mix(in srgb, var(--color-primary) 15%, transparent);
-  box-shadow: 0 20px 40px -12px rgb(0 0 0 / 0.35);
+  box-shadow: 0 10px 18px -12px rgb(0 0 0 / 0.24);
 }
 
 html.light .glass {
-  background-color: color-mix(in srgb, var(--color-card) 95%, transparent);
+  background-color: color-mix(in srgb, var(--color-card) 98%, transparent);
   border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
-  box-shadow: 0 8px 24px -4px rgb(0 0 0 / 0.08);
+  box-shadow: 0 6px 16px -6px rgb(0 0 0 / 0.12);
 }
 
 /* ─── Background radial gradient ─── */
@@ -125,9 +123,8 @@ html.light .glass {
 
 /* ─── Premium button ─── */
 .premium-btn {
-  @apply relative overflow-hidden transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-primary/30;
+  @apply relative overflow-hidden shadow-lg;
   color: var(--color-primary-foreground) !important;
-  will-change: transform;
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
@@ -135,12 +132,7 @@ html.light .glass {
 
 .premium-btn::after {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full;
-  transition: transform 0.6s ease;
-}
-
-.premium-btn:hover::after {
-  transform: translateX(100%);
+  @apply absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0;
 }
 
 /* ─── Custom scrollbar ─── */

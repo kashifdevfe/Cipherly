@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Lock, Unlock, BookOpen } from 'lucide-react';
 
 interface Tab {
@@ -35,11 +34,7 @@ export default function TabSwitcher({ activeTab, onChange }: TabSwitcherProps) {
               }`}
             >
               {isActive && (
-                <motion.div
-                  layoutId="active-tab"
-                  className="absolute inset-0 bg-primary rounded-xl shadow-lg shadow-primary/20"
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                />
+                <div className="absolute inset-0 bg-primary rounded-xl shadow-lg shadow-primary/20" />
               )}
               <tab.icon className={`relative z-10 w-4 h-4 ${isActive ? 'text-primary-foreground' : ''}`} />
 

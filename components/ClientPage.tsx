@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { Lock, Key, Eye, Fingerprint, ShieldCheck, ArrowLeftRight, BookOpen } from 'lucide-react';
 import HowItWorks from './HowItWorks';

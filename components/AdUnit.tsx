@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface AdUnitProps {
   slot: string;
@@ -10,9 +10,14 @@ interface AdUnitProps {
 }
 
 export default function AdUnit({ slot, format = 'auto', responsive = true, style }: AdUnitProps) {
+  const adLoadedRef = useRef(false);
+
   useEffect(() => {
+    if (adLoadedRef.current) return;
+
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
+      adLoadedRef.current = true;
     } catch (err) {
       console.warn('AdSense error:', err);
     }

@@ -1,0 +1,1 @@
+Cipherly is a browser-native cryptography toolkit with AES, RSA, JWT, Bcrypt, HMAC, Base64, and hashing utilities. All calculations occur client-side for privacy and zero-knowledge security.

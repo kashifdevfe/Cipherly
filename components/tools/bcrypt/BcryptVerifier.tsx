@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { Search, Eye, EyeOff, Loader2, CheckCircle2, XCircle } from 'lucide-react';
 import { verifyBcryptHash } from '@/lib/bcrypt-hash';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function BcryptVerifier() {
   const [password, setPassword] = useState('');
@@ -69,35 +68,30 @@ export default function BcryptVerifier() {
         </button>
       </div>
 
-      <AnimatePresence>
-        {result !== null && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className={`p-6 rounded-3xl border text-center space-y-4 ${
-              result 
-                ? 'bg-green-500/10 border-green-500/20 text-green-500' 
-                : 'bg-red-500/10 border-red-500/20 text-red-500'
-            }`}
-          >
-            <div className="flex flex-col items-center gap-2">
-              {result ? (
-                <>
-                  <CheckCircle2 className="w-12 h-12" />
-                  <span className="text-2xl font-black">MATCH FOUND</span>
-                  <p className="text-xs opacity-80">The provided password matches the bcrypt hash.</p>
-                </>
-              ) : (
-                <>
-                  <XCircle className="w-12 h-12" />
-                  <span className="text-2xl font-black">NO MATCH</span>
-                  <p className="text-xs opacity-80">The password does not match the provided hash.</p>
-                </>
-              )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {result !== null && (
+        <div className={`p-6 rounded-3xl border text-center space-y-4 ${
+          result 
+            ? 'bg-green-500/10 border-green-500/20 text-green-500' 
+            : 'bg-red-500/10 border-red-500/20 text-red-500'
+        }`}
+        >
+          <div className="flex flex-col items-center gap-2">
+            {result ? (
+              <>
+                <CheckCircle2 className="w-12 h-12" />
+                <span className="text-2xl font-black">MATCH FOUND</span>
+                <p className="text-xs opacity-80">The provided password matches the bcrypt hash.</p>
+              </>
+            ) : (
+              <>
+                <XCircle className="w-12 h-12" />
+                <span className="text-2xl font-black">NO MATCH</span>
+                <p className="text-xs opacity-80">The password does not match the provided hash.</p>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

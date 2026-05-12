@@ -1,5 +1,10 @@
 import { Metadata } from 'next';
+import Script from 'next/script';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { FileText, Eye, Link as LinkIcon, Sparkles } from 'lucide-react';
+
+import ToolOverview from '@/components/ToolOverview';
 
 const Base64HmacWrapper = dynamic(() => import('@/components/tools/encode/Base64HmacWrapper'));
 
@@ -68,9 +73,17 @@ export default function Base64Page() {
 
   return (
     <>
-      <script
+      <Script
+        id="base64-faq-jsonld"
         type="application/ld+json"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <Script
+        id="base64-jsonld"
+        type="application/ld+json"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-7xl mx-auto space-y-12">
@@ -85,17 +98,45 @@ export default function Base64Page() {
             <Base64HmacWrapper />
           </div>
 
-          <section className="mt-20 max-w-4xl mx-auto prose prose-emerald dark:prose-invert">
+          <ToolOverview
+            heading="Why Base64 belongs in a local browser tool"
+            tagline="Encode and decode text or files without uploading sensitive data to a server."
+            cards={[
+              {
+                title: 'Client-side conversion',
+                description: 'All Base64 transforms happen in your browser, so your data never leaves the session.',
+                icon: FileText,
+              },
+              {
+                title: 'Quick file support',
+                description: 'Convert images and documents instantly without waiting for an upload.',
+                icon: Eye,
+              },
+              {
+                title: 'Safe transport prep',
+                description: 'Base64 is ideal for embedding data in JSON, HTML, and email payloads.',
+                icon: LinkIcon,
+              },
+              {
+                title: 'Developer-friendly',
+                description: 'Test and debug encoding workflows directly in the browser.',
+                icon: Sparkles,
+              },
+            ]}
+          >
             <h2>What is a Base64 Encoder?</h2>
             <p>
               Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. Our Base64 encoder and decoder online tool allows you to convert plain text or file data into a string of 64 printable characters. While not a form of encryption (as it is easily reversible), Base64 is essential for transmitting data over media that are designed to deal with textual data, such as embedding images in HTML or CSS or sending attachments in email. It ensures that the data remains intact during transport without modification.
             </p>
-            
+
             <h2>When should you use Base64 Encoding?</h2>
             <p>
               Base64 encoding is frequently used by developers to handle data in JSON payloads, URLs, or data URIs. If you need to convert a small image into a string to use directly in your code, or if you need to decode a Base64-encoded string from an API response, this fast browser-based tool is the perfect solution. It is also helpful for basic data obfuscation during development. As with all our tools, Cipherly processes your data locally. Whether you are encoding or decoding, your information is processed entirely in your browser, ensuring no data transmitted to external servers.
             </p>
-          </section>
+            <p>
+              Base64 is often used alongside other tools like the <Link href="/tools/jwt-decoder-validator" className="font-semibold text-primary hover:underline">JWT decoder</Link> when working with token payloads or the <Link href="/tools/aes-encryption-decryption" className="font-semibold text-primary hover:underline">AES encryption tool</Link> when embedding encrypted data in text-based formats.
+            </p>
+          </ToolOverview>
         </div>
       </div>
     </>

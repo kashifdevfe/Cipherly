@@ -1,6 +1,10 @@
 import { Metadata } from 'next';
+import Script from 'next/script';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { Eye, ShieldCheck, Key, Sparkles } from 'lucide-react';
 import AdUnit from '@/components/AdUnit';
+import ToolOverview from '@/components/ToolOverview';
 
 const JwtTabs = dynamic(() => import('@/components/tools/jwt/JwtTabs'));
 
@@ -69,9 +73,17 @@ export default function JwtPage() {
 
   return (
     <>
-      <script
+      <Script
+        id="jwt-faq-jsonld"
         type="application/ld+json"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <Script
+        id="jwt-jsonld"
+        type="application/ld+json"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-7xl mx-auto space-y-12">
@@ -88,17 +100,45 @@ export default function JwtPage() {
 
           <AdUnit slot="3456789012" format="horizontal" />
 
-          <section className="mt-20 max-w-4xl mx-auto prose prose-emerald dark:prose-invert">
+          <ToolOverview
+            heading="Why JWT debugging belongs in-browser"
+            tagline="Inspect and validate tokens locally so sensitive claims and secrets are never exposed."
+            cards={[
+              {
+                title: 'Token visibility',
+                description: 'Decode JWT headers and payloads instantly without sending tokens to a server.',
+                icon: Eye,
+              },
+              {
+                title: 'Signature validation',
+                description: 'Verify JWT signatures locally for safe authentication debugging.',
+                icon: ShieldCheck,
+              },
+              {
+                title: 'Claim inspection',
+                description: 'See expiration, audience, and custom claims clearly to troubleshoot auth issues.',
+                icon: Key,
+              },
+              {
+                title: 'Private token flow',
+                description: 'Your JWT remains in browser memory, protecting session and identity data.',
+                icon: Sparkles,
+              },
+            ]}
+          >
             <h2>What is a JWT Decoder?</h2>
             <p>
               A JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. A JWT decoder online allows developers to inspect the header, payload, and signature of a token to verify its contents and expiration. Tokens are typically used for authentication and information exchange in modern web applications. Understanding the claims inside a token is essential for debugging authorization issues and ensuring that your API integration is functioning correctly.
             </p>
-            
+
             <h2>When should you use a JWT Debugger?</h2>
             <p>
               Developers use a JWT debugger tool during the development and testing of applications that use OAuth2 or OIDC for authentication. If your application is rejecting a token or if you need to verify that a token contains the correct user permissions, this browser-based tool provides an instant view of the encoded data. Unlike other debuggers that send your sensitive tokens to a backend for decoding, Cipherly processes the JWT entirely in your local memory. This ensures that no data stored on our servers, keeping your authentication tokens private and secure throughout your debugging session.
             </p>
-          </section>
+            <p>
+              JWTs are often signed or encrypted within secure API workflows. For example, use our <Link href="/tools/hmac-signature-generator" className="font-semibold text-primary hover:underline">HMAC generator</Link> to verify token signatures or the <Link href="/tools/rsa-key-generator" className="font-semibold text-primary hover:underline">RSA key generator</Link> for RS256 signature verification and key exchange.
+            </p>
+          </ToolOverview>
         </div>
       </div>
     </>

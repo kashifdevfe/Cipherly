@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { RefreshCw, Copy, Check, ShieldAlert } from 'lucide-react';
 import { generateRsaKeyPair } from '@/lib/rsa-crypto';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function RsaKeyGenerator() {
   const [keySize, setKeySize] = useState<512 | 1024 | 2048 | 4096>(2048);

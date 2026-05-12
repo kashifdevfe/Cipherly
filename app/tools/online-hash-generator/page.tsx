@@ -1,5 +1,10 @@
 import { Metadata } from 'next';
+import Script from 'next/script';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { Hash, ShieldCheck, Cpu, Sparkles } from 'lucide-react';
+
+import ToolOverview from '@/components/ToolOverview';
 
 const HashToolWrapper = dynamic(() => import('@/components/tools/hash/HashToolWrapper'));
 
@@ -68,12 +73,16 @@ export default function HashPage() {
 
   return (
     <>
-      <script
+      <Script
+        id="hash-jsonld"
         type="application/ld+json"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <script
+      <Script
+        id="hash-faq-jsonld"
         type="application/ld+json"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <div className="container mx-auto px-4 py-12">
@@ -89,7 +98,32 @@ export default function HashPage() {
             <HashToolWrapper />
           </div>
 
-          <section className="mt-20 max-w-4xl mx-auto prose prose-emerald dark:prose-invert">
+          <ToolOverview
+            heading="Why local hashing matters"
+            tagline="Generate file and text hashes in-browser for speedy integrity checks and safe verification."
+            cards={[
+              {
+                title: 'One-way fingerprints',
+                description: 'Hashes provide irreversible checksums that prove content integrity without exposing raw data.',
+                icon: Hash,
+              },
+              {
+                title: 'Local verification',
+                description: 'Compare file checksums in your browser without uploading the file to an external service.',
+                icon: ShieldCheck,
+              },
+              {
+                title: 'Fast processing',
+                description: 'Your device computes hashes directly with native browser APIs for near-instant results.',
+                icon: Cpu,
+              },
+              {
+                title: 'Multiple algorithms',
+                description: 'Choose MD5, SHA-1, SHA-256, or SHA-512 depending on compatibility or security needs.',
+                icon: Sparkles,
+              },
+            ]}
+          >
             <h2>What is a Cryptographic Hash Generator?</h2>
             <p>
               A cryptographic hash function is a mathematical algorithm that maps data of arbitrary size to a bit string of a fixed size, known as a hash or checksum. This all-in-one hash generator online supports multiple algorithms including MD5, SHA-1, SHA-256, and SHA-512. Hashing is a one-way process, meaning it is computationally infeasible to reverse the hash back to the original input. This makes it a perfect tool for verifying data integrity and ensuring that a file or message has not been altered during transmission.
@@ -97,7 +131,7 @@ export default function HashPage() {
             <p>
               Unlike encryption, which is designed to be reversible with a key, hashing is intended to be a permanent transformation. A single character change in the input data will result in a completely different hash output (this is known as the avalanche effect). This property makes hashing indispensable in modern computing. For example, when you download a large software file, the developer often provides a SHA-256 hash. By hashing the file on your local machine and comparing it to the developer's hash, you can be 100% certain that the file you received is identical to the original and has not been corrupted or maliciously modified.
             </p>
-            
+
             <h2>When should you use a Hashing Tool?</h2>
             <p>
               Hashing is commonly used for checksum verification, digital signatures, and storing password representations (though specialized password hashes like Bcrypt are preferred for the latter). You can use this free online tool to generate a SHA-256 hash for a downloaded file to verify its authenticity against the developer's provided hash. It is also useful for creating unique identifiers for data blocks in a database. At Cipherly, we provide a no sign up required experience where all hashing is performed via the native Web Crypto API in your browser, guaranteeing that your input data never touches our infrastructure.
@@ -105,7 +139,10 @@ export default function HashPage() {
             <p>
               Another critical use case for hashing is in blockchain technology and git version control, where hashes are used to link blocks of data together. Security professionals also use hashes to index and identify malware samples without having to share the actual malicious code. When choosing an algorithm, SHA-256 is currently the recommended standard for most security applications due to its high resistance to collision attacks. Older algorithms like MD5 and SHA-1 are still used for legacy support and non-security checksums, but should be avoided for protecting sensitive information. Cipherly provides a fast, multi-algorithm interface that handles even large files efficiently by streaming them directly into the hashing engine within your browser.
             </p>
-          </section>
+            <p>
+              For private password workflows, combine this with our <Link href="/tools/bcrypt-hash-generator" className="font-semibold text-primary hover:underline">Bcrypt hash generator</Link>. For token or API workflows, use hashing together with our <Link href="/tools/hmac-signature-generator" className="font-semibold text-primary hover:underline">HMAC signature tool</Link> to create authenticated digests.
+            </p>
+          </ToolOverview>
         </div>
       </div>
     </>

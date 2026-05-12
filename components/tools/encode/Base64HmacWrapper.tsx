@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { ArrowLeftRight, ShieldCheck, FileCode } from 'lucide-react';
 
@@ -31,11 +30,7 @@ export default function Base64HmacWrapper({ defaultTab = 'base64' }: { defaultTa
               }`}
             >
               {activeTab === tab.id && (
-                <motion.div
-                  layoutId="active-encode-tab"
-                  className="absolute inset-0 bg-primary rounded-xl shadow-lg shadow-primary/20"
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                />
+                <div className="absolute inset-0 bg-primary rounded-xl shadow-lg shadow-primary/20" />
               )}
               <tab.icon className={`relative z-10 w-4 h-4 ${activeTab === tab.id ? 'text-white' : ''}`} />
               <span className="relative z-10">{tab.label}</span>
@@ -44,43 +39,11 @@ export default function Base64HmacWrapper({ defaultTab = 'base64' }: { defaultTa
         </div>
       </div>
 
-      <motion.div
-        layout
-        className="glass rounded-3xl p-6 md:p-8 min-h-[400px]"
-      >
-        <AnimatePresence mode="wait">
-          {activeTab === 'base64' && (
-            <motion.div
-              key="base64"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-            >
-              <Base64Panel />
-            </motion.div>
-          )}
-          {activeTab === 'file' && (
-            <motion.div
-              key="file"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-            >
-              <FileToBase64 />
-            </motion.div>
-          )}
-          {activeTab === 'hmac' && (
-            <motion.div
-              key="hmac"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-            >
-              <HmacPanel />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
+      <div className="glass rounded-3xl p-6 md:p-8 min-h-[400px]">
+        {activeTab === 'base64' && <Base64Panel />}
+        {activeTab === 'file' && <FileToBase64 />}
+        {activeTab === 'hmac' && <HmacPanel />}
+      </div>
     </div>
   );
 }

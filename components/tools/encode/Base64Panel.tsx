@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { Copy, Check, Trash2, AlertTriangle, ArrowDownUp } from 'lucide-react';
 import { base64Encode, base64Decode } from '@/lib/encode-tools';
-import { motion } from 'framer-motion';
 
 export default function Base64Panel() {
   const [inputText, setInputText] = useState('');

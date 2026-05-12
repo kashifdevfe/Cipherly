@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { Lock, Key, Fingerprint, Eye, ArrowLeftRight, ShieldCheck } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const tools = [
   {
@@ -70,14 +69,11 @@ export default function ToolDirectory() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {tools.map((tool, i) => (
+        {tools.map((tool) => (
           <Link key={tool.href} href={tool.href} className="group">
-            <motion.div
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="glass p-8 rounded-[2rem] border border-border hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 h-full flex flex-col gap-6"
-            >
+            <div className="glass p-8 rounded-[2rem] border border-border hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 h-full flex flex-col gap-6">
               <div className="flex items-center justify-between">
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${tool.color} group-hover:scale-110 transition-transform duration-300 shadow-inner`}>
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${tool.color} shadow-inner`}>
                   <tool.icon className="w-7 h-7" />
                 </div>
                 {tool.badge && (
@@ -88,17 +84,17 @@ export default function ToolDirectory() {
               </div>
               
               <div className="space-y-3">
-                <h3 className="font-bold text-2xl tracking-tight">{tool.title}</h3>
+                <h2 className="font-bold text-2xl tracking-tight">{tool.title}</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed font-medium line-clamp-2">
                   {tool.desc}
                 </p>
               </div>
 
-              <div className="mt-auto pt-4 flex items-center gap-2 text-xs font-black text-primary group-hover:gap-4 transition-all">
+              <div className="mt-auto pt-4 flex items-center gap-2 text-xs font-black text-primary">
                 OPEN TOOL
-                <span className="w-6 h-[2px] bg-primary group-hover:w-10 transition-all" />
+                <span className="w-6 h-[2px] bg-primary" />
               </div>
-            </motion.div>
+            </div>
           </Link>
         ))}
       </div>

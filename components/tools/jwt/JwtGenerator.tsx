@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { Zap, Copy, Check, Plus, Trash2, RefreshCw } from 'lucide-react';
 import { signJwt } from '@/lib/jwt-tools';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function JwtGenerator() {
   const [algorithm, setAlgorithm] = useState('HS256');
@@ -144,11 +143,7 @@ export default function JwtGenerator() {
       </div>
 
       {result && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="space-y-4"
-        >
+        <div className="space-y-4">
           <div className="flex items-center justify-between">
             <label className="text-sm font-semibold">Generated Token</label>
             <button
@@ -165,7 +160,7 @@ export default function JwtGenerator() {
           <div className="w-full p-4 bg-secondary/50 border border-border rounded-2xl font-mono text-xs break-all text-primary select-all">
             {result}
           </div>
-        </motion.div>
+        </div>
       )}
     </div>
   );

@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { ShieldCheck, ShieldAlert, Loader2, Search } from 'lucide-react';
 import { verifyJwt, isTokenExpired, base64urlDecode } from '@/lib/jwt-tools';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function JwtValidator() {
   const [token, setToken] = useState('');
@@ -70,62 +69,57 @@ export default function JwtValidator() {
         {isVerifying ? 'Verifying Signature...' : 'Validate JWT Token'}
       </button>
 
-      <AnimatePresence>
-        {result && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className={`p-8 rounded-3xl border ${
-              result.valid && !result.expired
-                ? 'bg-green-500/10 border-green-500/20 text-green-500'
-                : 'bg-red-500/10 border-red-500/20 text-red-500'
-            }`}
-          >
-            <div className="flex flex-col items-center text-center gap-4">
-              {result.valid && !result.expired ? (
-                <>
-                  <ShieldCheck className="w-16 h-16" />
-                  <div>
-                    <h3 className="text-2xl font-black">VALID TOKEN</h3>
-                    <p className="text-xs font-medium opacity-80">Signature is authentic and token is not expired.</p>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <ShieldAlert className="w-16 h-16" />
-                  <div>
-                    <h3 className="text-2xl font-black">INVALID OR EXPIRED</h3>
-                    <p className="text-xs font-medium opacity-80">
-                      {result.error || (!result.valid ? 'Signature verification failed.' : 'Token has expired.')}
-                    </p>
-                  </div>
-                </>
-              )}
-            </div>
-
-            {result.payload && (
-              <div className="mt-8 pt-8 border-t border-current/10 grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div className="flex flex-col">
-                  <span className="text-[8px] font-bold uppercase opacity-60">Signature</span>
-                  <span className="text-xs font-bold">{result.valid ? 'AUTHENTIC' : 'FAILED'}</span>
+      {result && (
+        <div className={`p-8 rounded-3xl border ${
+          result.valid && !result.expired
+            ? 'bg-green-500/10 border-green-500/20 text-green-500'
+            : 'bg-red-500/10 border-red-500/20 text-red-500'
+        }`}
+        >
+          <div className="flex flex-col items-center text-center gap-4">
+            {result.valid && !result.expired ? (
+              <>
+                <ShieldCheck className="w-16 h-16" />
+                <div>
+                  <h3 className="text-2xl font-black">VALID TOKEN</h3>
+                  <p className="text-xs font-medium opacity-80">Signature is authentic and token is not expired.</p>
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-[8px] font-bold uppercase opacity-60">Expiration</span>
-                  <span className="text-xs font-bold">{result.expired ? 'EXPIRED' : 'ACTIVE'}</span>
+              </>
+            ) : (
+              <>
+                <ShieldAlert className="w-16 h-16" />
+                <div>
+                  <h3 className="text-2xl font-black">INVALID OR EXPIRED</h3>
+                  <p className="text-xs font-medium opacity-80">
+                    {result.error || (!result.valid ? 'Signature verification failed.' : 'Token has expired.')}
+                  </p>
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-[8px] font-bold uppercase opacity-60">Issuer</span>
-                  <span className="text-xs font-bold truncate">{result.payload.iss || 'N/A'}</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[8px] font-bold uppercase opacity-60">Subject</span>
-                  <span className="text-xs font-bold truncate">{result.payload.sub || 'N/A'}</span>
-                </div>
-              </div>
+              </>
             )}
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+
+          {result.payload && (
+            <div className="mt-8 pt-8 border-t border-current/10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="flex flex-col">
+                <span className="text-[8px] font-bold uppercase opacity-60">Signature</span>
+                <span className="text-xs font-bold">{result.valid ? 'AUTHENTIC' : 'FAILED'}</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[8px] font-bold uppercase opacity-60">Expiration</span>
+                <span className="text-xs font-bold">{result.expired ? 'EXPIRED' : 'ACTIVE'}</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[8px] font-bold uppercase opacity-60">Issuer</span>
+                <span className="text-xs font-bold truncate">{result.payload.iss || 'N/A'}</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[8px] font-bold uppercase opacity-60">Subject</span>
+                <span className="text-xs font-bold truncate">{result.payload.sub || 'N/A'}</span>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

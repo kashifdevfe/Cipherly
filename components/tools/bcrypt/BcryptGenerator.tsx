@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Lock, Eye, EyeOff, Loader2, Copy, Check, Info } from 'lucide-react';
 import { generateBcryptHash } from '@/lib/bcrypt-hash';
 import CostFactorSlider from './CostFactorSlider';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function BcryptGenerator() {
   const [password, setPassword] = useState('');
@@ -62,11 +61,7 @@ export default function BcryptGenerator() {
       </div>
 
       {result && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="space-y-4"
-        >
+        <div className="space-y-4">
           <div className="flex items-center justify-between">
             <label className="text-xs font-bold uppercase text-muted-foreground">Bcrypt Hash Result</label>
             <button
@@ -90,7 +85,7 @@ export default function BcryptGenerator() {
               in a different string — this is normal and expected behavior.
             </p>
           </div>
-        </motion.div>
+        </div>
       )}
     </div>
   );

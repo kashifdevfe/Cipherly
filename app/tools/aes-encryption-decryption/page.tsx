@@ -1,7 +1,10 @@
 import { Metadata } from 'next';
+import Script from 'next/script';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { Lock } from 'lucide-react';
+import { Lock, ShieldCheck, Cpu, Sparkles } from 'lucide-react';
 import AdUnit from '@/components/AdUnit';
+import ToolOverview from '@/components/ToolOverview';
 
 const EncryptPanel = dynamic(() => import('@/components/AesEncryptPanel'));
 const DecryptPanel = dynamic(() => import('@/components/AesDecryptPanel'));
@@ -72,9 +75,17 @@ export default function AesPage() {
 
   return (
     <>
-      <script
+      <Script
+        id="aes-faq-jsonld"
         type="application/ld+json"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <Script
+        id="aes-jsonld"
+        type="application/ld+json"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-7xl mx-auto space-y-12">
@@ -110,17 +121,47 @@ export default function AesPage() {
           <AdUnit slot="2345678901" format="horizontal" />
 
           {/* Educational Content Section */}
-          <section className="mt-20 max-w-4xl mx-auto prose prose-emerald dark:prose-invert">
+          <ToolOverview
+            heading="Why AES should run directly in your browser"
+            tagline="Encrypt and decrypt sensitive messages locally using AES-256 so keys remain private."
+            cards={[
+              {
+                title: 'Strong symmetric encryption',
+                description: 'AES-256 is the same standard used by governments and corporations for secure data protection.',
+                icon: Lock,
+              },
+              {
+                title: 'Local key control',
+                description: 'Your AES password and key material never leave the browser session.',
+                icon: ShieldCheck,
+              },
+              {
+                title: 'Modern modes supported',
+                description: 'Use AES-GCM for authenticated encryption or AES-CBC for compatibility when needed.',
+                icon: Cpu,
+              },
+              {
+                title: 'Instant results',
+                description: 'Encrypt and decrypt without round trips to a server for faster, more private workflows.',
+                icon: Sparkles,
+              },
+            ]}
+          >
             <h2>What is AES-256 Encryption?</h2>
             <p>
               Advanced Encryption Standard (AES) with a 256-bit key is the industry-standard algorithm used by governments and security experts worldwide to protect sensitive data. AES-256 is a symmetric-key algorithm, meaning the same secret key is used for both encryption and decryption. This specific implementation provides military-grade security that is currently considered resistant to brute-force attacks by modern supercomputers. Using an AES-256 encryption online tool allows you to transform plain text into unreadable ciphertext, ensuring that only those with the correct password or key can access the original message.
             </p>
-            
+
             <h2>When should you use AES encryption?</h2>
             <p>
-              You should use this free AES encryption tool whenever you need to store or transmit sensitive information over insecure channels. It is ideal for encrypting personal notes, passwords, or configuration files before saving them to cloud storage. Because our tool is browser-based, you don't need to install complex software to achieve high-level privacy. A key best practice is to always use a strong, unique password for the encryption key, as the security of the ciphertext depends entirely on the secrecy of the key. Cipherly ensures your privacy by performing all cryptographic operations locally; no data stored or transmitted to our servers during the process.
+              You should use this free AES encryption tool whenever you need to store or transmit sensitive information over insecure channels. It is ideal for encrypting personal notes, passwords, or configuration files before saving them to cloud storage. Because our tool is browser-based, you don't need to install complex software to achieve high-level privacy. A key best practice is to always use a strong, unique password for the encryption key, as the security of the ciphertext depends entirely on the secrecy of the key. Cipherly ensures your privacy by performing all cryptographic operations locally; no data is stored or transmitted to our servers during the process.
             </p>
-          </section>
+
+            <h2>How AES fits into secure workflows</h2>
+            <p>
+              AES is often used together with other cryptographic tools. For example, use our <Link href="/tools/rsa-key-generator" className="font-semibold text-primary hover:underline">RSA key generator</Link> to safely exchange secret keys, or pair AES encryption with the <Link href="/tools/jwt-decoder-validator" className="font-semibold text-primary hover:underline">JWT validator</Link> when working with secure tokens. If you are encrypting data for storage, choose AES-GCM for authenticated encryption, and use AES-CBC only when compatibility with legacy systems is required.
+            </p>
+          </ToolOverview>
         </div>
       </div>
     </>

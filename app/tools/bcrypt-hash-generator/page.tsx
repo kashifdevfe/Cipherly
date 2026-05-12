@@ -1,5 +1,10 @@
 import { Metadata } from 'next';
+import Script from 'next/script';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { ShieldCheck, Key, Cpu, Sparkles } from 'lucide-react';
+
+import ToolOverview from '@/components/ToolOverview';
 
 const BcryptToolWrapper = dynamic(() => import('@/components/tools/bcrypt/BcryptToolWrapper'));
 
@@ -68,9 +73,17 @@ export default function BcryptPage() {
 
   return (
     <>
-      <script
+      <Script
+        id="bcrypt-faq-jsonld"
         type="application/ld+json"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <Script
+        id="bcrypt-jsonld"
+        type="application/ld+json"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-7xl mx-auto space-y-12">
@@ -85,17 +98,45 @@ export default function BcryptPage() {
             <BcryptToolWrapper />
           </div>
 
-          <section className="mt-20 max-w-4xl mx-auto prose prose-emerald dark:prose-invert">
+          <ToolOverview
+            heading="Why Bcrypt hashing should stay client-side"
+            tagline="Generate and verify Bcrypt hashes locally to keep passwords and salt values private."
+            cards={[
+              {
+                title: 'Adaptive password hashing',
+                description: 'Bcrypt intentionally slows hashing to resist brute-force attacks.',
+                icon: ShieldCheck,
+              },
+              {
+                title: 'Custom cost factors',
+                description: 'Experiment with different work factors locally before applying them to production.',
+                icon: Key,
+              },
+              {
+                title: 'Zero-knowledge hashing',
+                description: 'Your raw password stays in the browser; only the resulting hash is generated.',
+                icon: Cpu,
+              },
+              {
+                title: 'Built-in verification',
+                description: 'Verify hashes privately without exposing passwords to any service.',
+                icon: Sparkles,
+              },
+            ]}
+          >
             <h2>What is a Bcrypt Hash Generator?</h2>
             <p>
               Bcrypt is a password-hashing function based on the Blowfish cipher, specifically designed to be slow and computationally expensive to protect against brute-force and hardware-accelerated attacks. Our Bcrypt hash generator online allows you to create secure, salted password hashes with adjustable cost factors. Unlike standard algorithms like MD5, Bcrypt includes a random salt automatically, which prevents "rainbow table" attacks. It is the gold standard for secure password storage in modern databases and is trusted by millions of developers worldwide.
             </p>
-            
+
             <h2>When should you use Bcrypt?</h2>
             <p>
               You should use Bcrypt whenever you are implementing a user authentication system and need to store passwords securely. It is also used by security auditors to verify that a system's hashing implementation is working as expected. When using this tool, we recommend a cost factor of at least 10 to balance security and performance. Because password security is the ultimate priority, Cipherly performs all Bcrypt operations client-side. This ensures your raw passwords never leave your browser, adhering to our zero-knowledge architecture and providing a completely private hashing experience.
             </p>
-          </section>
+            <p>
+              If you need a one-way checksum without adaptive hashing, try our <Link href="/tools/online-hash-generator" className="font-semibold text-primary hover:underline">hash generator</Link>. For secure data workflows, Bcrypt is best used for password storage while AES and RSA tools handle encryption of actual messages.
+            </p>
+          </ToolOverview>
         </div>
       </div>
     </>
