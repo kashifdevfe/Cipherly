@@ -1,7 +1,7 @@
 {
-  "name": "Cipherly",
+  "name": "Cipherly | Online Encryption Tools",
   "short_name": "Cipherly",
-  "description": "Secure, client-side encryption and cryptographic tools.",
+  "description": "Professional-grade cryptographic tools directly in your browser. Encrypt text with AES-256, generate RSA keys, or verify JWT tokens instantly.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

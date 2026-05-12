@@ -35,8 +35,15 @@ export const metadata: Metadata = {
   publisher: "Cipherly",
   manifest: "/manifest.json",
   icons: {
-    icon: "/icon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "any", type: "image/x-icon" },
+      { url: "/icon.svg", sizes: "any", type: "image/svg+xml" },
+    ],
+    shortcut: ["/favicon.ico"],
     apple: "/apple-touch-icon.png",
+    other: [
+      { rel: "apple-touch-icon-precomposed", url: "/apple-touch-icon.png" },
+    ],
   },
   verification: {
     google: "G6H4q-VjE8_hY7b8e-P9uI6y5t4r3e2w1q0", // User can replace with actual tag
