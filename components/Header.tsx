@@ -25,17 +25,25 @@ export default function Header() {
 
 
         {mounted && (
-          <button
-            onClick={toggleTheme}
-            className="p-2.5 rounded-full hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
-            aria-label="Toggle dark mode"
-          >
-            {theme === 'dark' ? (
-              <Sun className="w-5 h-5 text-primary" />
-            ) : (
-              <Moon className="w-5 h-5 text-slate-700" />
-            )}
-          </button>
+          <div className="flex items-center gap-6">
+            <nav className="hidden md:flex items-center gap-6 text-sm font-bold uppercase tracking-wider text-muted-foreground">
+              <Link href="/#tools" className="hover:text-primary transition-colors">Tools</Link>
+              <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
+              <Link href="/about" className="hover:text-primary transition-colors">About</Link>
+              <Link href="/contact" className="hover:text-primary transition-colors">Contact</Link>
+            </nav>
+            <button
+              onClick={toggleTheme}
+              className="p-2.5 rounded-full hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+              aria-label="Toggle dark mode"
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-5 h-5 text-primary" />
+              ) : (
+                <Moon className="w-5 h-5 text-slate-700" />
+              )}
+            </button>
+          </div>
         )}
       </div>
     </header>
