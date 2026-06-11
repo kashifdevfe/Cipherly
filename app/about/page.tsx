@@ -140,12 +140,10 @@ export default function AboutPage() {
           </p>
           <div className="flex gap-4 justify-center">
             <a 
-              href="https://support.google.com/adsense/community" 
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:support@cipherlyapp.com" 
               className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-colors"
             >
-              Community Forum
+              Email Support
             </a>
             <a 
               href="/privacy"

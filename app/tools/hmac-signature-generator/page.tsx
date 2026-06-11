@@ -129,6 +129,23 @@ export default function HmacPage() {
               Hash-based Message Authentication Code (HMAC) is a specific type of message authentication code (MAC) involving a cryptographic hash function and a secret cryptographic key. An HMAC generator online allows you to verify both the data integrity and the authenticity of a message simultaneously. By using a secret key, HMACs ensure that a message cannot be modified by an attacker without the key, making them more secure against certain types of attacks than simple hashing. It is a fundamental component of secure API authentication and webhooks.
             </p>
 
+            <h2>How HMAC Secures API Webhooks</h2>
+            <p>
+              One of the most common real-world applications of HMAC is securing webhooks. When a service like Stripe, GitHub, or Shopify sends a webhook to your server to notify you of an event (like a successful payment), your server needs a way to verify that the webhook actually came from that service and wasn't forged by a malicious actor.
+            </p>
+            <p>
+              To solve this, the service uses an HMAC. They take the JSON body of the webhook they are about to send and hash it using a shared secret key (which you obtained from their dashboard). They attach the resulting HMAC signature to an HTTP header (e.g., `Stripe-Signature`). When your server receives the request, it takes the raw JSON body and the same secret key, and calculates its own HMAC signature. If your locally calculated signature matches the signature in the HTTP header, you can be 100% certain that the webhook is authentic and the payload hasn't been tampered with in transit.
+            </p>
+
+            <h2>HMAC-SHA256 vs HMAC-SHA512</h2>
+            <p>
+              When generating an HMAC, you must choose a hashing algorithm. The most commonly used algorithms today are SHA-256 and SHA-512. 
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mt-4 mb-6">
+              <li><strong>HMAC-SHA256:</strong> This is the industry standard. It produces a 256-bit (32-byte) signature. It is fast, widely supported across all programming languages, and offers an extremely high level of security that is mathematically resistant to collision attacks.</li>
+              <li><strong>HMAC-SHA512:</strong> This produces a much longer 512-bit (64-byte) signature. While technically more secure, it is often overkill for standard web applications. However, it is utilized in high-security environments, government systems, or when dealing with extremely sensitive financial transactions.</li>
+            </ul>
+
             <h2>When should you use HMAC?</h2>
             <p>
               HMACs are widely used in protocols like IPsec, SSH, and for securing communication with APIs (such as Amazon Web Services or Stripe). You should use this free online tool to generate or verify signatures when testing your API integrations or implementing secure messaging. It supports algorithms like HMAC-SHA256 and HMAC-SHA512 for maximum compatibility. To ensure your secret keys remain secret, Cipherly never sends your key or message to a server. Everything is calculated locally using the Web Crypto API, maintaining a zero-knowledge environment for your most sensitive cryptographic keys.

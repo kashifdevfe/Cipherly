@@ -208,6 +208,31 @@ export default function Page() {
 
         <AdUnit slot="1234567891" format="horizontal" />
 
+        <section className="mt-40 max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl">
+              Comprehensive Security Education
+            </h2>
+            <p className="mt-4 text-muted-foreground max-w-3xl mx-auto">
+              We believe that providing tools isn't enough; developers need to understand the fundamental concepts behind the cryptography they use. Cipherly serves as an educational resource to help you implement security best practices.
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="bg-secondary/20 p-8 rounded-3xl border border-border">
+              <h3 className="text-xl font-bold mb-3">Symmetric vs Asymmetric Encryption</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Learn when to use symmetric algorithms like AES-256 for rapid, bulk data encryption, and when to leverage asymmetric pairs like RSA for secure key exchange and digital signatures. We break down complex concepts like the TLS handshake and hybrid encryption.
+              </p>
+            </div>
+            <div className="bg-secondary/20 p-8 rounded-3xl border border-border">
+              <h3 className="text-xl font-bold mb-3">Authentication & Integrity</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Understand the critical difference between confidentiality (keeping a secret) and integrity (proving data hasn't been altered). Dive deep into HMAC signatures for securing API webhooks and learn how to properly validate JSON Web Tokens without falling victim to common vulnerabilities.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section className="mt-40 max-w-4xl mx-auto prose prose-emerald">
           <h2 className="text-3xl font-black tracking-tight text-center mb-12 uppercase text-primary">Frequently Asked Questions</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 not-prose">

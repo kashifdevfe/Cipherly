@@ -131,10 +131,33 @@ export default function JwtPage() {
               A JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. A JWT decoder online allows developers to inspect the header, payload, and signature of a token to verify its contents and expiration. Tokens are typically used for authentication and information exchange in modern web applications. Understanding the claims inside a token is essential for debugging authorization issues and ensuring that your API integration is functioning correctly.
             </p>
 
+            <h2>Anatomy of a JSON Web Token</h2>
+            <p>
+              If you look at a raw JWT, it appears as a long string of seemingly random characters separated by two dots (periods). These dots divide the token into three distinct parts:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mt-4 mb-6">
+              <li><strong>Header:</strong> The first part of the token typically consists of two parts: the type of the token (which is JWT) and the signing algorithm being used, such as HMAC SHA256 or RSA.</li>
+              <li><strong>Payload (Claims):</strong> The middle section contains the claims. Claims are statements about an entity (typically, the user) and additional data. There are three types of claims: registered, public, and private claims. Registered claims are predefined and include standard fields like `iss` (issuer), `exp` (expiration time), and `sub` (subject).</li>
+              <li><strong>Signature:</strong> The final part is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way. To create the signature, the algorithm takes the encoded header, the encoded payload, a secret (or a public/private key pair), and signs them.</li>
+            </ul>
+
             <h2>When should you use a JWT Debugger?</h2>
             <p>
-              Developers use a JWT debugger tool during the development and testing of applications that use OAuth2 or OIDC for authentication. If your application is rejecting a token or if you need to verify that a token contains the correct user permissions, this browser-based tool provides an instant view of the encoded data. Unlike other debuggers that send your sensitive tokens to a backend for decoding, Cipherly processes the JWT entirely in your local memory. This ensures that no data stored on our servers, keeping your authentication tokens private and secure throughout your debugging session.
+              Developers use a JWT debugger tool during the development and testing of applications that use OAuth2 or OIDC for authentication. If your application is rejecting a token or if you need to verify that a token contains the correct user permissions, this browser-based tool provides an instant view of the encoded data. Unlike other debuggers that send your sensitive tokens to a backend for decoding, Cipherly processes the JWT entirely in your local memory. This ensures that no data is stored on our servers, keeping your authentication tokens private and secure throughout your debugging session.
             </p>
+
+            <h2>Security Best Practices for JWTs</h2>
+            <p>
+              While JWTs are incredibly useful, they must be implemented correctly to be secure. Here are some essential best practices to follow when using JWTs in your applications:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mt-4 mb-6">
+              <li><strong>Do Not Store Sensitive Data in the Payload:</strong> A common misconception is that JWTs are encrypted. They are not; they are only base64 encoded. Anyone with access to the token can decode the payload and read the claims. Never put passwords, social security numbers, or sensitive PII in a JWT.</li>
+              <li><strong>Always Verify the Signature:</strong> Decoding a token is not the same as validating it. Always ensure your backend server cryptographically verifies the signature before trusting any data within the token.</li>
+              <li><strong>Use Strong Signing Keys:</strong> If you are using symmetric algorithms (like HS256), ensure your secret key is long, complex, and unguessable. If using asymmetric algorithms (like RS256), protect your private key securely.</li>
+              <li><strong>Keep Tokens Short-Lived:</strong> Since JWTs are stateless, they cannot easily be invalidated (revoked) before they expire without maintaining a server-side blocklist. Set the `exp` (expiration) claim to a short duration (e.g., 15 minutes) to minimize the window of opportunity if a token is compromised.</li>
+              <li><strong>Understand the 'alg: none' Vulnerability:</strong> Historically, some JWT libraries improperly handled the 'none' algorithm, allowing attackers to bypass signature validation. Ensure your backend library explicitly requires the expected algorithm and rejects 'none'.</li>
+            </ul>
+
             <p>
               JWTs are often signed or encrypted within secure API workflows. For example, use our <Link href="/tools/hmac-signature-generator" className="font-semibold text-primary hover:underline">HMAC generator</Link> to verify token signatures or the <Link href="/tools/rsa-key-generator" className="font-semibold text-primary hover:underline">RSA key generator</Link> for RS256 signature verification and key exchange.
             </p>

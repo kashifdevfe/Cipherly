@@ -72,6 +72,29 @@ export default function BlogPost() {
           </section>
 
           <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-foreground">The History of AES: The Rijndael Cipher</h2>
+            <p>
+              Before AES, the standard was DES (Data Encryption Standard), which used a 56-bit key. By the late 1990s, DES was becoming vulnerable to brute-force attacks due to advances in computing power. In fact, a custom-built machine called "Deep Crack" broke a DES key in just 56 hours in 1998.
+            </p>
+            <p>
+              Recognizing this vulnerability, the National Institute of Standards and Technology (NIST) announced a public competition to find a replacement. They required the new algorithm to be a symmetric block cipher, support key sizes of 128, 192, and 256 bits, and be available globally without royalties.
+            </p>
+            <p>
+              Out of many submissions from cryptographers worldwide, a cipher named <strong>Rijndael</strong> (a portmanteau of its Belgian creators' names, Vincent Rijmen and Joan Daemen) won the competition in 2000. Rijndael was selected for its elegant mathematical structure, its high performance across both hardware and software, and its resistance to known attacks. It was standardized as the Advanced Encryption Standard (AES) in 2001.
+            </p>
+          </section>
+
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-foreground">Hardware Acceleration (AES-NI)</h2>
+            <p>
+              One of the reasons AES is ubiquitous today is hardware support. Modern processors (including those from Intel, AMD, Apple, and ARM) include dedicated silicon instructions specifically designed to compute AES incredibly fast. On Intel and AMD chips, this is known as AES-NI (Advanced Encryption Standard New Instructions).
+            </p>
+            <p>
+              Hardware acceleration allows your smartphone or laptop to encrypt and decrypt gigabytes of data per second with minimal battery drain. This is why tools like Cipherly, which use the browser's Web Crypto API, are so fast—they tap directly into your device's native hardware capabilities, avoiding the slow process of performing cryptography purely in JavaScript software.
+            </p>
+          </section>
+
+          <section className="space-y-4">
             <h2 className="text-2xl font-bold text-foreground">AES-256 Modes: GCM vs CBC</h2>
             <p>
               AES-256 is the algorithm itself, but there are different "modes" that determine how it works:

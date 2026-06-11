@@ -152,6 +152,17 @@ export default function AesPage() {
               Advanced Encryption Standard (AES) with a 256-bit key is the industry-standard algorithm used by governments and security experts worldwide to protect sensitive data. AES-256 is a symmetric-key algorithm, meaning the same secret key is used for both encryption and decryption. This specific implementation provides military-grade security that is currently considered resistant to brute-force attacks by modern supercomputers. Using an AES-256 encryption online tool allows you to transform plain text into unreadable ciphertext, ensuring that only those with the correct password or key can access the original message.
             </p>
 
+            <h2>Understanding AES Modes: GCM vs CBC</h2>
+            <p>
+              When configuring AES encryption, selecting the correct block cipher mode is critical. The two most common modes supported by our tool are <strong>GCM (Galois/Counter Mode)</strong> and <strong>CBC (Cipher Block Chaining)</strong>.
+            </p>
+            <p>
+              We highly recommend using <strong>AES-GCM</strong> whenever possible. GCM is an Authenticated Encryption with Associated Data (AEAD) mode. This means it not only encrypts your data (providing confidentiality) but also automatically generates an authentication tag (providing integrity). If a malicious actor intercepts your encrypted message and flips a single bit, AES-GCM will detect the tampering and fail to decrypt. This protects against devastating chosen-ciphertext attacks.
+            </p>
+            <p>
+              <strong>AES-CBC</strong> is an older mode that only provides confidentiality, not integrity. In CBC mode, each block of plaintext is XORed with the previous ciphertext block before being encrypted. While secure against basic decryption, it is vulnerable to tampering (such as padding oracle attacks) unless you manually pair it with an HMAC signature. You should only select AES-CBC when you have a strict requirement for backwards compatibility with legacy systems.
+            </p>
+
             <h2>When should you use AES encryption?</h2>
             <p>
               You should use this free AES encryption tool whenever you need to store or transmit sensitive information over insecure channels. It is ideal for encrypting personal notes, passwords, or configuration files before saving them to cloud storage. Because our tool is browser-based, you don't need to install complex software to achieve high-level privacy. A key best practice is to always use a strong, unique password for the encryption key, as the security of the ciphertext depends entirely on the secrecy of the key. Cipherly ensures your privacy by performing all cryptographic operations locally; no data is stored or transmitted to our servers during the process.

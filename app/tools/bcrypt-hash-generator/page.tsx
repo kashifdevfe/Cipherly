@@ -129,6 +129,19 @@ export default function BcryptPage() {
               Bcrypt is a password-hashing function based on the Blowfish cipher, specifically designed to be slow and computationally expensive to protect against brute-force and hardware-accelerated attacks. Our Bcrypt hash generator online allows you to create secure, salted password hashes with adjustable cost factors. Unlike standard algorithms like MD5, Bcrypt includes a random salt automatically, which prevents "rainbow table" attacks. It is the gold standard for secure password storage in modern databases and is trusted by millions of developers worldwide.
             </p>
 
+            <h2>How Bcrypt Works: Salting and Cost Factors</h2>
+            <p>
+              The brilliance of Bcrypt lies in two key features: automatic salting and adjustable cost factors. A "salt" is a random sequence of characters added to a password before it is hashed. If two users have the same password, the salt ensures their resulting hashes look completely different. This protects against rainbow table attacks where hackers pre-compute hashes for common passwords. Bcrypt automatically generates a secure, 128-bit salt every time you generate a hash.
+            </p>
+            <p>
+              The "cost factor" (or work factor) is what makes Bcrypt unique. It determines how many iterations of the hashing algorithm are performed. Each time you increase the cost factor by 1, the time required to calculate the hash doubles. This "slowness" is intentional. While a single hash might take 100 milliseconds for legitimate login—a delay unnoticed by a human—it makes it computationally infeasible for an attacker to rapidly guess millions of passwords per second using custom hardware or GPUs. As computers get faster over the years, you simply increase the cost factor to maintain the same level of security.
+            </p>
+
+            <h2>Why Bcrypt is Better Than MD5 or SHA-256 for Passwords</h2>
+            <p>
+              A common mistake among junior developers is storing passwords using fast hashing algorithms like MD5, SHA-1, or SHA-256. These algorithms were designed for speed and efficiency, which is exactly the opposite of what you want for password hashing. A modern GPU can compute billions of SHA-256 hashes per second, making it relatively easy to crack simple passwords. Bcrypt, by design, resists hardware acceleration because it requires a large amount of memory to compute, frustrating attackers utilizing GPUs and ASICs. If you are currently using SHA-256 to hash user passwords, you should strongly consider migrating to Bcrypt.
+            </p>
+
             <h2>When should you use Bcrypt?</h2>
             <p>
               You should use Bcrypt whenever you are implementing a user authentication system and need to store passwords securely. It is also used by security auditors to verify that a system's hashing implementation is working as expected. When using this tool, we recommend a cost factor of at least 10 to balance security and performance. Because password security is the ultimate priority, Cipherly performs all Bcrypt operations client-side. This ensures your raw passwords never leave your browser, adhering to our zero-knowledge architecture and providing a completely private hashing experience.

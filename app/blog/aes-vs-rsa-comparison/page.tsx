@@ -154,15 +154,35 @@ export default function BlogPost() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-2xl font-bold text-foreground">Real-World Example: HTTPS</h2>
+            <h2 className="text-2xl font-bold text-foreground">Real-World Example: Hybrid Encryption (HTTPS)</h2>
             <p>
-              When you visit a secure website (HTTPS), here's what happens:
+              In practice, modern security systems almost never choose just one. They use a technique called <strong>Hybrid Encryption</strong>, which combines the best features of both algorithms to eliminate their respective weaknesses. The most common example of this is when you visit a secure website using HTTPS (TLS/SSL).
             </p>
-            <ol className="list-decimal list-inside space-y-2 ml-4">
-              <li><strong>RSA</strong> is used first: Your browser gets the server's public key and sends a session key encrypted with RSA.</li>
-              <li><strong>AES</strong> takes over: All subsequent data is encrypted with AES using the session key (fast and efficient).</li>
-              <li>Speed + Security: You get the security of key exchange (RSA) combined with the speed of bulk encryption (AES).</li>
+            <p>
+              Here is exactly how AES and RSA work together when your browser connects to your bank's website:
+            </p>
+            <ol className="list-decimal list-inside space-y-2 ml-4 mb-4">
+              <li><strong>The Handshake (RSA):</strong> Your browser connects to the bank's server. The server sends back its digital certificate, which contains its RSA Public Key.</li>
+              <li><strong>The Secret Generation:</strong> Your browser verifies the certificate, then generates a completely random, temporary secret key (a "Session Key").</li>
+              <li><strong>The Secure Exchange (RSA):</strong> Your browser encrypts this Session Key using the bank's RSA Public Key and sends it back to the server. Because only the bank has the matching RSA Private Key, only the bank can decrypt it. Now, both your browser and the server share the same secret Session Key, and nobody listening to the network could have intercepted it.</li>
+              <li><strong>The Bulk Transfer (AES):</strong> The slow RSA algorithm is immediately discarded for the rest of the session. Both your browser and the server now switch to AES using the shared Session Key. All your passwords, account balances, and clicking data are encrypted and decrypted using AES at blazing fast speeds.</li>
             </ol>
+            <p>
+              By combining them, you get the secure key exchange of RSA without sacrificing the high-speed performance of AES.
+            </p>
+          </section>
+
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-foreground">The Future: Quantum Computing Threats</h2>
+            <p>
+              As we look toward the future, the emergence of quantum computers poses different threats to these two algorithms.
+            </p>
+            <p>
+              <strong>RSA is highly vulnerable.</strong> The security of RSA relies on the difficulty of factoring large prime numbers. A theoretical algorithm known as Shor's Algorithm, running on a sufficiently powerful quantum computer, could solve this math problem efficiently. This means all current RSA keys (even 4096-bit) will eventually be easily broken by quantum computers. Cryptographers are actively working on Post-Quantum Cryptography (PQC) algorithms to replace RSA.
+            </p>
+            <p>
+              <strong>AES is largely quantum-resistant.</strong> AES relies on different mathematical principles. While a quantum algorithm called Grover's Algorithm could theoretically halve the effective security of an AES key, it doesn't break the underlying math. To protect AES against quantum computers, you simply double the key size. This is why AES-256 (which offers 128 bits of post-quantum security) is considered safe from quantum threats for the foreseeable future.
+            </p>
           </section>
 
           <section className="space-y-4 p-6 bg-primary/5 border border-primary/20 rounded-lg">

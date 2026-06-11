@@ -132,6 +132,17 @@ export default function HashPage() {
               Unlike encryption, which is designed to be reversible with a key, hashing is intended to be a permanent transformation. A single character change in the input data will result in a completely different hash output (this is known as the avalanche effect). This property makes hashing indispensable in modern computing. For example, when you download a large software file, the developer often provides a SHA-256 hash. By hashing the file on your local machine and comparing it to the developer's hash, you can be 100% certain that the file you received is identical to the original and has not been corrupted or maliciously modified.
             </p>
 
+            <h2>Understanding the Different Hash Algorithms</h2>
+            <p>
+              When choosing to hash a file or a string of text, selecting the right algorithm is crucial for your specific use case. Here is a breakdown of the most common algorithms:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mt-4 mb-6">
+              <li><strong>MD5 (Message Digest 5):</strong> Produces a 128-bit hash. It is extremely fast and still widely used for simple checksums to detect accidental file corruption. However, it is cryptographically broken and should <em>never</em> be used for security purposes or storing passwords due to its vulnerability to collision attacks.</li>
+              <li><strong>SHA-1 (Secure Hash Algorithm 1):</strong> Produces a 160-bit hash. Like MD5, it is no longer considered secure against well-funded attackers and has been deprecated by major tech companies for digital signatures. Use it only for legacy systems or Git version control (which still uses it extensively).</li>
+              <li><strong>SHA-256 (Secure Hash Algorithm 2, 256-bit):</strong> Currently the gold standard for general cryptographic security. It produces a 256-bit hash. It is mathematically secure against collision attacks and is widely used in SSL/TLS certificates, blockchain technology, and secure file verification. If you are unsure which to pick, choose SHA-256.</li>
+              <li><strong>SHA-512 (Secure Hash Algorithm 2, 512-bit):</strong> Produces a 512-bit hash. It provides a higher security margin than SHA-256 and often performs faster on 64-bit hardware architecture. It is ideal for highly sensitive data where maximum cryptographic strength is required.</li>
+            </ul>
+
             <h2>When should you use a Hashing Tool?</h2>
             <p>
               Hashing is commonly used for checksum verification, digital signatures, and storing password representations (though specialized password hashes like Bcrypt are preferred for the latter). You can use this free online tool to generate a SHA-256 hash for a downloaded file to verify its authenticity against the developer's provided hash. It is also useful for creating unique identifiers for data blocks in a database. At Cipherly, we provide a no sign up required experience where all hashing is performed via the native Web Crypto API in your browser, guaranteeing that your input data never touches our infrastructure.

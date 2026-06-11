@@ -35,13 +35,13 @@ export default function ContactPage() {
           <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
             <MessageSquare className="w-6 h-6 text-primary" />
           </div>
-          <h3 className="text-xl font-bold">Community Forum</h3>
+          <h3 className="text-xl font-bold">GitHub Discussions</h3>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Join our community forum to ask questions, share feedback, and discuss cryptography 
-            topics with other developers and the Cipherly team.
+            Have a feature request, noticed a bug, or want to discuss a cryptography topic? 
+            Open a discussion on our GitHub page to get help from the community and the team.
           </p>
-          <a href="https://support.google.com/adsense/community" target="_blank" rel="noopener noreferrer" className="inline-block mt-2 font-bold text-primary hover:underline">
-            Visit the Community Forum
+          <a href="mailto:support@cipherlyapp.com" className="inline-block mt-2 font-bold text-primary hover:underline">
+            Contact us via Email
           </a>
         </div>
         

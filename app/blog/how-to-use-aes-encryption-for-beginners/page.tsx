@@ -88,11 +88,19 @@ export default function BlogPost() {
             <div className="space-y-4">
               <div>
                 <h4 className="font-bold text-foreground">Can I encrypt images or files?</h4>
-                <p className="text-sm">Yes! For small data, you can convert to text and then encrypt that text using AES.</p>
+                <p className="text-sm">Yes! While the AES tool primarily handles text, you can convert small files (like images) into a Base64 string using our <Link href="/tools/base64-encode-decode" className="text-primary hover:underline">Base64 tool</Link> and then encrypt that text string.</p>
               </div>
               <div>
                 <h4 className="font-bold text-foreground">Is AES-256 breakable?</h4>
-                <p className="text-sm">No. AES-256 has never been broken in practice. It's considered military-grade encryption.</p>
+                <p className="text-sm">No. AES-256 has never been broken in practice. It's considered military-grade encryption. The only way an attacker can decrypt your data is if they guess your password or steal your key.</p>
+              </div>
+              <div>
+                <h4 className="font-bold text-foreground">What happens if I lose my password?</h4>
+                <p className="text-sm">If you forget the password you used to encrypt the text, the data is permanently lost. There is no "forgot password" button or backdoor recovery mechanism in real cryptography. Always store your encryption passwords securely in a password manager.</p>
+              </div>
+              <div>
+                <h4 className="font-bold text-foreground">What is the difference between Encryption and Hashing?</h4>
+                <p className="text-sm">Encryption (like AES) is a two-way street; data is scrambled but can be unscrambled if you have the key. Hashing (like SHA-256 or Bcrypt) is a one-way street; data is scrambled permanently and cannot be reversed. Hashing is used to verify data integrity or store passwords, while encryption is used to hide data that needs to be read later.</p>
               </div>
             </div>
           </section>

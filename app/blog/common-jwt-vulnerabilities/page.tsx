@@ -193,6 +193,20 @@ export default function BlogPost() {
             </ul>
           </section>
 
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-foreground">Access Tokens vs. Refresh Tokens</h2>
+            <p>
+              One of the biggest challenges with JWTs is revocation. Because they are stateless, if a token is stolen, the attacker can use it until the `exp` (expiration) time is reached. To mitigate this, modern authentication systems use a dual-token architecture:
+            </p>
+            <ul className="list-disc list-inside space-y-2 ml-4">
+              <li><strong>Access Token (JWT):</strong> This token has a very short lifespan (e.g., 5 to 15 minutes). It is sent with every API request. If it is stolen, the window of opportunity for the attacker is very small.</li>
+              <li><strong>Refresh Token (Opaque String):</strong> This token has a long lifespan (e.g., 7 to 30 days). It is securely stored (often in an HTTP-only cookie) and is ONLY used to request a new Access Token when the old one expires. Crucially, the refresh token is stored in the database, meaning the server can revoke it at any time (e.g., if the user clicks "Log out of all devices").</li>
+            </ul>
+            <p>
+              By separating the fast, stateless authentication (Access Token) from the slow, stateful session management (Refresh Token), you achieve both high performance and robust security.
+            </p>
+          </section>
+
           <section className="space-y-4 p-6 bg-primary/5 border border-primary/20 rounded-lg">
             <h2 className="text-xl font-bold text-foreground">Validate Your JWTs</h2>
             <p>

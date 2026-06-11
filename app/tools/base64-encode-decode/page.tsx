@@ -129,6 +129,22 @@ export default function Base64Page() {
               Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. Our Base64 encoder and decoder online tool allows you to convert plain text or file data into a string of 64 printable characters. While not a form of encryption (as it is easily reversible), Base64 is essential for transmitting data over media that are designed to deal with textual data, such as embedding images in HTML or CSS or sending attachments in email. It ensures that the data remains intact during transport without modification.
             </p>
 
+            <h2>How Base64 Encoding Works</h2>
+            <p>
+              To understand how Base64 works, it helps to look at the math behind it. The encoding process takes three bytes of binary data (which equals 24 bits total) and divides those 24 bits into four 6-bit chunks. Since 6 bits can represent 64 different values (2^6 = 64), each chunk is mapped to one of 64 specific characters: the uppercase letters A-Z, lowercase letters a-z, numbers 0-9, and the '+' and '/' symbols.
+            </p>
+            <p>
+              If the data being encoded isn't perfectly divisible by three bytes, the encoding process uses padding. The '=' character is added to the end of the encoded string to signal that padding was applied. Because it turns 3 bytes of raw data into 4 bytes of encoded text, Base64 encoding always increases the overall file size by approximately 33%. This size overhead is an important consideration when deciding whether to encode large files like high-resolution images or videos.
+            </p>
+
+            <h2>Why We Use Base64 on the Web</h2>
+            <p>
+              Many older text-based protocols (like SMTP for email) or specific data formats (like JSON) cannot handle raw binary data. If you try to paste a raw image file into a JSON document, it will break the parsing because binary files contain control characters and non-printable symbols. Base64 solves this by safely converting the binary file into a plain text string that can safely be parsed by any system.
+            </p>
+            <p>
+              In frontend development, developers frequently use Base64 to create Data URIs. For example, instead of making an HTTP request to fetch a small icon (`<img src="/icon.png" />`), a developer can encode the icon to Base64 and embed it directly in the HTML (`<img src="data:image/png;base64,iVBOR..." />`). This technique can speed up initial page load times by reducing the number of external HTTP requests, though it should be used sparingly for small assets due to the 33% size increase.
+            </p>
+
             <h2>When should you use Base64 Encoding?</h2>
             <p>
               Base64 encoding is frequently used by developers to handle data in JSON payloads, URLs, or data URIs. If you need to convert a small image into a string to use directly in your code, or if you need to decode a Base64-encoded string from an API response, this fast browser-based tool is the perfect solution. It is also helpful for basic data obfuscation during development. As with all our tools, Cipherly processes your data locally. Whether you are encoding or decoding, your information is processed entirely in your browser, ensuring no data transmitted to external servers.

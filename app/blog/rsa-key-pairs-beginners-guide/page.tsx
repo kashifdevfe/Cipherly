@@ -158,6 +158,36 @@ export default function BlogPost() {
             </div>
           </section>
 
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-foreground">Encryption vs. Digital Signatures</h2>
+            <p>
+              One of the most confusing parts of RSA for beginners is that the keys can be used in <em>reverse</em> to achieve two completely different goals. Let's break it down:
+            </p>
+            <div className="space-y-4">
+              <div className="border border-border rounded-lg p-4">
+                <h4 className="font-bold text-foreground mb-2">Scenario 1: Encryption (Sending a secret)</h4>
+                <p className="text-sm mb-2">Goal: You want to send a secret message to Alice so nobody else can read it.</p>
+                <ol className="text-xs space-y-1 list-decimal list-inside ml-2">
+                  <li>You get Alice's <strong>Public Key</strong>.</li>
+                  <li>You encrypt the message with it.</li>
+                  <li>Only Alice has the matching <strong>Private Key</strong>, so only she can decrypt and read it.</li>
+                </ol>
+              </div>
+              <div className="border border-border rounded-lg p-4">
+                <h4 className="font-bold text-foreground mb-2">Scenario 2: Digital Signatures (Proving identity)</h4>
+                <p className="text-sm mb-2">Goal: You want to send a public announcement, and prove to everyone that YOU wrote it.</p>
+                <ol className="text-xs space-y-1 list-decimal list-inside ml-2">
+                  <li>You write the message and "encrypt" a hash of it using your <strong>Private Key</strong>.</li>
+                  <li>Anyone can decrypt this signature using your <strong>Public Key</strong>.</li>
+                  <li>Because it successfully decrypted with your Public Key, they know mathematically it <em>must</em> have been encrypted by your Private Key. You just proved your identity!</li>
+                </ol>
+              </div>
+            </div>
+            <p>
+              This dual capability is what makes RSA so powerful and why it forms the backbone of digital certificates and HTTPS.
+            </p>
+          </section>
+
           <section className="space-y-4 p-6 bg-primary/5 border border-primary/20 rounded-lg">
             <h2 className="text-xl font-bold text-foreground">Generate Your First RSA Key Pair</h2>
             <p>
