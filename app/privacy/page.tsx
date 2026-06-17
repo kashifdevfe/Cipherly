@@ -84,8 +84,15 @@ export default function PrivacyPage() {
           <p className="text-muted-foreground font-medium text-sm">
             We use the following third-party services to operate and improve this site:
           </p>
-          <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground ml-4">
-            <li><strong>Google AdSense:</strong> We display ads served by Google AdSense. Google uses cookies (such as the DSID, FLC, AID, TAID cookies) to serve ads based on your prior visits to this website or other websites. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google Ad Settings</a>.</li>
+          <ul className="list-disc list-inside space-y-4 text-sm text-muted-foreground ml-4">
+            <li>
+              <strong>Google AdSense & DoubleClick Cookie:</strong> Google, as a third-party vendor, uses cookies to serve ads on Cipherly.app. 
+              <ul className="list-circle list-inside ml-4 mt-2 space-y-1">
+                <li>Google's use of advertising cookies enables it and its partners to serve ads to our users based on their prior visits to our site and/or other sites on the Internet.</li>
+                <li>Users may opt-out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-bold">Google Ads Settings</a>.</li>
+                <li>Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://youradchoices.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-bold">www.aboutads.info</a>.</li>
+              </ul>
+            </li>
             <li><strong>Google Analytics:</strong> We use Google Analytics to analyze site traffic. This service collects anonymized data about your browser, device, and browsing patterns. You can opt out via the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google Analytics opt-out browser add-on</a>.</li>
           </ul>
           <p className="text-muted-foreground text-sm">

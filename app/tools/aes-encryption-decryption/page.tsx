@@ -172,6 +172,35 @@ export default function AesPage() {
             <p>
               AES is often used together with other cryptographic tools. For example, use our <Link href="/tools/rsa-key-generator" className="font-semibold text-primary hover:underline">RSA key generator</Link> to safely exchange secret keys, or pair AES encryption with the <Link href="/tools/jwt-decoder-validator" className="font-semibold text-primary hover:underline">JWT validator</Link> when working with secure tokens. If you are encrypting data for storage, choose AES-GCM for authenticated encryption, and use AES-CBC only when compatibility with legacy systems is required.
             </p>
+
+            <h2>Code Example: AES-256-GCM in Node.js</h2>
+            <p>If you need to implement AES-256-GCM in your Node.js backend, here is a standard implementation using the built-in <code>crypto</code> module:</p>
+            <div className="bg-secondary/30 rounded-xl p-4 overflow-x-auto text-sm font-mono border border-border">
+              <pre>
+                <code>{`const crypto = require('crypto');
+
+function encrypt(text, key) {
+  // Key must be exactly 32 bytes (256 bits)
+  const iv = crypto.randomBytes(12); // 96-bit IV is standard for GCM
+  const cipher = crypto.createCipheriv('aes-256-gcm', key, iv);
+  
+  let encrypted = cipher.update(text, 'utf8', 'hex');
+  encrypted += cipher.final('hex');
+  const authTag = cipher.getAuthTag().toString('hex');
+  
+  return {
+    iv: iv.toString('hex'),
+    encryptedData: encrypted,
+    authTag: authTag
+  };
+}
+
+// Ensure your key is a Buffer of 32 bytes
+const key = crypto.randomBytes(32); 
+const result = encrypt("Hello World", key);
+console.log(result);`}</code>
+              </pre>
+            </div>
           </ToolOverview>
         </div>
       </div>

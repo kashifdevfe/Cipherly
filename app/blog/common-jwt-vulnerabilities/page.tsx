@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import AuthorBio from '@/components/AuthorBio';
 
 export const metadata: Metadata = {
   title: "JWT Security Best Practices: Avoiding Common Mistakes | Cipherly Blog",
@@ -220,6 +221,8 @@ export default function BlogPost() {
               Try JWT Debugger
             </Link>
           </section>
+          
+          <AuthorBio />
         </div>
       </div>
     </article>

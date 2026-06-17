@@ -8,6 +8,10 @@ export const metadata: Metadata = {
 
 export default function BlogLanding() {
   const articles = [
+    { title: "Bcrypt vs Argon2: Which Password Hashing Algorithm is Better?", slug: "bcrypt-vs-argon2", cat: "Comparison" },
+    { title: "What is HMAC? Understanding Hash-Based Message Authentication", slug: "what-is-hmac-authentication", cat: "Security" },
+    { title: "Understanding Base64 Encoding: What It Is and Why We Use It", slug: "understanding-base64-encoding", cat: "Informational" },
+    { title: "Why You Need to Stop Using MD5 Immediately", slug: "why-stop-using-md5", cat: "Security" },
     { title: "How to Use AES Encryption for Beginners: Step-by-Step Guide", slug: "how-to-use-aes-encryption-for-beginners", cat: "Tutorial" },
     { title: "How AES-256 Encryption Works: A Plain English Guide", slug: "aes-256-encryption-works-guide", cat: "Informational" },
     { title: "AES vs RSA: Which Encryption Algorithm Should You Choose?", slug: "aes-vs-rsa-comparison", cat: "Comparison" },

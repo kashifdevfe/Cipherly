@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import AuthorBio from '@/components/AuthorBio';
 
 export const metadata: Metadata = {
   title: "How AES-256 Encryption Works: A Plain English Guide | Cipherly Blog",
@@ -155,6 +156,8 @@ export default function BlogPost() {
               Try AES-256 Encryption
             </Link>
           </section>
+          
+          <AuthorBio />
         </div>
       </div>
     </article>

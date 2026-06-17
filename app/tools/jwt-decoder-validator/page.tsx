@@ -161,6 +161,33 @@ export default function JwtPage() {
             <p>
               JWTs are often signed or encrypted within secure API workflows. For example, use our <Link href="/tools/hmac-signature-generator" className="font-semibold text-primary hover:underline">HMAC generator</Link> to verify token signatures or the <Link href="/tools/rsa-key-generator" className="font-semibold text-primary hover:underline">RSA key generator</Link> for RS256 signature verification and key exchange.
             </p>
+
+            <h2>Code Example: Validating a JWT in Node.js</h2>
+            <p>If you are building a Node.js backend, you should use a trusted library like <code>jsonwebtoken</code> to securely validate tokens. Here is an example of verifying a JWT using an HS256 symmetric secret:</p>
+            <div className="bg-secondary/30 rounded-xl p-4 overflow-x-auto text-sm font-mono border border-border">
+              <pre>
+                <code>{`const jwt = require('jsonwebtoken');
+
+function verifyToken(token) {
+  // Your secret must be stored securely (e.g., in environment variables)
+  const secret = process.env.JWT_SECRET;
+  
+  try {
+    // The verify function automatically checks the signature and the 'exp' claim
+    const decoded = jwt.verify(token, secret, { algorithms: ['HS256'] });
+    console.log("Valid token payload:", decoded);
+    return decoded;
+  } catch (error) {
+    if (error.name === 'TokenExpiredError') {
+      console.error("Token has expired!");
+    } else {
+      console.error("Invalid token signature or format!");
+    }
+    return null;
+  }
+}`}</code>
+              </pre>
+            </div>
           </ToolOverview>
         </div>
       </div>

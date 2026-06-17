@@ -149,6 +149,42 @@ export default function BcryptPage() {
             <p>
               If you need a one-way checksum without adaptive hashing, try our <Link href="/tools/online-hash-generator" className="font-semibold text-primary hover:underline">hash generator</Link>. For secure data workflows, Bcrypt is best used for password storage while AES and RSA tools handle encryption of actual messages.
             </p>
+
+            <h2>Code Example: Hashing Passwords in Node.js</h2>
+            <p>If you are building a Node.js backend, use the widely trusted <code>bcrypt</code> library. Here is a standard implementation for hashing and verifying passwords:</p>
+            <div className="bg-secondary/30 rounded-xl p-4 overflow-x-auto text-sm font-mono border border-border">
+              <pre>
+                <code>{`const bcrypt = require('bcrypt');
+
+// 1. Hash a new password before saving to the database
+async function hashPassword(plainTextPassword) {
+  const saltRounds = 12; // Recommended cost factor
+  try {
+    const hash = await bcrypt.hash(plainTextPassword, saltRounds);
+    console.log("Save this hash to DB:", hash);
+    return hash;
+  } catch (err) {
+    console.error("Error hashing password", err);
+  }
+}
+
+// 2. Verify a password during user login
+async function verifyPassword(plainTextPassword, hashFromDatabase) {
+  try {
+    const match = await bcrypt.compare(plainTextPassword, hashFromDatabase);
+    if (match) {
+      console.log("Login successful!");
+      return true;
+    } else {
+      console.log("Invalid credentials.");
+      return false;
+    }
+  } catch (err) {
+    console.error("Error verifying password", err);
+  }
+}`}</code>
+              </pre>
+            </div>
           </ToolOverview>
         </div>
       </div>

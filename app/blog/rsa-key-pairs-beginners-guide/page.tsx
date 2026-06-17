@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import AuthorBio from '@/components/AuthorBio';
 
 export const metadata: Metadata = {
   title: "The Ultimate Guide to RSA Key Pairs for Beginners | Cipherly Blog",
@@ -201,6 +202,8 @@ export default function BlogPost() {
               Generate RSA Keys Now
             </Link>
           </section>
+          
+          <AuthorBio />
         </div>
       </div>
     </article>
