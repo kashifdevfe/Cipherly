@@ -26,8 +26,7 @@ export default function AdUnit({ slot, format = 'auto', responsive = true, style
 
   return (
     <div className="my-8 flex flex-col items-center overflow-hidden">
-      <span className="text-[10px] uppercase text-muted-foreground mb-2 tracking-widest font-semibold">Advertisement</span>
-      <div className="w-full max-w-4xl border border-border/50 rounded-lg bg-muted/10 p-2 flex justify-center min-h-[100px]">
+      <div className="w-full max-w-4xl flex justify-center min-h-[100px]">
         <ins
           className="adsbygoogle"
           style={{
