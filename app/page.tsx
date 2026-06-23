@@ -5,8 +5,6 @@ import ClientPage from '@/components/ClientPage';
 import TrustBadges from '@/components/TrustBadges';
 import ToolDirectory from '@/components/ToolDirectory';
 import Hero from '@/components/Hero';
-import AdUnit from '@/components/AdUnit';
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://cipherlyapp.com"),
   title: "Free Online Encryption Tools | AES, RSA & JWT",
@@ -138,7 +136,6 @@ export default function Page() {
         <ClientPage />
 
         <div className="mt-40">
-          <AdUnit slot="1234567890" format="horizontal" />
           <TrustBadges />
         </div>
 
@@ -205,8 +202,6 @@ export default function Page() {
             </div>
           </div>
         </section>
-
-        <AdUnit slot="1234567891" format="horizontal" />
 
         <section className="mt-40 max-w-5xl mx-auto">
           <div className="text-center mb-12">

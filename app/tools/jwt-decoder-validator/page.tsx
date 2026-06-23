@@ -3,7 +3,6 @@ import Script from 'next/script';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Eye, ShieldCheck, Key, Sparkles } from 'lucide-react';
-import AdUnit from '@/components/AdUnit';
 import ToolOverview from '@/components/ToolOverview';
 
 const JwtTabs = dynamic(() => import('@/components/tools/jwt/JwtTabs'));
@@ -97,8 +96,6 @@ export default function JwtPage() {
           <div className="glass rounded-[2.5rem] p-6 md:p-10">
             <JwtTabs />
           </div>
-
-          <AdUnit slot="3456789012" format="horizontal" />
 
           <ToolOverview
             heading="Why JWT debugging belongs in-browser"

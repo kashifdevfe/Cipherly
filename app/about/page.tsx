@@ -136,7 +136,7 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold">Have Questions?</h2>
           <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             We're constantly improving Cipherly. If you have feedback, suggestions, or encounter any issues, 
-            please don't hesitate to reach out through our community forums or contact channels.
+            please don't hesitate to reach out through our <a href="/contact" className="text-primary hover:underline font-semibold">contact page</a> or GitHub discussions.
           </p>
           <div className="flex gap-4 justify-center">
             <a 

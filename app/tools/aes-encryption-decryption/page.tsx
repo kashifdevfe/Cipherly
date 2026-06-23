@@ -3,7 +3,6 @@ import Script from 'next/script';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Lock, ShieldCheck, Cpu, Sparkles } from 'lucide-react';
-import AdUnit from '@/components/AdUnit';
 import ToolOverview from '@/components/ToolOverview';
 
 const EncryptPanel = dynamic(() => import('@/components/AesEncryptPanel'));
@@ -117,8 +116,6 @@ export default function AesPage() {
               <DecryptPanel />
             </div>
           </div>
-
-          <AdUnit slot="2345678901" format="horizontal" />
 
           {/* Educational Content Section */}
           <ToolOverview

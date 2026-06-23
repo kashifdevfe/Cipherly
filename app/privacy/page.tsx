@@ -86,7 +86,7 @@ export default function PrivacyPage() {
           </p>
           <ul className="list-disc list-inside space-y-4 text-sm text-muted-foreground ml-4">
             <li>
-              <strong>Google AdSense & DoubleClick Cookie:</strong> Google, as a third-party vendor, uses cookies to serve ads on Cipherly.app. 
+              <strong>Google AdSense & DoubleClick Cookie:</strong> Google, as a third-party vendor, uses cookies to serve ads on cipherlyapp.com. 
               <ul className="list-circle list-inside ml-4 mt-2 space-y-1">
                 <li>Google's use of advertising cookies enables it and its partners to serve ads to our users based on their prior visits to our site and/or other sites on the Internet.</li>
                 <li>Users may opt-out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-bold">Google Ads Settings</a>.</li>

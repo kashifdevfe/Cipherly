@@ -40,8 +40,13 @@ export default function ContactPage() {
             Have a feature request, noticed a bug, or want to discuss a cryptography topic? 
             Open a discussion on our GitHub page to get help from the community and the team.
           </p>
-          <a href="mailto:support@cipherlyapp.com" className="inline-block mt-2 font-bold text-primary hover:underline">
-            Contact us via Email
+          <a
+            href="https://github.com/kashifdevfe/Cipherly/discussions"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-2 font-bold text-primary hover:underline"
+          >
+            Open GitHub Discussions
           </a>
         </div>
         

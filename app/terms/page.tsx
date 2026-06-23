@@ -31,7 +31,7 @@ export default function TermsPage() {
             1. Acceptance of Terms
           </h2>
           <p className="text-muted-foreground font-medium">
-            By accessing and using Cipherly.app, you agree to be bound by these Terms of Service. 
+            By accessing and using cipherlyapp.com, you agree to be bound by these Terms of Service. 
             If you do not agree with any part of these terms, you must not use our services.
           </p>
         </section>
