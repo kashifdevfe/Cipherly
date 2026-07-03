@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
 const nextConfig = {
   // Enable gzip compression
   compress: true,
@@ -77,3 +79,5 @@ const nextConfig = {
 };
 
 export default nextConfig;
+
+initOpenNextCloudflareForDev();
